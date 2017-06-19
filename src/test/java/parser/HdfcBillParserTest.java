@@ -16,6 +16,20 @@ public class HdfcBillParserTest {
         Assert.assertTrue(transactionReport.getContents().size() > 0);
     }
 
+    @Test
+    public void convert_to_lines_empty_data(){
+        Parser parser = new HdfcBillParser();
+        TransactionReport transactionReport = parser.parse("");
+        Assert.assertNull(transactionReport);
+    }
+
+    @Test
+    public void test_other_prdf_data(){
+        Parser parser = new HdfcBillParser();
+        TransactionReport transactionReport = parser.parse("this is other pdf data");
+        Assert.assertNull(transactionReport);
+    }
+
     public final static String raw = "In case any of your personal details have changed, you can\n" +
             "update the same by contacting our Customer Service.\n" +
             " \n" +

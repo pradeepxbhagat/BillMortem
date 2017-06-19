@@ -36,4 +36,12 @@ public class Util {
         }
         return true;
     }
+
+    public static String replaceSpaceInStringWithComma(String searchTerm) {
+        return searchTerm.replace(" ",",");
+    }
+
+    public static String[] getCommaSplittedString(String searchTerm, String regex) {
+        return searchTerm.split(regex);
+    }
 }

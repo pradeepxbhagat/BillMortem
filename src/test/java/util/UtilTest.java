@@ -50,5 +50,17 @@ public class UtilTest {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void test_replaceSpaceInStringWithComma() {
+        String result = Util.replaceSpaceInStringWithComma("pradeep pankaj");
+        Assert.assertEquals("pradeep,pankaj",result);
+    }
+
+    @Test
+    public void test_getCommaSplittedString() {
+        String[] result = Util.getCommaSplittedString("pradeep,pankaj",",");
+        Assert.assertArrayEquals(new String[]{"pradeep","pankaj"},result);
+    }
+
 
 }

@@ -46,6 +46,7 @@ public class ExpenditureCalculatorTest {
         Assert.assertEquals(actual, prices, 0);
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void findPrices() {
         String raw = "05/05/2017 www.vodafone.in        MUMBAI 356.50  \n" +
@@ -59,6 +60,7 @@ public class ExpenditureCalculatorTest {
 
         Assert.assertEquals(actual, prices);
     }
+    @SuppressWarnings("unchecked")
     @Test
     public void find_prices_with_string_having_no_price() {
         String raw = "05/05/2017 www.vodafone.in        MUMBAI  \n" +
@@ -71,6 +73,7 @@ public class ExpenditureCalculatorTest {
         Assert.assertEquals(actual, prices);
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void find_prices_with_string_having_int() {
         String raw = "05/05/2017 www.vodafone.in        MUMBAI  43\n" +

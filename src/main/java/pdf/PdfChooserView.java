@@ -1,8 +1,6 @@
 package pdf;
 
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.File;
 
@@ -10,10 +8,6 @@ import java.io.File;
  * Created by pp00344204 on 07/06/17.
  */
 public class PdfChooserView extends JFrame {
-
-    private JPanel middlePanel;
-    private JTextArea pdfDisplayArea;
-    private GridBagLayout grid;
 
     public void init() {
         initRootContainer();
@@ -50,7 +44,7 @@ public class PdfChooserView extends JFrame {
 
                 if (pdfData != null) {
                     PdfDisplayView pdfDisplayView = new PdfDisplayView(this);
-                    pdfDisplayView.displayPdf(pdfData);
+                    pdfDisplayView.displayPdf();
                 }
 
             }
@@ -80,7 +74,7 @@ public class PdfChooserView extends JFrame {
     }
 
     private void initRootContainer() {
-        grid = new GridBagLayout();
+        GridBagLayout grid = new GridBagLayout();
         setLayout(grid);
 
         setTitle("GridBag Layout Example");

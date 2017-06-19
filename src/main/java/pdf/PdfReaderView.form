@@ -6,13 +6,13 @@
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:3dlu:noGrow"/>
     <rowspec value="center:d:grow"/>
-    <colspec value="fill:d:noGrow"/>
+    <colspec value="fill:265px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:d:grow"/>
+    <colspec value="fill:244px:grow"/>
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:max(d;4px):noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="629" height="400"/>
     </constraints>
     <properties/>
     <border type="line"/>
@@ -55,15 +55,24 @@
           <text value="Search"/>
         </properties>
       </component>
-      <scrollpane id="9884d">
+      <component id="3f279" class="javax.swing.JButton" binding="reloadButton" default-binding="true">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <text value="Clear"/>
+        </properties>
+      </component>
+      <scrollpane id="d634c">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
         <properties/>
-        <border type="bevel-raised"/>
+        <border type="none"/>
         <children>
-          <component id="80f11" class="javax.swing.JEditorPane" binding="pdfBody">
+          <component id="15554" class="javax.swing.JEditorPane" binding="pdfBody">
             <constraints/>
             <properties>
               <editable value="false"/>
@@ -71,15 +80,20 @@
           </component>
         </children>
       </scrollpane>
-      <component id="3f279" class="javax.swing.JButton" binding="reloadButton" default-binding="true">
+      <scrollpane id="af69e">
         <constraints>
-          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-horz="false"/>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
         </constraints>
-        <properties>
-          <text value="Reload"/>
-        </properties>
-      </component>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a0f17" class="javax.swing.JEditorPane" binding="searchBody">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>

@@ -1,5 +1,7 @@
 package report;
 
+import expenditure.ExpenditureCalculator;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,13 @@ import java.util.List;
  */
 public class TransactionReport {
     private List<String> contents;
+
+    public TransactionReport() {
+    }
+
+    public TransactionReport(List<String> contents) {
+        this.contents = contents;
+    }
 
     public List<String> getContents() {
         return contents;
@@ -38,5 +47,10 @@ public class TransactionReport {
             result+=content+"\n";
         }
         return result.trim();
+    }
+
+    public double getTotal(){
+        ExpenditureCalculator calculator = ExpenditureCalculator.getCalculator();
+        return Math.floor(calculator.calculateTotalExpenditure(this));
     }
 }

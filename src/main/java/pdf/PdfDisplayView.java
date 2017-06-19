@@ -5,8 +5,6 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-import static javax.swing.GroupLayout.Alignment.LEADING;
-
 /**
  * Created by pp00344204 on 08/06/17.
  */
@@ -22,7 +20,7 @@ class PdfDisplayView extends JPanel{
         this.container = container;
     }
 
-    public void displayPdf(String pdfData) {
+    public void displayPdf() {
         /*JTextArea area = getPdfDisplayArea(pdfData);
 
         JScrollPane scroll = getPdfScroll(area);

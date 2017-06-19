@@ -11,6 +11,7 @@ import javax.swing.event.MouseInputListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.util.Map;
 
 /**
  * Created by pp00344204 on 13/06/17.
@@ -23,21 +24,32 @@ public class PdfReaderView {
     private JButton searchButton;
     private JEditorPane pdfBody;
     private JButton reloadButton;
+    private JEditorPane searchBody;
     private String pdfData;
     private Parser parser;
     private TransactionReport report;
 
     public PdfReaderView(String pdfData) {
         this.pdfData = pdfData;
-        pdfBody.setContentType("text/html");
+        searchBody.setContentType("text/html");
+//        pdfBody.setContentType("text/html");
+
         report = getReport(pdfData);
-        htmlPdfData = convertToHtml(report.toString());
-        setPdfBody(htmlPdfData);
+//        htmlPdfData = convertToHtml(report);
+        setPdfBody(report);
 
         setSearchButtonListener();
         setReloadButtonListener();
         setKeyDownForSearchtext();
         setPdfBodyMouseListener();
+    }
+
+    private void setPdfBody(TransactionReport report) {
+        pdfBody.setText(report == null ? "":report.toString());
+    }
+
+    private String convertToHtml(TransactionReport report) {
+        return report == null ? "":convertToHtml(report.toString());
     }
 
     private void setPdfBody(String htmlPdfData) {
@@ -91,7 +103,7 @@ public class PdfReaderView {
     }
 
     private void setSearchText(String selectedText) {
-        txtSearch.setText(selectedText);
+        txtSearch.setText(txtSearch.getText().trim().length() > 0? txtSearch.getText().trim()+","+selectedText.toUpperCase() : selectedText.toUpperCase());
     }
 
     private void setKeyDownForSearchtext() {
@@ -127,7 +139,7 @@ public class PdfReaderView {
 
     private void doReload() {
         txtSearch.setText("");
-        setPdfBody(htmlPdfData);
+        searchBody.setText("");
     }
 
     private void setSearchButtonListener() {
@@ -141,16 +153,53 @@ public class PdfReaderView {
         if(searchText.trim().length() > 0) {
             TransactionReport report = getReport(pdfData);
 
-            TransactionSearch search = TransactionSearch.getSearchEngine(report);
             searchText = modifySearch(searchText);
-            TransactionReport searchedTransaction = search.searchTransaction(searchText);
 
+            TransactionSearch search = TransactionSearch.getSearchEngine(report);
+//            TransactionReport searchedTransaction = search.searchTransaction(searchText);
+//            String result = getProcessedResult(searchedTransaction);
+
+            Map<String, TransactionReport> searchedTransaction = search.getIndividualSearchTransaction(searchText);
             String result = getProcessedResult(searchedTransaction);
-            pdfBody.setText(result);
+
+            searchBody.setText(result);
         }
     }
 
+    private String getProcessedResult(Map<String, TransactionReport> searchedTransaction) {
+        if(searchedTransaction == null) {
+            return "";
+        }
+        double totalExpenditure = getTotal(searchedTransaction);
+        StringBuffer buffer = new StringBuffer("<h3 style:'color:green'>Total expenditure: ");
+        buffer.append(totalExpenditure);
+
+        for(Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
+            buffer.append("<br/>");
+            buffer.append("<h3>");
+            buffer.append(val.getKey());
+            buffer.append("</h3>");
+            buffer.append("<h2> Total: ");
+            buffer.append(val.getValue().getTotal());
+            buffer.append("</h2>");
+            buffer.append(val.getValue().toString().replace("\r\n", " <br/>").replace("\n", "<br/> "));
+            buffer.append("<br/>");
+        }
+        return buffer.toString();
+    }
+
+    private double getTotal(Map<String, TransactionReport> searchedTransaction) {
+        double total = 0;
+        for(Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()){
+            total+=val.getValue().getTotal();
+        }
+        return total;
+    }
+
     private String getProcessedResult(TransactionReport searchedTransaction) {
+        if(searchedTransaction == null) {
+            return "";
+        }
         double expenditure = Math.floor(ExpenditureCalculator.getCalculator().calculateTotalExpenditure(searchedTransaction));
         String result ="<h3 style:'color:green'>Total expenditure: ";
         String data = searchedTransaction.toString().replace("\r\n", " <br/>").replace("\n", "<br/> ");

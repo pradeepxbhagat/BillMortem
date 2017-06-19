@@ -14,16 +14,23 @@ public class ReportGenerator {
     }
 
     public TransactionReport genrateFrom(String raw) {
+        if (raw == null) {
+            return null;
+        }
         HdfcBillParser hdfcBillParser = new HdfcBillParser();
         return hdfcBillParser.parse(raw);
     }
 
     public TransactionReport generateFor(String searchTerm, TransactionReport from) {
+        if (from == null) {
+            return null;
+        }
         TransactionSearch transactionSearch = TransactionSearch.getSearchEngine(from);
         return transactionSearch.searchTransaction(searchTerm);
     }
 
     public double getTotalExpenditure(TransactionReport searchedTransactions) {
+        if (searchedTransactions == null) return -1;
         ExpenditureCalculator expenditureCalculator = ExpenditureCalculator.getCalculator();
         return expenditureCalculator.calculateTotalExpenditure(searchedTransactions);
     }

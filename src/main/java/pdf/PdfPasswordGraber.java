@@ -8,7 +8,7 @@ public class PdfPasswordGraber extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private PasswordListener listener;
+    private final PasswordListener listener;
     private JLabel lblMessage;
     private JPasswordField lblPassword;
 
@@ -62,6 +62,7 @@ public class PdfPasswordGraber extends JDialog {
     private void onOK() {
         // add your code here
         if(listener != null) {
+            //noinspection deprecation
             listener.grabPassword(lblPassword.getText());
         }
         dispose();
@@ -82,6 +83,7 @@ public class PdfPasswordGraber extends JDialog {
 
     public interface PasswordListener {
         void grabPassword(String password);
+        @SuppressWarnings("EmptyMethod")
         void onDialogCancel();
     }
 }

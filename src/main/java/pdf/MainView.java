@@ -10,9 +10,9 @@ import java.io.File;
 public class MainView {
     private JPanel panel1;
     private JButton button1;
-    private JFrame frame;
+    private final JFrame frame;
 
-    public MainView(JFrame frame) {
+    private MainView(JFrame frame) {
         this.frame = frame;
         setFileChooserClickLister(button1);
     }
