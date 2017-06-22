@@ -1,13 +1,13 @@
-import expenditure.ExpenditureCalculator;
+import com.billmartam.expenditure.ExpenditureCalculator;
 import org.junit.Assert;
 import org.junit.Test;
-import parser.HdfcBillParser;
-import parser.Parser;
-import pdf.PdfBoxReader;
-import pdf.PdfReader;
-import pdf.PdfReaderException;
-import report.TransactionReport;
-import transaction.TransactionSearch;
+import com.billmartam.parser.HdfcBillParser;
+import com.billmartam.parser.Parser;
+import com.billmartam.pdf.PdfBoxReader;
+import com.billmartam.pdf.PdfReader;
+import com.billmartam.pdf.PdfReaderException;
+import com.billmartam.report.TransactionReport;
+import com.billmartam.transaction.TransactionSearch;
 
 /**
  * Created by pp00344204 on 07/06/17.
@@ -16,7 +16,7 @@ public class ProjectTest {
 
     @Test
     public void testProject(){
-        String fileUrl = "/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/java/pdf/sample_password_protected_bill.pdf";
+        String fileUrl = "/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/java/com.billmartam.pdf/sample_password_protected_bill.com.billmartam.pdf";
         PdfReader pdfReader = PdfBoxReader.getReader();
         String inPut = null;
         try {

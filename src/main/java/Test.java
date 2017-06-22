@@ -1,4 +1,4 @@
-import pdf.PdfReaderView;
+import com.billmartam.pdf.PdfReaderView;
 
 /**
  * Created by pp00344204 on 07/06/17.
