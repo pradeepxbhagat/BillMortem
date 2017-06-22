@@ -3,6 +3,7 @@ package com.billmartam.pdf;
 import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.parser.HdfcBillParser;
 import com.billmartam.parser.Parser;
+import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
 import com.billmartam.transaction.TransactionSearch;
 
@@ -25,11 +26,23 @@ public class PdfReaderView {
     private JEditorPane pdfBody;
     private JButton reloadButton;
     private JEditorPane searchBody;
+    private JFrame frame;
     private String pdfData;
     private Parser parser;
     private TransactionReport report;
 
-    public PdfReaderView(String pdfData) {
+    public PdfReaderView(JFrame frame, String pdfData) {
+        this.frame = frame;
+        initBody(pdfData);
+
+        setSearchButtonListener();
+        setReloadButtonListener();
+        setKeyDownForSearchtext();
+        setPdfBodyMouseListener();
+        setBtnNewListener();
+    }
+
+    private void initBody(String pdfData) {
         this.pdfData = pdfData;
         searchBody.setContentType("text/html");
 //        pdfBody.setContentType("text/html");
@@ -37,11 +50,21 @@ public class PdfReaderView {
         report = getReport(pdfData);
 //        htmlPdfData = convertToHtml(com.billmartam.report);
         setPdfBody(report);
+    }
 
-        setSearchButtonListener();
-        setReloadButtonListener();
-        setKeyDownForSearchtext();
-        setPdfBodyMouseListener();
+    private void setBtnNewListener() {
+        btnNew.addActionListener( a->{
+            selectNewPdf(frame);
+        });
+    }
+
+    private void selectNewPdf(JFrame frame) {
+        PdfFileOpener opener = PdfFileOpener.getOpener(frame,((data, filePath) -> {
+            initBody(data);
+            doReload();
+        }));
+        opener.shouldCache(true);
+        opener.open();
     }
 
     private void setPdfBody(TransactionReport report) {

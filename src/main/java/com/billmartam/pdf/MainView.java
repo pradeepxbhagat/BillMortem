@@ -3,6 +3,7 @@ package com.billmartam.pdf;
 import com.billmartam.pdf.storage.FileSpecification;
 import com.billmartam.pdf.storage.RecentFileStorage;
 import com.billmartam.pdf.storage.Storage;
+import com.billmartam.pdf.util.PdfFileOpener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,11 +21,13 @@ public class MainView {
     private JButton button1;
     private JList lstRecentFilePaths;
     private final JFrame frame;
+    private PdfFileOpener opener;
 
     private MainView(JFrame frame) {
         this.frame = frame;
         lstRecentFilePaths.setModel(getPathListModel(getRecentFilePath()));
 
+        initPdfFileOpener(frame);
         setFileChooserClickLister(button1);
         setRecentFileMouseClickListener();
     }
@@ -46,7 +49,7 @@ public class MainView {
                 if (e.getClickCount() == 2) {
                     int index = lstRecentFilePaths.locationToIndex(e.getPoint());
                     System.out.println("Double clicked on Item " + index);
-                    readFile(lstRecentFilePaths.getModel().getElementAt(index).toString());
+                    opener.readFile(lstRecentFilePaths.getModel().getElementAt(index).toString());
                 }
             }
         };
@@ -67,16 +70,18 @@ public class MainView {
 
     private void setFileChooserClickLister(JButton btnFileChooser) {
         btnFileChooser.addActionListener(e -> {
-            final JFileChooser fc = new JFileChooser();
-            int i = fc.showOpenDialog(frame);
-            if (i == JFileChooser.APPROVE_OPTION) {
-                String filepath = getChooseFilePath(fc);
-//                System.out.print(filepath);
+//            openFileChooserDialog(frame);
+            opener.open();
+        });
+    }
 
-                readFile(filepath);
-
+    private void initPdfFileOpener(JFrame frame) {
+        opener = PdfFileOpener.getOpener(frame,  (data,filePath) -> {
+            if(data != null) {
+                openPdfReader(data);
             }
         });
+        opener.shouldCache(true);
     }
 
     private void readFile(String filepath) {
@@ -94,7 +99,7 @@ public class MainView {
         JFrame frame = new JFrame("PdfReaderView");
 //        frame.setLocation(dim.width/2-frame.getSize().width/2 - 200, dim.height/2-frame.getSize().height/2  -200);
 
-        frame.setContentPane(new PdfReaderView(pdfData).panel1);
+        frame.setContentPane(new PdfReaderView(frame,pdfData).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -116,7 +121,6 @@ public class MainView {
         PdfReader reader = PdfBoxReader.getReader();
         try {
             String data =  reader.read(filepath);
-            persistFilePath(filepath);
             return data;
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
@@ -132,17 +136,11 @@ public class MainView {
         return null;
     }
 
-    private void persistFilePath(String filepath) {
-        FileSpecification specification = new FileSpecification(filepath, System.currentTimeMillis());
-        Storage storage = RecentFileStorage.getStorage();
-        storage.save(specification);
-    }
 
     private String readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
             String data =  reader.read(filepath,password);
-            persistFilePath(filepath);
             return data;
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
@@ -180,7 +178,7 @@ public class MainView {
     }
 
     private void onInvalidFileSelected() {
-        JOptionPane.showMessageDialog(frame, "Please select a com.billmartam.pdf file");
+        JOptionPane.showMessageDialog(frame, "Please select a pdf file");
     }
 
 

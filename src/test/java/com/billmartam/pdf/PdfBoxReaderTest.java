@@ -11,7 +11,7 @@ public class PdfBoxReaderTest {
     @Test
     public void test_pdf_file() throws PdfReaderException {
         PdfReader pdfReader = PdfBoxReader.getReader();
-        String output = pdfReader.read("/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/java/com.billmartam.pdf/sample.com.billmartam.pdf");
+        String output = pdfReader.read("/Users/pp00344204/Desktop/sample.pdf");
         System.out.println(output);
         Assert.assertNotNull(output);
     }

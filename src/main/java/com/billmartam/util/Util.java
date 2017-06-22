@@ -24,7 +24,7 @@ public class Util {
             urlElements = url.split("\\\\");
         }
         String[] fileNameElements = urlElements[urlElements.length - 1].split("\\.");
-        return fileNameElements.length >=2 && fileNameElements[fileNameElements.length -1].toLowerCase().equals("com/billmartam/pdf");
+        return fileNameElements.length >=2 && fileNameElements[fileNameElements.length -1].toLowerCase().equals("pdf");
     }
 
     public static boolean isDate(String word) {
