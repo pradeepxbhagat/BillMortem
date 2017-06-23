@@ -6,6 +6,8 @@
       <module name="BILL_test" target="1.8" />
       <module name="BILLMARTEM_main" target="1.8" />
       <module name="BILLMARTEM_test" target="1.8" />
+      <module name="BillMortem_main" target="1.8" />
+      <module name="BillMortem_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
