@@ -3,11 +3,11 @@ display all the transaction. User can write the search term in the search bar an
 Currently, this is supported only for HDFC credit card bill.
 
 Features:
-    Single word search
-    Multiple-word search
-    Search by date
-    Search by amount
-    Search term selection by mouse
+    Single word search\n
+    Multiple-word search\n
+    Search by date\n
+    Search by amount\n
+    Search term selection by mouse\n
 
 **Single word search:**
 ![Single term](https://github.com/pradeepxpankaj/BillMartam/blob/master/src/main/res/single_termpng.png)
