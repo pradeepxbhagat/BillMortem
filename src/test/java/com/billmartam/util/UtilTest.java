@@ -46,7 +46,7 @@ public class UtilTest {
 
     @Test
     public void test_is_date() {
-        boolean result = Util.isDate("5/05/2017");
+        boolean result = Util.isHdfcDateFormat("5/05/2017");
         Assert.assertFalse(result);
     }
 
@@ -60,6 +60,12 @@ public class UtilTest {
     public void test_getCommaSplittedString() {
         String[] result = Util.getCommaSplittedString("pradeep,pankaj",",");
         Assert.assertArrayEquals(new String[]{"pradeep","pankaj"},result);
+    }
+
+    @Test
+    public void test_citi_date_format() {
+        boolean result = Util.isCitiDateFormat("5/05");
+        Assert.assertTrue(result);
     }
 
 }

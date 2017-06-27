@@ -27,7 +27,7 @@ public class Util {
         return fileNameElements.length >=2 && fileNameElements[fileNameElements.length -1].toLowerCase().equals("pdf");
     }
 
-    public static boolean isDate(String word) {
+    public static boolean isHdfcDateFormat(String word) {
         SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");
         try {
             format.parse(word);
@@ -43,5 +43,15 @@ public class Util {
 
     public static String[] getCommaSplittedString(String searchTerm, String regex) {
         return searchTerm.split(regex);
+    }
+
+    public static boolean isCitiDateFormat(String word) {
+        SimpleDateFormat format=new SimpleDateFormat("dd/MM");
+        try {
+            format.parse(word);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
     }
 }

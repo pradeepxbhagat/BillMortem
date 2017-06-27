@@ -1,14 +1,13 @@
 package com.billmartam.parser;
 
+import com.billmartam.report.TransactionReport;
 import org.junit.Assert;
 import org.junit.Test;
-import com.billmartam.report.TransactionReport;
 
 /**
- * Created by pp00344204 on 06/06/17.
+ * Created by pp00344204 on 27/06/17.
  */
 public class HdfcBillParserTest {
-
     @Test
     public void convertToLines(){
         Parser parser = new HdfcBillParser();
@@ -154,5 +153,6 @@ public class HdfcBillParserTest {
             "Reward Points Summary\n" +
             "Titanium Times Card Credit Card Statement\n" +
             " Page 2 of 4";
+
 
 }

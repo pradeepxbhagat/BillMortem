@@ -1,8 +1,8 @@
 package com.billmartam.report;
 
+import com.billmartam.parser.HdfcBillParserTest;
 import org.junit.Assert;
 import org.junit.Test;
-import com.billmartam.parser.HdfcBillParserTest;
 
 import java.util.ArrayList;
 import java.util.List;
