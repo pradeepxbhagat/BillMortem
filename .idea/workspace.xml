@@ -13,18 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="692c5cb7-ce04-48bf-a2dd-4a3aba77201c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillVendor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/ParserFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/TImeComplexityTestCase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/recent_files.pp" afterPath="$PROJECT_DIR$/config/recent_files.pp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -51,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java">
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+            <state relative-caret-position="180">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -473,7 +463,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/util/PdfReaderUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfPasswordGraber.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/util/PdfFileOpener.java" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" />
@@ -500,6 +489,7 @@
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -1259,9 +1249,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7864583" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3111588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1304,8 +1294,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7864583" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3111588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1467,13 +1457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1841,6 +1824,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+          <folding>
+            <marker date="1498143947000" expanded="false" signature="36:415" ph="..." />
+            <marker date="1498143947000" expanded="true" signature="417:462" ph="/**...*/" />
+            <marker date="1498143947000" expanded="true" signature="683:916" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="1021:1268" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="1323:1419" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="1471:1995" ph="{...}" />
+            <marker date="1498143947000" expanded="false" signature="1511:1584" ph="(MouseAdapter) mouseClicked(e) → {" />
+            <marker date="1498143947000" expanded="false" signature="1913:1928" ph="}" />
+            <marker date="1498143947000" expanded="true" signature="2040:2514" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="2583:2721" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="2631:2713" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="2772:2977" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="2842:2935" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="3022:3205" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="3254:3829" ph="{...}" />
+            <marker date="1498143947000" expanded="false" signature="3855:3866" ph=" { " />
+            <marker date="1498143947000" expanded="false" signature="3882:3888" ph=" }" />
+            <marker date="1498143947000" expanded="true" signature="3944:4018" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="4075:4758" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="4836:5380" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="5462:6244" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="5559:6078" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="5637:5988" ph="{...}" />
+            <marker date="1498143947000" expanded="true" signature="6053:6068" ph="{...}" />
+            <marker date="1498143947000" expanded="false" signature="6286:6297" ph=" { " />
+            <marker date="1498143947000" expanded="false" signature="6362:6368" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding />
         </state>
       </provider>
