@@ -13,24 +13,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="692c5cb7-ce04-48bf-a2dd-4a3aba77201c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/citi_bank_cc_sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/CitiBillParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/HdfcBillParser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/HdfcBillParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/ReportGenerator.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/ReportGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/HdfcBillParserTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/HdfcBillParserTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/pdf/PdfBoxReaderTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/pdf/PdfBoxReaderTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillVendor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/ParserFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/TImeComplexityTestCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/recent_files.pp" afterPath="$PROJECT_DIR$/config/recent_files.pp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/HdfcBillParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/HdfcBillParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/util/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfcBillParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfcBillParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -60,8 +54,8 @@
       <file leaf-file-name="MainView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="780">
+              <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -74,6 +68,7 @@
       <list>
         <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -89,6 +84,9 @@
       <find>setPdfBody</find>
       <find>htmlPdfData</find>
       <find>dial</find>
+      <find>parser</find>
+      <find>new</find>
+      <find>pdfBody</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -451,15 +449,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/parser/HdfcBillParserTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/report/ReportGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/Util.java" />
-        <option value="$PROJECT_DIR$/src/test/java/util/UtilTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/transaction/TransactionSearch.java" />
-        <option value="$PROJECT_DIR$/src/test/java/transaction/TransactionSearchTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/util/TransactionReportTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/transaction/TransactionReportTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pdf/PdfReaderView.form" />
         <option value="$PROJECT_DIR$/src/main/java/report/TransactionReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/pdf/PdfReaderView.java" />
         <option value="$PROJECT_DIR$/src/main/java/pdf/PdfChooserView.java" />
@@ -487,11 +476,9 @@
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfBillParser.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfBillParserTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java" />
         <option value="$PROJECT_DIR$/src/test/java/ProjectTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java" />
@@ -499,9 +486,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/CitiBillParser.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/util/Util.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/HdfcBillParser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifier.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TImeComplexityTestCase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/TImeComplexityTestCase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillVendor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/ParserFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
       </list>
     </option>
   </component>
@@ -528,6 +526,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -542,7 +541,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -669,6 +667,84 @@
               <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BillMortem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bill_reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BillMortem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bill_reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billmartam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BillMortem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bill_reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billmartam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -740,6 +816,9 @@
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/src/main/java/pdf" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.billmartam.parser" />
       <recent name="com.billmartam.pdf.util" />
@@ -761,7 +840,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainView">
-    <configuration default="false" name="HdfcBillParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ParserFactoryTest.fetchCitiBillParser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.billmartam.parser.*" />
@@ -772,34 +851,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.billmartam.parser" />
-      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.HdfcBillParserTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="CitiBillParserTest.check_parsed_transaction_correctness" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.billmartam.parser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="BillMortem_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.billmartam.parser" />
-      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.CitiBillParserTest" />
-      <option name="METHOD_NAME" value="check_parsed_transaction_correctness" />
+      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.ParserFactoryTest" />
+      <option name="METHOD_NAME" value="fetchCitiBillParser" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -813,7 +866,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="HdfcBillParserTest.test_other_prdf_data" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ParserFactoryTest.fetchHdfcBillParserFromRawtext" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.billmartam.parser.*" />
@@ -824,8 +877,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.billmartam.parser" />
-      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.HdfcBillParserTest" />
-      <option name="METHOD_NAME" value="test_other_prdf_data" />
+      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.ParserFactoryTest" />
+      <option name="METHOD_NAME" value="fetchHdfcBillParserFromRawtext" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -839,7 +892,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CitiBillParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ParserFactoryTest.fetchCitiBillParserFromRawtext" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.billmartam.parser.*" />
@@ -850,9 +903,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.billmartam.parser" />
-      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.CitiBillParserTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.billmartam.parser.ParserFactoryTest" />
+      <option name="METHOD_NAME" value="fetchCitiBillParserFromRawtext" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -873,6 +926,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.billmartam.pdf.MainView" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BillMortem_main" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="PdfReaderView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.billmartam.pdf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.billmartam.pdf.PdfReaderView" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1099,19 +1172,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.HdfcBillParserTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.CitiBillParserTest.check_parsed_transaction_correctness" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HdfcBillParserTest.test_other_prdf_data" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CitiBillParserTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.MainView" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchCitiBillParser" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchHdfcBillParserFromRawtext" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchCitiBillParserFromRawtext" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MainView" />
+      <item index="4" class="java.lang.String" itemvalue="Application.PdfReaderView" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.MainView" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CitiBillParserTest.check_parsed_transaction_correctness" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CitiBillParserTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HdfcBillParserTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.HdfcBillParserTest.test_other_prdf_data" />
+        <item index="1" class="java.lang.String" itemvalue="Application.PdfReaderView" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchCitiBillParserFromRawtext" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchHdfcBillParserFromRawtext" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ParserFactoryTest.fetchCitiBillParser" />
       </list>
     </recent_temporary>
   </component>
@@ -1132,35 +1205,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CitiBillParserTest - 2017.06.27 at 17h 38m 25s.xml">
-      <configuration name="CitiBillParserTest" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchCitiBillParser - 2017.06.30 at 15h 24m 26s.xml">
+      <configuration name="ParserFactoryTest.fetchCitiBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CitiBillParserTest_check_parsed_transaction_correctness - 2017.06.27 at 17h 38m 42s.xml">
-      <configuration name="CitiBillParserTest.check_parsed_transaction_correctness" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchCitiBillParser - 2017.06.30 at 15h 24m 46s.xml">
+      <configuration name="ParserFactoryTest.fetchCitiBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CitiBillParserTest_check_parsed_transaction_correctness - 2017.06.27 at 17h 39m 19s.xml">
-      <configuration name="CitiBillParserTest.check_parsed_transaction_correctness" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchCitiBillParserFromRawtext - 2017.06.30 at 15h 27m 58s.xml">
+      <configuration name="ParserFactoryTest.fetchCitiBillParserFromRawtext" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest - 2017.06.27 at 17h 36m 38s.xml">
-      <configuration name="HdfcBillParserTest" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 20m 41s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 30m 23s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 21m 42s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 32m 28s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 22m 06s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 33m 54s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 22m 49s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 34m 11s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 23m 28s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 34m 40s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParser - 2017.06.30 at 15h 23m 36s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HdfcBillParserTest_test_other_prdf_data - 2017.06.27 at 17h 36m 27s.xml">
-      <configuration name="HdfcBillParserTest.test_other_prdf_data" configurationId="JUnit" />
+    <history-entry file="ParserFactoryTest_fetchHdfcBillParserFromRawtext - 2017.06.30 at 15h 26m 54s.xml">
+      <configuration name="ParserFactoryTest.fetchHdfcBillParserFromRawtext" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -1173,7 +1246,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="834" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="834" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1191,7 +1264,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30758226" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3111588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1233,7 +1306,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30758226" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3111588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1258,7 +1331,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java</url>
-          <line>78</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
@@ -1268,11 +1341,17 @@
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="50" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1281,54 +1360,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="369" column="0" lean-forward="false" selection-start-line="369" selection-start-column="0" selection-end-line="369" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/io/Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/expenditure/ExpenditureCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/build/classes/main/Manifest.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/storage/Storage.java">
@@ -1460,29 +1491,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/report/TransactionReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillParserTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/ExpenditureCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="49" column="80" lean-forward="false" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/CitiBillParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/TImeComplexityTestCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
-            <marker date="1498229452000" expanded="true" signature="99:105" ph="{" />
-            <marker date="1498229452000" expanded="true" signature="119:121" ph="}" />
-            <marker date="1498229452000" expanded="true" signature="136:350" ph="{...}" />
+            <marker date="1498814096000" expanded="true" signature="32:129" ph="..." />
+            <marker date="1498814096000" expanded="true" signature="131:176" ph="/**...*/" />
+            <marker date="1498814096000" expanded="true" signature="356:602" ph="{...}" />
+            <marker date="1498814096000" expanded="true" signature="659:905" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ProjectTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding>
+            <marker date="1498563456000" expanded="true" signature="7:410" ph="..." />
+            <marker date="1498563456000" expanded="true" signature="412:457" ph="/**...*/" />
+            <marker date="1498563456000" expanded="true" signature="525:1448" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <marker date="1498815114000" expanded="false" signature="39:127" ph="..." />
+            <marker date="1498815114000" expanded="true" signature="129:174" ph="/**...*/" />
+            <marker date="1498815114000" expanded="true" signature="253:396" ph="{...}" />
+            <marker date="1498815114000" expanded="true" signature="447:612" ph="{...}" />
+            <marker date="1498815114000" expanded="true" signature="678:1028" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/util/PdfFileOpener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+        <state relative-caret-position="240">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding>
             <marker date="1498144124000" expanded="true" signature="41:394" ph="..." />
             <marker date="1498144124000" expanded="true" signature="396:441" ph="/**...*/" />
@@ -1513,235 +1642,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillVendor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+        <state relative-caret-position="90">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding>
-            <marker date="1498562691000" expanded="false" signature="36:76" ph="..." />
-            <marker date="1498562691000" expanded="true" signature="78:123" ph="/**...*/" />
-            <marker date="1498562691000" expanded="true" signature="225:442" ph="{...}" />
-            <marker date="1498562691000" expanded="true" signature="514:785" ph="{...}" />
-            <marker date="1498562691000" expanded="true" signature="851:1262" ph="{...}" />
-            <marker date="1498562691000" expanded="true" signature="1325:1943" ph="{...}" />
-            <marker date="1498562691000" expanded="true" signature="1991:2564" ph="{...}" />
-            <marker date="1498562691000" expanded="true" signature="2637:3087" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="32:77" ph="/**...*/" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3495">
-          <caret line="239" column="41" lean-forward="false" selection-start-line="239" selection-start-column="41" selection-end-line="239" selection-end-column="41" />
+        <state relative-caret-position="90">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding>
-            <marker date="1498563407000" expanded="true" signature="36:505" ph="..." />
-            <marker date="1498563407000" expanded="true" signature="507:552" ph="/**...*/" />
-            <marker date="1498563407000" expanded="true" signature="1017:1249" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="1293:1555" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="1594:1685" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="1633:1677" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="1731:1944" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="1815:1878" ph="{...}" />
-            <marker date="1498563407000" expanded="false" signature="1999:2010" ph=" { " />
-            <marker date="1498563407000" expanded="false" signature="2065:2071" ph=" }" />
-            <marker date="1498563407000" expanded="true" signature="2132:2208" ph="{...}" />
-            <marker date="1498563407000" expanded="false" signature="2257:2268" ph=" { " />
-            <marker date="1498563407000" expanded="false" signature="2302:2308" ph=" }" />
-            <marker date="1498563407000" expanded="false" signature="2354:2365" ph=" { " />
-            <marker date="1498563407000" expanded="false" signature="2426:2432" ph=" }" />
-            <marker date="1498563407000" expanded="true" signature="2477:3392" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="2537:3384" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="2612:2628" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="2703:2719" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="2795:3013" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3088:3104" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3178:3194" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3269:3285" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3358:3374" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3446:3609" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3654:4222" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3707:4214" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3776:3792" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="3863:3954" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4026:4204" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4267:4356" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4313:4348" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4386:4456" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4501:4590" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4547:4582" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4620:5311" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="4906:5068" ph="//..." />
-            <marker date="1498563407000" expanded="true" signature="5403:6241" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="6323:6522" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="6601:7056" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="7109:7193" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="7251:7446" ph="{...}" />
-            <marker date="1498563407000" expanded="false" signature="7482:7493" ph=" { " />
-            <marker date="1498563407000" expanded="false" signature="7520:7526" ph=" }" />
-            <marker date="1498563407000" expanded="true" signature="7555:7562" ph="{...}" />
-            <marker date="1498563407000" expanded="true" signature="7607:7881" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="32:77" ph="/**...*/" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="420">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
-            <marker date="1498563444000" expanded="true" signature="39:223" ph="..." />
-            <marker date="1498563444000" expanded="true" signature="225:270" ph="/**...*/" />
-            <marker date="1498563444000" expanded="false" signature="351:362" ph=" { " />
-            <marker date="1498563444000" expanded="false" signature="391:397" ph=" }" />
-            <marker date="1498563444000" expanded="true" signature="452:609" ph="{...}" />
-            <marker date="1498563444000" expanded="true" signature="695:916" ph="{...}" />
-            <marker date="1498563444000" expanded="true" signature="996:1235" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="32:77" ph="/**...*/" />
+            <marker date="1498816009000" expanded="true" signature="286:409" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="468:479" ph=" { " />
+            <marker date="1498816009000" expanded="true" signature="511:517" ph=" }" />
+            <marker date="1498816009000" expanded="true" signature="574:689" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="735:857" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="903:1105" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ProjectTest.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/tools.jar!/com/sun/tools/javac/parser/ParserFactory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        <state relative-caret-position="75">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <marker date="1498563456000" expanded="true" signature="7:410" ph="..." />
-            <marker date="1498563456000" expanded="true" signature="412:457" ph="/**...*/" />
-            <marker date="1498563456000" expanded="true" signature="525:1448" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/ExpenditureCalculatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding>
-            <marker date="1498040610000" expanded="false" signature="39:235" ph="..." />
-            <marker date="1498040610000" expanded="true" signature="237:282" ph="/**...*/" />
-            <marker date="1498040610000" expanded="true" signature="363:647" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="699:986" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="1036:1310" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="1316:1346" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="1316:1356" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="1386:1877" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="1882:1912" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="1882:1922" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="1981:2418" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="2424:2454" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="2424:2464" ph="@{...}" />
-            <marker date="1498040610000" expanded="true" signature="2518:2957" ph="{...}" />
-            <marker date="1498040610000" expanded="true" signature="3002:3387" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="49" column="80" lean-forward="false" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
-          <folding>
-            <marker date="1498563552000" expanded="false" signature="39:180" ph="..." />
-            <marker date="1498563552000" expanded="true" signature="182:227" ph="/**...*/" />
-            <marker date="1498563552000" expanded="true" signature="311:539" ph="{...}" />
-            <marker date="1498563552000" expanded="true" signature="594:924" ph="{...}" />
-            <marker date="1498563552000" expanded="true" signature="968:1795" ph="{...}" />
-            <marker date="1498563552000" expanded="true" signature="1843:2288" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <marker date="1498563596000" expanded="true" signature="81:126" ph="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <marker date="1498564031000" expanded="false" signature="37:77" ph="..." />
-            <marker date="1498564031000" expanded="true" signature="79:124" ph="/**...*/" />
-            <marker date="1498564031000" expanded="true" signature="201:300" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="349:445" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="488:666" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="718:887" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="943:1064" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="1129:1241" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="1284:1388" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="1453:1592" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="1650:1809" ph="{...}" />
-            <marker date="1498564031000" expanded="true" signature="1861:1959" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-          <folding>
-            <marker date="1498564054000" expanded="false" signature="37:97" ph="..." />
-            <marker date="1498564054000" expanded="true" signature="99:144" ph="/**...*/" />
-            <marker date="1498564054000" expanded="false" signature="169:215" ph="/ResultOfMethodCallIgnored/" />
-            <marker date="1498564054000" expanded="true" signature="272:498" ph="{...}" />
-            <marker date="1498564054000" expanded="true" signature="550:901" ph="{...}" />
-            <marker date="1498564054000" expanded="true" signature="959:1174" ph="{...}" />
-            <marker date="1498564054000" expanded="false" signature="1249:1260" ph=" { " />
-            <marker date="1498564054000" expanded="false" signature="1295:1301" ph=" }" />
-            <marker date="1498564054000" expanded="false" signature="1385:1396" ph=" { " />
-            <marker date="1498564054000" expanded="false" signature="1427:1433" ph=" }" />
-            <marker date="1498564054000" expanded="true" signature="1491:1701" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/CitiBillParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding>
-            <marker date="1498563991000" expanded="true" signature="32:64" ph="..." />
-            <marker date="1498563991000" expanded="true" signature="66:111" ph="/**...*/" />
-            <marker date="1498563991000" expanded="false" signature="228:239" ph=" { " />
-            <marker date="1498563991000" expanded="false" signature="301:307" ph=" }" />
-            <marker date="1498563991000" expanded="false" signature="373:384" ph=" { " />
-            <marker date="1498563991000" expanded="false" signature="424:430" ph=" }" />
-            <marker date="1498563991000" expanded="true" signature="493:602" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <marker date="1476456434000" expanded="true" signature="96:228" ph="/**...*/" />
-            <marker date="1476456434000" expanded="true" signature="313:474" ph="{...}" />
+            <marker date="1466589307000" expanded="false" signature="3:117" ph="/.../" />
+            <marker date="1466589307000" expanded="true" signature="879:902" ph="{...}" />
+            <marker date="1466589307000" expanded="true" signature="974:997" ph="{...}" />
+            <marker date="1466589307000" expanded="true" signature="1131:1154" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/HdfcBillParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <marker date="1498565185000" expanded="true" signature="32:77" ph="/**...*/" />
             <marker date="1498565185000" expanded="false" signature="212:223" ph=" { " />
@@ -1753,34 +1706,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/parser/ParserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
           <folding>
-            <marker date="1498564987000" expanded="false" signature="39:164" ph="..." />
-            <marker date="1498564987000" expanded="true" signature="166:211" ph="/**...*/" />
-            <marker date="1498564987000" expanded="true" signature="319:1234" ph="{...}" />
-            <marker date="1498564987000" expanded="false" signature="1300:1311" ph=" { " />
-            <marker date="1498564987000" expanded="false" signature="1346:1352" ph=" }" />
-            <marker date="1498564987000" expanded="false" signature="1399:1410" ph=" { " />
-            <marker date="1498564987000" expanded="false" signature="1441:1447" ph=" }" />
-            <marker date="1498564987000" expanded="true" signature="1496:1605" ph="{...}" />
-            <marker date="1498564987000" expanded="true" signature="1689:1869" ph="{...}" />
-            <marker date="1498564987000" expanded="false" signature="1875:1918" ph="/StatementWithEmptyBody/" />
-            <marker date="1498564987000" expanded="true" signature="1981:2146" ph="{...}" />
-            <marker date="1498564987000" expanded="false" signature="2315:2326" ph=" { " />
-            <marker date="1498564987000" expanded="false" signature="2381:2387" ph=" }" />
+            <marker date="1498816485000" expanded="true" signature="32:77" ph="/**...*/" />
+            <marker date="1498816485000" expanded="true" signature="208:321" ph="{...}" />
+            <marker date="1498816485000" expanded="true" signature="370:537" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfcBillParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1581">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="256">
+          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
           <folding>
-            <marker date="1498563552000" expanded="true" signature="39:127" ph="..." />
+            <marker date="1498563552000" expanded="false" signature="39:127" ph="..." />
             <marker date="1498563552000" expanded="true" signature="129:174" ph="/**...*/" />
             <marker date="1498563552000" expanded="true" signature="251:440" ph="{...}" />
             <marker date="1498563552000" expanded="true" signature="497:660" ph="{...}" />
@@ -1789,24 +1732,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state relative-caret-position="360">
+          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
           <folding>
-            <marker date="1498564353000" expanded="true" signature="39:127" ph="..." />
-            <marker date="1498564353000" expanded="true" signature="129:174" ph="/**...*/" />
-            <marker date="1498564353000" expanded="true" signature="253:404" ph="{...}" />
-            <marker date="1498564353000" expanded="true" signature="455:628" ph="{...}" />
-            <marker date="1498564353000" expanded="true" signature="694:1052" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="39:125" ph="..." />
+            <marker date="1498816009000" expanded="true" signature="127:172" ph="/**...*/" />
+            <marker date="1498816009000" expanded="true" signature="315:510" ph="{...}" />
+            <marker date="1498816009000" expanded="true" signature="590:785" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="87" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="40" selection-end-column="87" />
+          <folding>
+            <marker date="1498816676000" expanded="true" signature="39:125" ph="..." />
+            <marker date="1498816676000" expanded="true" signature="127:172" ph="/**...*/" />
+            <marker date="1498816676000" expanded="true" signature="312:500" ph="{...}" />
+            <marker date="1498816676000" expanded="true" signature="578:766" ph="{...}" />
+            <marker date="1498816676000" expanded="true" signature="867:1147" ph="{...}" />
+            <marker date="1498816676000" expanded="true" signature="1248:1528" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/report/TransactionReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="44" column="27" lean-forward="true" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+          <folding>
+            <marker date="1498040563000" expanded="false" signature="39:112" ph="..." />
+            <marker date="1498040563000" expanded="true" signature="114:159" ph="/**...*/" />
+            <marker date="1498040563000" expanded="true" signature="260:267" ph="{...}" />
+            <marker date="1498040563000" expanded="false" signature="320:331" ph=" { " />
+            <marker date="1498040563000" expanded="false" signature="356:362" ph=" }" />
+            <marker date="1498040563000" expanded="false" signature="401:412" ph=" { " />
+            <marker date="1498040563000" expanded="false" signature="428:434" ph=" }" />
+            <marker date="1498040563000" expanded="false" signature="486:497" ph=" { " />
+            <marker date="1498040563000" expanded="false" signature="522:528" ph=" }" />
+            <marker date="1498040563000" expanded="true" signature="580:838" ph="{...}" />
+            <marker date="1498040563000" expanded="false" signature="879:890" ph=" { " />
+            <marker date="1498040563000" expanded="false" signature="940:946" ph=" }" />
+            <marker date="1498040563000" expanded="true" signature="991:1140" ph="{...}" />
+            <marker date="1498040563000" expanded="true" signature="1170:1330" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="65" column="23" lean-forward="true" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding>
+            <marker date="1498817456000" expanded="true" signature="36:455" ph="..." />
+            <marker date="1498817456000" expanded="true" signature="457:502" ph="/**...*/" />
+            <marker date="1498817456000" expanded="true" signature="967:1199" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="1243:1560" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="1599:1690" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="1638:1682" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="1736:1949" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="1820:1883" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2005:2112" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2173:2249" ph="{...}" />
+            <marker date="1498817456000" expanded="false" signature="2298:2309" ph=" { " />
+            <marker date="1498817456000" expanded="false" signature="2343:2349" ph=" }" />
+            <marker date="1498817456000" expanded="false" signature="2395:2406" ph=" { " />
+            <marker date="1498817456000" expanded="false" signature="2467:2473" ph=" }" />
+            <marker date="1498817456000" expanded="true" signature="2518:3433" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2578:3425" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2653:2669" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2744:2760" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="2836:3054" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3129:3145" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3219:3235" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3310:3326" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3399:3415" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3487:3650" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3695:4263" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3748:4255" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3817:3833" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="3904:3995" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4067:4245" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4308:4397" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4354:4389" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4427:4497" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4542:4631" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4588:4623" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4661:5352" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="4947:5109" ph="//..." />
+            <marker date="1498817456000" expanded="true" signature="5444:6282" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="6364:6563" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="6642:7097" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="7150:7234" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="7292:7646" ph="{...}" />
+            <marker date="1498817456000" expanded="false" signature="7682:7693" ph=" { " />
+            <marker date="1498817456000" expanded="false" signature="7720:7726" ph=" }" />
+            <marker date="1498817456000" expanded="true" signature="7755:7762" ph="{...}" />
+            <marker date="1498817456000" expanded="true" signature="7807:8081" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="780">
+          <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
           <folding />
         </state>
       </provider>

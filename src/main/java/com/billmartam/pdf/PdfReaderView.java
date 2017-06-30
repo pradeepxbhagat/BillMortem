@@ -1,8 +1,7 @@
 package com.billmartam.pdf;
 
 import com.billmartam.expenditure.ExpenditureCalculator;
-import com.billmartam.parser.HdfcBillParser;
-import com.billmartam.parser.Parser;
+import com.billmartam.parser.*;
 import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
 import com.billmartam.transaction.TransactionSearch;
@@ -43,6 +42,9 @@ public class PdfReaderView {
     }
 
     private void initBody(String pdfData) {
+        this.parser =null;
+        this.report =null;
+
         this.pdfData = pdfData;
         searchBody.setContentType("text/html");
 //        pdfBody.setContentType("text/html");
@@ -68,7 +70,7 @@ public class PdfReaderView {
     }
 
     private void setPdfBody(TransactionReport report) {
-        pdfBody.setText(report == null ? "":report.toString());
+        pdfBody.setText(report == null ? "":"Total: "+report.getTotal()+"\n \n"+report.toString());
     }
 
     private String convertToHtml(TransactionReport report) {
@@ -237,7 +239,9 @@ public class PdfReaderView {
 
     private TransactionReport getReport(String pdfData) {
         if(parser == null) {
-            parser = new HdfcBillParser();
+            Identifier identifier = BillIdentifier.getIdentifier();
+            ParserFactory factory = ParserFactory.getFactory();
+            parser = factory.getParser(identifier.identify(pdfData));
         }
         if(report == null) {
             report = parser.parse(pdfData);

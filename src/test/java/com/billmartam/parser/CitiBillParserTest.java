@@ -12,25 +12,25 @@ public class CitiBillParserTest {
     @Test
     public void parse_citi_bill(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(rawBillData);
+        TransactionReport parse = parser.parse(raw);
         Assert.assertNotNull(parse);
     }
 
     @Test
     public void transaction_size_test(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(rawBillData);
+        TransactionReport parse = parser.parse(raw);
         Assert.assertTrue(parse.getContents().size() > 0);
     }
 
     @Test
     public void check_parsed_transaction_correctness(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(rawBillData);
+        TransactionReport parse = parser.parse(raw);
         Assert.assertTrue(parse.getContents().get(0).equals("22/04 74332747113 PLATINUM SUPER STORE     PUNE 405.00") && parse.getContents().get(parse.getContents().size() - 1).equals("15/05 74766517135 SHELL INDIA MARKETS PV   PUNE 311.50"));
     }
 
-    private String rawBillData = "CITIBANK REWARDS PLATINUM CARD \n" +
+    public static String raw = "CITIBANK REWARDS PLATINUM CARD \n" +
             "Statement for Citibank Card Number ************3872 \n" +
             "Statement Period:  24 April 2017 to 21 May 2017 \n" +
             " At a glance \n" +
