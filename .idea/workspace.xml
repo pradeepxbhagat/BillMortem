@@ -13,86 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="692c5cb7-ce04-48bf-a2dd-4a3aba77201c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/cache/CacheManager.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/cache/RecentFileCacheManager.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/cache/ReportsCacheManager.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/cache/TransactionReportCache.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/Pdf.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/util/TextSearch.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/cache/RecentFileCacheManagerTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/cache/ReportsCacheManagerTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/util/TextSearchTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/recent_files.rf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/reports/1471079087" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/sample_password_protected_bill.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/cache/CacheManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/cache/RecentFileCacheManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/cache/ReportsCacheManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/cache/TransactionReportCache.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/Pdf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/util/TextSearch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/cache/ReportsCacheManagerTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/util/TextSearchTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/storage/RecentFileStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/storage/Storage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/pdf/RecentFileStorageTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/recent_files.pp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/storage/RecentFileStorage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/storage/Storage.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/storage/FileSpecification.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/cache/FileSpecification.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/storage/FileSpecification.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/cache/FileSpecification.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/RecentFileStorageTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/cache/RecentFileCacheManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Test.class" afterPath="$PROJECT_DIR$/build/classes/main/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/BillIdentifier.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/BillIdentifier.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/BillParser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/BillParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/CitiBillParser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/CitiBillParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/HdfcBillParser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/HdfcBillParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/Identifier.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/Identifier.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/Parser.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/parser/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/MainView$2.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/MainView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/MainView.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/MainView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfBoxReader.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfBoxReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfReader.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfReaderView.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/PdfReaderView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener$1.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener$PdfFileOpenerListener.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener$PdfFileOpenerListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/pdf/util/PdfFileOpener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/ReportGenerator.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/ReportGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/TransactionReport.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/report/TransactionReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/billmartam/transaction/TransactionSearch.class" afterPath="$PROJECT_DIR$/build/classes/main/com/billmartam/transaction/TransactionSearch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ProjectTest.class" afterPath="$PROJECT_DIR$/build/classes/test/ProjectTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/BillIdentifierTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/BillIdentifierTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/CitiBillParserTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/HdfcBillParserTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/HdfcBillParserTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/ParserFactoryTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/parser/ParserFactoryTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/pdf/PdfBoxReaderTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/pdf/PdfBoxReaderTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/report/ReportGeneratorTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/report/ReportGeneratorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/transaction/TransactionSearchTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/transaction/TransactionSearchTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/com/billmartam/util/UtilTest.class" afterPath="$PROJECT_DIR$/build/classes/test/com/billmartam/util/UtilTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Test.java" afterPath="$PROJECT_DIR$/src/main/java/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillIdentifier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/MainView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfBoxReader.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfBoxReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReader.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/PdfReaderView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/util/PdfFileOpener.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/util/PdfFileOpener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/report/ReportGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/report/TransactionReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/report/TransactionReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/billmartam/transaction/TransactionSearch.java" afterPath="$PROJECT_DIR$/src/main/java/com/billmartam/transaction/TransactionSearch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ProjectTest.java" afterPath="$PROJECT_DIR$/src/test/java/ProjectTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/BillIdentifierTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/CitiBillParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfcBillParserTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/HdfcBillParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/parser/ParserFactoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/pdf/PdfBoxReaderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/report/ReportGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/transaction/TransactionSearchTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/transaction/TransactionSearchTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/billmartam/util/UtilTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -119,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TransactionSearchTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/transaction/TransactionSearchTest.java">
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -526,7 +447,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/BillVendor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/Identifier.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/parser/ParserFactory.java" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/cache/RecentFileStorageTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/pdf/storage/FileSpecification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/cache/FileSpecification.java" />
@@ -570,6 +490,7 @@
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/transaction/TransactionSearchTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/billmartam/util/TextSearchTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/billmartam/transaction/TransactionSearch.java" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -1241,6 +1162,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="834" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1254,10 +1176,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60286456" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7526042" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7526042" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32403433" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32403433" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1413,13 +1335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1956,8 +1871,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/billmartam/transaction/TransactionSearchTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+        <state relative-caret-position="264">
+          <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
+          <folding>
+            <marker date="1499541025000" expanded="false" signature="44:206" ph="..." />
+            <marker date="1499541025000" expanded="true" signature="208:253" ph="/**...*/" />
+            <marker date="1499541025000" expanded="true" signature="332:1047" ph="{...}" />
+            <marker date="1499541025000" expanded="true" signature="1113:1838" ph="{...}" />
+            <marker date="1499541025000" expanded="true" signature="1910:2731" ph="{...}" />
+            <marker date="1499541025000" expanded="true" signature="2800:3609" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
