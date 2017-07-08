@@ -1,5 +1,6 @@
 package com.billmartam.parser;
 
+import com.billmartam.pdf.Pdf;
 import com.billmartam.report.TransactionReport;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,21 +13,27 @@ public class CitiBillParserTest {
     @Test
     public void parse_citi_bill(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        TransactionReport parse = parser.parse(pdf,false);
         Assert.assertNotNull(parse);
     }
 
     @Test
     public void transaction_size_test(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        TransactionReport parse = parser.parse(pdf,false);
         Assert.assertTrue(parse.getContents().size() > 0);
     }
 
     @Test
     public void check_parsed_transaction_correctness(){
         Parser parser = new CitiBillParser();
-        TransactionReport parse = parser.parse(raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        TransactionReport parse = parser.parse(pdf,false);
         Assert.assertTrue(parse.getContents().get(0).equals("22/04 74332747113 PLATINUM SUPER STORE     PUNE 405.00") && parse.getContents().get(parse.getContents().size() - 1).equals("15/05 74766517135 SHELL INDIA MARKETS PV   PUNE 311.50"));
     }
 

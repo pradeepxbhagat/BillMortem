@@ -26,13 +26,13 @@ public class PdfReaderView {
     private JButton reloadButton;
     private JEditorPane searchBody;
     private JFrame frame;
-    private String pdfData;
+    private Pdf pdfData;
     private Parser parser;
     private TransactionReport report;
 
-    public PdfReaderView(JFrame frame, String pdfData) {
+    public PdfReaderView(JFrame frame, Pdf pdf) {
         this.frame = frame;
-        initBody(pdfData);
+        initBody(pdf);
 
         setSearchButtonListener();
         setReloadButtonListener();
@@ -41,15 +41,15 @@ public class PdfReaderView {
         setBtnNewListener();
     }
 
-    private void initBody(String pdfData) {
+    private void initBody(Pdf pdf) {
         this.parser =null;
         this.report =null;
 
-        this.pdfData = pdfData;
+        this.pdfData = pdf;
         searchBody.setContentType("text/html");
 //        pdfBody.setContentType("text/html");
 
-        report = getReport(pdfData);
+        report = getReport(pdf);
 //        htmlPdfData = convertToHtml(com.billmartam.report);
         setPdfBody(report);
     }
@@ -61,7 +61,7 @@ public class PdfReaderView {
     }
 
     private void selectNewPdf(JFrame frame) {
-        PdfFileOpener opener = PdfFileOpener.getOpener(frame,((data, filePath) -> {
+        PdfFileOpener opener = PdfFileOpener.getOpener(frame,((data) -> {
             initBody(data);
             doReload();
         }));
@@ -237,14 +237,14 @@ public class PdfReaderView {
         return searchText;
     }
 
-    private TransactionReport getReport(String pdfData) {
+    private TransactionReport getReport(Pdf pdfData) {
         if(parser == null) {
             Identifier identifier = BillIdentifier.getIdentifier();
             ParserFactory factory = ParserFactory.getFactory();
             parser = factory.getParser(identifier.identify(pdfData));
         }
         if(report == null) {
-            report = parser.parse(pdfData);
+            report = parser.parse(pdfData,true);
         }
         return report;
     }
@@ -253,15 +253,12 @@ public class PdfReaderView {
         return txtSearch.getText();
     }
 
-    public PdfReaderView() {
-    }
-
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         JFrame frame = new JFrame("PdfReaderView");
-        frame.setContentPane(new PdfReaderView().panel1);
+        frame.setContentPane(new PdfReaderView(frame, pdfData).panel1);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(500,800);
         frame.pack();
         frame.setVisible(true);
-    }
+    }*/
 }

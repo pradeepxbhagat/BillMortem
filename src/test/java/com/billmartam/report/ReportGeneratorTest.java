@@ -1,6 +1,7 @@
 package com.billmartam.report;
 
 import com.billmartam.parser.HdfcBillParserTest;
+import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +16,9 @@ public class ReportGeneratorTest {
     @Test
     public void generate_report_all(){
         ReportGenerator genrator = ReportGenerator.getGenerator();
-        TransactionReport transactions = genrator.genrateFrom(HdfcBillParserTest.raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        TransactionReport transactions = genrator.genrateFrom(pdf);
 
         Assert.assertTrue(transactions.getContents().size() > 0);
     }
@@ -23,7 +26,9 @@ public class ReportGeneratorTest {
     @Test
     public void generate_report_on_search(){
         ReportGenerator genrator = ReportGenerator.getGenerator();
-        TransactionReport transactions = genrator.genrateFrom(HdfcBillParserTest.raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        TransactionReport transactions = genrator.genrateFrom(pdf);
 
         TransactionReport searchedTransactions = genrator.generateFor("PAYTM", transactions);
         Assert.assertTrue(searchedTransactions.getContents().size() > 0);
@@ -47,7 +52,9 @@ public class ReportGeneratorTest {
     @Test
     public void calculate_total_all(){
         ReportGenerator genrator = ReportGenerator.getGenerator();
-        TransactionReport transactions = genrator.genrateFrom(HdfcBillParserTest.raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        TransactionReport transactions = genrator.genrateFrom(pdf);
         TransactionReport searchedTransactions = genrator.generateFor("AMITA", transactions);
         double total = genrator.getTotalExpenditure(searchedTransactions);
         double actual = 857.6999816894531;

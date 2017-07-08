@@ -1,4 +1,4 @@
-package com.billmartam.pdf.storage;
+package com.billmartam.cache;
 
 import java.io.Serializable;
 

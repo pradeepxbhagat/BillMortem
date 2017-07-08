@@ -1,6 +1,7 @@
 package com.billmartam.parser;
 
 import com.billmartam.TImeComplexityTestCase;
+import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,7 +30,9 @@ public class ParserFactoryTest extends TImeComplexityTestCase{
     public void fetchHdfcBillParserFromRawtext(){
         Identifier identifier = BillIdentifier.getIdentifier();
         ParserFactory factory = ParserFactory.getFactory();
-        Parser parser = factory.getParser(identifier.identify(HdfcBillParserTest.raw));
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        Parser parser = factory.getParser(identifier.identify(pdf));
         Assert.assertTrue(parser instanceof HdfcBillParser);
     }
 
@@ -38,7 +41,9 @@ public class ParserFactoryTest extends TImeComplexityTestCase{
     public void fetchCitiBillParserFromRawtext(){
         Identifier identifier = BillIdentifier.getIdentifier();
         ParserFactory factory = ParserFactory.getFactory();
-        Parser parser = factory.getParser(identifier.identify(CitiBillParserTest.raw));
+        Pdf pdf = new Pdf();
+        pdf.setData(CitiBillParserTest.raw);
+        Parser parser = factory.getParser(identifier.identify(pdf));
         Assert.assertTrue(parser instanceof CitiBillParser);
     }
 }

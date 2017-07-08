@@ -2,12 +2,13 @@ package com.billmartam.report;
 
 import com.billmartam.expenditure.ExpenditureCalculator;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by pp00344204 on 06/06/17.
  */
-public class TransactionReport {
+public class TransactionReport implements Serializable{
     private List<String> contents;
 
     public TransactionReport() {
@@ -53,4 +54,5 @@ public class TransactionReport {
         ExpenditureCalculator calculator = ExpenditureCalculator.getCalculator();
         return Math.floor(calculator.calculateTotalExpenditure(this));
     }
+
 }

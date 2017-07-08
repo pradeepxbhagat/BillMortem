@@ -47,7 +47,7 @@ public class UtilTest {
     @Test
     public void test_is_date() {
         boolean result = Util.isHdfcDateFormat("5/05/2017");
-        Assert.assertFalse(result);
+        Assert.assertTrue(result);
     }
 
     @Test

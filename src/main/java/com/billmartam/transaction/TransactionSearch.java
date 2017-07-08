@@ -1,6 +1,7 @@
 package com.billmartam.transaction;
 
 import com.billmartam.report.TransactionReport;
+import com.billmartam.util.TextSearch;
 import com.billmartam.util.Util;
 
 import java.util.*;
@@ -76,7 +77,10 @@ public class TransactionSearch {
 
     private String findTermInContent(String transaction, String[] terms) {
         for(String term : terms){
-            if(Arrays.asList(Util.getCommaSplittedString(transaction, " ")).contains(term)){
+            /*if(Arrays.asList(Util.getCommaSplittedString(transaction, " ")).contains(term)){
+                return term;
+            }*/
+            if(TextSearch.search(term,transaction.toUpperCase())){
                 return term;
             }
         }

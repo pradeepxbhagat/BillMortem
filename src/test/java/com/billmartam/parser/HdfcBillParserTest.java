@@ -1,5 +1,7 @@
 package com.billmartam.parser;
 
+import com.billmartam.TImeComplexityTestCase;
+import com.billmartam.pdf.Pdf;
 import com.billmartam.report.TransactionReport;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,26 +9,62 @@ import org.junit.Test;
 /**
  * Created by pp00344204 on 27/06/17.
  */
-public class HdfcBillParserTest {
+public class HdfcBillParserTest extends TImeComplexityTestCase{
     @Test
     public void convertToLines(){
         Parser parser = new HdfcBillParser();
-        TransactionReport transactionReport = parser.parse(raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        TransactionReport transactionReport = parser.parse(pdf,false);
         Assert.assertTrue(transactionReport.getContents().size() > 0);
     }
 
     @Test
     public void convert_to_lines_empty_data(){
         Parser parser = new HdfcBillParser();
-        TransactionReport transactionReport = parser.parse("");
+        Pdf pdf = new Pdf();
+        pdf.setData("");
+        TransactionReport transactionReport = parser.parse(pdf,false);
         Assert.assertNull(transactionReport);
     }
 
     @Test
     public void test_other_prdf_data(){
         Parser parser = new HdfcBillParser();
-        TransactionReport transactionReport = parser.parse("this is other com.billmartam.pdf data");
+        Pdf pdf = new Pdf();
+        pdf.setData("this is other com.billmartam.pdf data");
+        TransactionReport transactionReport = parser.parse(pdf,false);
         Assert.assertNull(transactionReport);
+    }
+
+    @Test
+    public void test_cached_pdf1_null_test(){
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        pdf.setFilePath("root/folder1/folder2/file.pdf");
+        TransactionReport transactionReport = parser.parse(pdf,true);
+        Assert.assertNotNull("NULL test passed",transactionReport);
+    }
+
+    @Test
+    public void test_cached_pdf_not_cached(){
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        pdf.setFilePath("root/folder1/folder2/file.pdf");
+        TransactionReport transactionReport = parser.parse(pdf,true);
+        Assert.assertNotNull(transactionReport);
+    }
+
+    @Test
+    public void test_cached_pdf_cached(){
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+        pdf.setFilePath("root/folder1/folder2/file.pdf");
+        TransactionReport transactionReport = parser.parse(pdf,true);
+        Assert.assertNotNull(transactionReport);
     }
 
     public final static String raw = "In case any of your personal details have changed, you can\n" +

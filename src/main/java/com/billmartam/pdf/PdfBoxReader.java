@@ -1,9 +1,9 @@
 package com.billmartam.pdf;
 
+import com.billmartam.util.Util;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.text.PDFTextStripper;
-import com.billmartam.util.Util;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class PdfBoxReader implements PdfReader {
     }
 
     @Override
-    public String read(String fileUrl) throws PdfReaderException {
+    public Pdf read(String fileUrl) throws PdfReaderException {
         if (isPdfUrl(fileUrl)) {
             PDDocument document = null;
             try {
@@ -26,7 +26,9 @@ public class PdfBoxReader implements PdfReader {
                     throw new PdfReaderException(PdfReaderException.ExceptionType.PASSWORD_PROTECTED);
                 }
                 document = PDDocument.load(file);
-                return getPdfContent(document);
+                Pdf pdf = getPdfContent(document);
+                pdf.setFilePath(fileUrl);
+                return pdf;
             } catch (IOException e) {
                 System.out.print(e.getLocalizedMessage());
             } finally {
@@ -50,7 +52,7 @@ public class PdfBoxReader implements PdfReader {
     }
 
     @Override
-    public String read(String path, String password) throws PdfReaderException {
+    public Pdf read(String path, String password) throws PdfReaderException {
         if (isPdfUrl(path)) {
             File file = new File(path);
             PDDocument document = null;
@@ -69,9 +71,11 @@ public class PdfBoxReader implements PdfReader {
         return null;
     }
 
-    private String getPdfContent(PDDocument document) throws IOException {
+    private Pdf getPdfContent(PDDocument document) throws IOException {
         PDFTextStripper pdfTextStripper = new PDFTextStripper();
-        return pdfTextStripper.getText(document);
+        Pdf pdf = new Pdf();
+        pdf.setData(pdfTextStripper.getText(document));
+        return pdf;
     }
 
     private boolean isPasswordProtected(File file) {

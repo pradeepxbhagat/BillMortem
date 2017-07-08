@@ -1,5 +1,9 @@
 package com.billmartam.parser;
 
+import com.billmartam.cache.CacheManager;
+import com.billmartam.cache.ReportsCacheManager;
+import com.billmartam.cache.TransactionReportCache;
+import com.billmartam.pdf.Pdf;
 import com.billmartam.report.TransactionReport;
 import com.billmartam.util.Util;
 
@@ -10,13 +14,37 @@ import java.util.List;
  * Created by pp00344204 on 06/06/17.
  */
 abstract class BillParser implements Parser {
+
     @Override
-    public TransactionReport parse(String raw) {
-        if(isStringEmpty(raw)) {
+    public TransactionReport parse(Pdf pdf,boolean canUseParserCache) {
+        TransactionReport report;
+        if(canUseParserCache){
+            TransactionReportCache cache = getCachedTransactionReport(pdf);
+            if(cache == null){
+                report = getTransactionReport(pdf);
+                saveToCache(report,pdf);
+            }else{
+                report = cache.getReport();
+                System.out.println("from cache");
+            }
+            return report;
+        }else {
+              return getTransactionReport(pdf);
+        }
+    }
+
+    private boolean saveToCache(TransactionReport report, Pdf pdf) {
+        TransactionReportCache cache = new TransactionReportCache(report, pdf.getFilePath());
+        CacheManager manager = ReportsCacheManager.getManager();
+        return manager.save(cache);
+    }
+
+    private TransactionReport getTransactionReport(Pdf pdf) {
+        if (isStringEmpty(pdf.getData())) {
             TransactionReport transactionReport = new TransactionReport();
-            String[] lines = getLines(raw);
+            String[] lines = getLines(pdf.getData());
             int transactionStartIndex = getTransactionStartingIndex(lines);
-            if(startedIndexFound(transactionStartIndex)) {
+            if (startedIndexFound(transactionStartIndex)) {
                 int transactionEndIndex = getTransactionEndIndex(lines, transactionStartIndex);
 
                 List<String> transactions = new ArrayList<>();
@@ -31,6 +59,11 @@ abstract class BillParser implements Parser {
             }
         }
         return null;
+    }
+
+    private TransactionReportCache getCachedTransactionReport(Pdf pdf) {
+        CacheManager cacheManager = ReportsCacheManager.getManager();
+        return (TransactionReportCache) cacheManager.read(pdf.getFilePath());
     }
 
     private boolean startedIndexFound(int transactionStartIndex) {

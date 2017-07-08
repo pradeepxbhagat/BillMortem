@@ -1,12 +1,9 @@
 package com.billmartam.pdf.util;
 
-import com.billmartam.pdf.PdfBoxReader;
-import com.billmartam.pdf.PdfPasswordGraber;
-import com.billmartam.pdf.PdfReader;
-import com.billmartam.pdf.PdfReaderException;
-import com.billmartam.pdf.storage.FileSpecification;
-import com.billmartam.pdf.storage.RecentFileStorage;
-import com.billmartam.pdf.storage.Storage;
+import com.billmartam.pdf.*;
+import com.billmartam.cache.FileSpecification;
+import com.billmartam.cache.RecentFileCacheManager;
+import com.billmartam.cache.CacheManager;
 
 import javax.swing.*;
 import java.io.File;
@@ -52,7 +49,7 @@ public class PdfFileOpener {
     }
 
     public void readFile(String filepath) {
-        String pdfData = readDocument(filepath);
+        Pdf pdfData = readDocument(filepath);
 
         if (pdfData != null) {
 //                    System.out.print(pdfData);
@@ -62,24 +59,24 @@ public class PdfFileOpener {
         }
     }
 
-    private void sendSuccess(String pdfData, String filepath) {
+    private void sendSuccess(Pdf pdfData, String filepath) {
         if(cache){
             persistFilePath(filepath);
         }
 
-        listener.onSuccess(pdfData,filepath);
+        listener.onSuccess(pdfData);
     }
 
     private void persistFilePath(String filepath) {
         FileSpecification specification = new FileSpecification(filepath, System.currentTimeMillis());
-        Storage storage = RecentFileStorage.getStorage();
+        CacheManager storage = RecentFileCacheManager.getManager();
         storage.save(specification);
     }
 
-    private String readDocument(final String filepath) {
+    private Pdf readDocument(final String filepath) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            String data =  reader.read(filepath);
+            Pdf data =  reader.read(filepath);
 //            persistFilePath(filepath);
             return data;
         } catch (PdfReaderException e1) {
@@ -102,7 +99,7 @@ public class PdfFileOpener {
             public void grabPassword(String password) {
                 dialog.dispose();
                 dialog = null;
-                String documentData = readProtectedDocument(filepath, password);
+                Pdf documentData = readProtectedDocument(filepath, password);
                 if(documentData != null) {
 //                    System.out.print(documentData);
 //                    openPdfReader(documentData);
@@ -130,10 +127,10 @@ public class PdfFileOpener {
     }
 
 
-    private String readProtectedDocument(String filepath, String password) {
+    private Pdf readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            String data =  reader.read(filepath,password);
+            Pdf data =  reader.read(filepath,password);
 //            persistFilePath(filepath);
             return data;
         } catch (PdfReaderException e1) {
@@ -157,6 +154,6 @@ public class PdfFileOpener {
 
     @FunctionalInterface
     public interface PdfFileOpenerListener{
-        void onSuccess(String data, String filePath);
+        void onSuccess(Pdf data);
     }
 }

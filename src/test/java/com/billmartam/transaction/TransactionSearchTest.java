@@ -63,4 +63,22 @@ public class TransactionSearchTest {
 
         Assert.assertTrue(searchReport.get("PAYTM").getContents().size() ==3 &&searchReport.get("PATANJALI").getContents().size() ==1 );
     }
+
+    @Test
+    public void test_invidual_result_for_single_search() {
+        List<String> contents = new ArrayList<>();
+        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
+        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
+        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
+        contents.add("17/05/2017 www.paytm.in 64.00");
+        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+
+
+        TransactionSearch search = TransactionSearch.getSearchEngine(transactionReport);
+        Map<String,TransactionReport> searchReport = search.getIndividualSearchTransaction("PAYTM");
+
+        Assert.assertTrue(searchReport.get("PAYTM").getContents().size() ==4 );
+    }
 }

@@ -1,6 +1,7 @@
 package com.billmartam.parser;
 
 import com.billmartam.TImeComplexityTestCase;
+import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +14,9 @@ public class BillIdentifierTest extends TImeComplexityTestCase{
     @Test
     public void identifyHdfcBillType(){
         Identifier identifier = BillIdentifier.getIdentifier();
-        BillVendor type = identifier.identify(HdfcBillParserTest.raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        BillVendor type = identifier.identify(pdf);
 
         Assert.assertTrue(type == BillVendor.HDFC);
     }
@@ -22,7 +25,9 @@ public class BillIdentifierTest extends TImeComplexityTestCase{
     @Test
     public void identifyCitiBillType(){
         Identifier identifier = BillIdentifier.getIdentifier();
-        BillVendor type = identifier.identify(CitiBillParserTest.raw);
+        Pdf pdf = new Pdf();
+        pdf.setData(CitiBillParserTest.raw);
+        BillVendor type = identifier.identify(pdf);
 
         Assert.assertTrue(type == BillVendor.CITI);
     }

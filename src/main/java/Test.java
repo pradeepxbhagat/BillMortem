@@ -1,4 +1,7 @@
+import com.billmartam.pdf.Pdf;
 import com.billmartam.pdf.PdfReaderView;
+
+import javax.swing.*;
 
 /**
  * Created by pp00344204 on 07/06/17.
@@ -6,6 +9,6 @@ import com.billmartam.pdf.PdfReaderView;
 class Test {
 
     public static void main(String[] args){
-        PdfReaderView readerView = new PdfReaderView();
+        PdfReaderView readerView = new PdfReaderView(new JFrame(), new Pdf());
     }
 }

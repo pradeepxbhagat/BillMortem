@@ -1,8 +1,8 @@
 package com.billmartam.pdf;
 
-import com.billmartam.pdf.storage.FileSpecification;
-import com.billmartam.pdf.storage.RecentFileStorage;
-import com.billmartam.pdf.storage.Storage;
+import com.billmartam.cache.FileSpecification;
+import com.billmartam.cache.RecentFileCacheManager;
+import com.billmartam.cache.CacheManager;
 import com.billmartam.pdf.util.PdfFileOpener;
 
 import javax.swing.*;
@@ -40,8 +40,8 @@ public class MainView {
         return model;
     }
     private Set<FileSpecification> getRecentFilePath(){
-        Storage storage = RecentFileStorage.getStorage();
-        return storage.read();
+        CacheManager storage = RecentFileCacheManager.getManager();
+        return (Set<FileSpecification>) storage.read(RecentFileCacheManager.RECENT_FILE_STORAGE_FILE);
     }
     private void setRecentFileMouseClickListener() {
         MouseListener mouseListener = new MouseAdapter() {
@@ -76,7 +76,7 @@ public class MainView {
     }
 
     private void initPdfFileOpener(JFrame frame) {
-        opener = PdfFileOpener.getOpener(frame,  (data,filePath) -> {
+        opener = PdfFileOpener.getOpener(frame,  (data) -> {
             if(data != null) {
                 openPdfReader(data);
             }
@@ -85,7 +85,7 @@ public class MainView {
     }
 
     private void readFile(String filepath) {
-        String pdfData = readDocument(filepath);
+        Pdf pdfData = readDocument(filepath);
 
         if (pdfData != null) {
 //                    System.out.print(pdfData);
@@ -93,13 +93,13 @@ public class MainView {
         }
     }
 
-    private void openPdfReader(String pdfData) {
+    private void openPdfReader(Pdf pdf) {
         close();
 //        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame frame = new JFrame("PdfReaderView");
 //        frame.setLocation(dim.width/2-frame.getSize().width/2 - 200, dim.height/2-frame.getSize().height/2  -200);
 
-        frame.setContentPane(new PdfReaderView(frame,pdfData).panel1);
+        frame.setContentPane(new PdfReaderView(frame,pdf).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -117,10 +117,10 @@ public class MainView {
         return f.getPath();
     }
 
-    private String readDocument(final String filepath) {
+    private Pdf readDocument(final String filepath) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            String data =  reader.read(filepath);
+            Pdf data =  reader.read(filepath);
             return data;
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
@@ -137,10 +137,10 @@ public class MainView {
     }
 
 
-    private String readProtectedDocument(String filepath, String password) {
+    private Pdf readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            String data =  reader.read(filepath,password);
+            Pdf data =  reader.read(filepath,password);
             return data;
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
@@ -158,7 +158,7 @@ public class MainView {
             @Override
             public void grabPassword(String password) {
 //                System.out.print("Password is: " + password);
-                String documentData = readProtectedDocument(filepath, password);
+                Pdf documentData = readProtectedDocument(filepath, password);
                 if(documentData != null) {
 //                    System.out.print(documentData);
                     openPdfReader(documentData);

@@ -3,6 +3,7 @@ package com.billmartam.report;
 import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.parser.HdfcBillParser;
 import com.billmartam.parser.Parser;
+import com.billmartam.pdf.Pdf;
 import com.billmartam.transaction.TransactionSearch;
 
 /**
@@ -14,12 +15,12 @@ public class ReportGenerator {
         return new ReportGenerator();
     }
 
-    public TransactionReport genrateFrom(String raw) {
+    public TransactionReport genrateFrom(Pdf raw) {
         if (raw == null) {
             return null;
         }
         Parser billParser = new HdfcBillParser();
-        return billParser.parse(raw);
+        return billParser.parse(raw, false);
     }
 
     public TransactionReport generateFor(String searchTerm, TransactionReport from) {

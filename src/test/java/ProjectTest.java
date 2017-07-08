@@ -1,4 +1,5 @@
 import com.billmartam.expenditure.ExpenditureCalculator;
+import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
 import com.billmartam.parser.HdfcBillParser;
@@ -16,9 +17,9 @@ public class ProjectTest {
 
     @Test
     public void testProject(){
-        String fileUrl = "/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/java/com.billmartam.pdf/sample_password_protected_bill.com.billmartam.pdf";
+        String fileUrl = "/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/res/sample_password_protected_bill.pdf";
         PdfReader pdfReader = PdfBoxReader.getReader();
-        String inPut = null;
+        Pdf inPut = null;
         try {
             inPut = pdfReader.read(fileUrl,"PRAD0280");
         } catch (PdfReaderException e) {
@@ -26,7 +27,7 @@ public class ProjectTest {
         }
 
         Parser parser = new HdfcBillParser();
-        TransactionReport report = parser.parse(inPut);
+        TransactionReport report = parser.parse(inPut,false);
 
         TransactionSearch search = TransactionSearch.getSearchEngine(report);
         TransactionReport searchedTransaction = search.searchTransaction("PATANJALI,PAYTM");
