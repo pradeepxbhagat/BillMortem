@@ -1,6 +1,7 @@
 package com.billmartam.cache;
 
 import java.io.File;
+import java.security.MessageDigest;
 
 /**
  * Created by pp00344204 on 03/07/17.
@@ -22,7 +23,7 @@ public class ReportsCacheManager extends CacheManager {
             file.mkdirs();
         }
 
-        return RECENT_FILE_STORAGE_DIR + "/" + Math.abs(path.hashCode());
+        return RECENT_FILE_STORAGE_DIR + "/" + MD5(path);
     }
 
     @Override
@@ -39,4 +40,18 @@ public class ReportsCacheManager extends CacheManager {
         return new ReportsCacheManager();
     }
 
+    public String MD5(String md5) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(md5.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+        return null;
+    }
 }
