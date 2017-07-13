@@ -3,7 +3,9 @@ package com.billmartam.report;
 import com.billmartam.expenditure.ExpenditureCalculator;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by pp00344204 on 06/06/17.
@@ -55,4 +57,11 @@ public class TransactionReport implements Serializable{
         return Math.floor(calculator.calculateTotalExpenditure(this));
     }
 
+    public Set getKeys() {
+        Set keys = new HashSet();
+        for(String key : contents){
+            keys.add(key);
+        }
+        return keys;
+    }
 }

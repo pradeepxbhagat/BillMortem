@@ -3,8 +3,11 @@ package com.billmartam.parser;
 import com.billmartam.TImeComplexityTestCase;
 import com.billmartam.pdf.Pdf;
 import com.billmartam.report.TransactionReport;
+import com.billmartam.transaction.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created by pp00344204 on 27/06/17.
@@ -65,6 +68,20 @@ public class HdfcBillParserTest extends TImeComplexityTestCase{
         pdf.setFilePath("root/folder1/folder2/file.pdf");
         TransactionReport transactionReport = parser.parse(pdf,true);
         Assert.assertNotNull(transactionReport);
+    }
+
+    @Test
+    public void test_transaction_model(){
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+
+        TransactionReport transactionReport = parser.parse(pdf,false);
+//        List<Transaction> transaction = transactionReport.getContents();
+        String result = "05/05/2017"+"www.vodafone.in        MUMBAI"+"356.50";
+//        String actual = transaction.getDate()+transaction.getDiscription()+transaction.getPrice();
+
+//        Assert.assertEquals(result,actual);
     }
 
     public final static String raw = "In case any of your personal details have changed, you can\n" +

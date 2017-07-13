@@ -25,4 +25,19 @@ public class TransactionReportTest {
         double actual = 1024;
         Assert.assertEquals(actual, result,0.0);
     }
+
+    @Test
+    public void individualKeysTest() throws Exception {
+        List<String> contents = new ArrayList<>();
+        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
+        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
+        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
+        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+
+        int size = transactionReport.getKeys().size();
+        Assert.assertEquals(3,size);
+
+    }
 }
