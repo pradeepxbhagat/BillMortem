@@ -34,6 +34,11 @@ public class RecentFileCacheManager extends CacheManager {
         return (Set<FileSpecification>) readCache(getRecentFileStoragePath((String) path));
     }
 
+    @Override
+    public boolean clear() {
+        return false;
+    }
+
     private static String getRecentFileStoragePath(String path) {
         File file = new File(RECENT_FILE_STORAGE_DIR);
         if (!file.exists()) {

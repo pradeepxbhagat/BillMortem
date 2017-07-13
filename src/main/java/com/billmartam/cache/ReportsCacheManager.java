@@ -30,6 +30,11 @@ public class ReportsCacheManager extends CacheManager {
         return readCache(getReportsCachePath((String) path));
     }
 
+    @Override
+    public boolean clear() {
+        return delete(RECENT_FILE_STORAGE_DIR);
+    }
+
     public static CacheManager getManager() {
         return new ReportsCacheManager();
     }

@@ -5,8 +5,9 @@ package com.billmartam.pdf;
  */
 public class Pdf {
     private String data;
-
     private String filePath;
+    private String password;
+
 
     public String getData() {
         return data;
@@ -22,5 +23,13 @@ public class Pdf {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

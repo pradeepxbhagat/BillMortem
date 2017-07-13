@@ -1,5 +1,7 @@
 package com.billmartam.pdf;
 
+import com.billmartam.cache.CacheManager;
+import com.billmartam.cache.ReportsCacheManager;
 import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.parser.*;
 import com.billmartam.pdf.util.PdfFileOpener;
@@ -8,6 +10,7 @@ import com.billmartam.transaction.TransactionSearch;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -25,13 +28,23 @@ public class PdfReaderView {
     private JEditorPane pdfBody;
     private JButton reloadButton;
     private JEditorPane searchBody;
+    private JCheckBox useCacheCheckBox;
+    private JButton clearCacheButton;
     private JFrame frame;
+    private boolean canUseCache;
     private Pdf pdfData;
     private Parser parser;
     private TransactionReport report;
+    private CacheManager cacheManager;
 
     public PdfReaderView(JFrame frame, Pdf pdf) {
+        this(frame, pdf, false);
+    }
+
+    public PdfReaderView(JFrame frame, Pdf pdf, boolean canUseCache) {
         this.frame = frame;
+        this.canUseCache = canUseCache;
+        useCacheCheckBox.setSelected(canUseCache);
         initBody(pdf);
 
         setSearchButtonListener();
@@ -39,11 +52,36 @@ public class PdfReaderView {
         setKeyDownForSearchtext();
         setPdfBodyMouseListener();
         setBtnNewListener();
+        setCacheCheckBoxListener();
+        setClearCacheButtonListener();
+    }
+
+    private void setClearCacheButtonListener() {
+        clearCacheButton.addActionListener(a->{
+            if(cacheManager == null) {
+                cacheManager = ReportsCacheManager.getManager();
+            }
+            String msg = cacheManager.clear()? "Cache successfully cleared": "Failed !!!";
+            openPrompt(msg);
+        });
+    }
+
+    private void openPrompt(String msg) {
+        JOptionPane.showMessageDialog(frame, msg);
+    }
+
+    private void setCacheCheckBoxListener() {
+        useCacheCheckBox.addItemListener(e -> {
+            canUseCache = false;
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                canUseCache = true;
+            }
+        });
     }
 
     private void initBody(Pdf pdf) {
-        this.parser =null;
-        this.report =null;
+        this.parser = null;
+        this.report = null;
 
         this.pdfData = pdf;
         searchBody.setContentType("text/html");
@@ -55,26 +93,27 @@ public class PdfReaderView {
     }
 
     private void setBtnNewListener() {
-        btnNew.addActionListener( a->{
+        btnNew.addActionListener(a -> {
             selectNewPdf(frame);
         });
     }
 
     private void selectNewPdf(JFrame frame) {
-        PdfFileOpener opener = PdfFileOpener.getOpener(frame,((data) -> {
+        PdfFileOpener opener = PdfFileOpener.getOpener(frame);
+        opener.setListener((data) -> {
             initBody(data);
             doReload();
-        }));
+        });
         opener.shouldCache(true);
         opener.open();
     }
 
     private void setPdfBody(TransactionReport report) {
-        pdfBody.setText(report == null ? "":"Total: "+report.getTotal()+"\n \n"+report.toString());
+        pdfBody.setText(report == null ? "" : "Total: " + report.getTotal() + "\n \n" + report.toString());
     }
 
     private String convertToHtml(TransactionReport report) {
-        return report == null ? "":convertToHtml(report.toString());
+        return report == null ? "" : convertToHtml(report.toString());
     }
 
     private void setPdfBody(String htmlPdfData) {
@@ -128,7 +167,7 @@ public class PdfReaderView {
     }
 
     private void setSearchText(String selectedText) {
-        txtSearch.setText(txtSearch.getText().trim().length() > 0? txtSearch.getText().trim()+","+selectedText.toUpperCase() : selectedText.toUpperCase());
+        txtSearch.setText(txtSearch.getText().trim().length() > 0 ? txtSearch.getText().trim() + "," + selectedText.toUpperCase() : selectedText.toUpperCase());
     }
 
     private void setKeyDownForSearchtext() {
@@ -140,16 +179,16 @@ public class PdfReaderView {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if(getSearchText().trim().length() > 0) {
+                if (getSearchText().trim().length() > 0) {
                     doSearch();
-                }else{
+                } else {
                     doReload();
                 }
             }
@@ -175,7 +214,7 @@ public class PdfReaderView {
 
     private void doSearch() {
         String searchText = getSearchText();
-        if(searchText.trim().length() > 0) {
+        if (searchText.trim().length() > 0) {
             TransactionReport report = getReport(pdfData);
 
             searchText = modifySearch(searchText);
@@ -192,14 +231,14 @@ public class PdfReaderView {
     }
 
     private String getProcessedResult(Map<String, TransactionReport> searchedTransaction) {
-        if(searchedTransaction == null) {
+        if (searchedTransaction == null) {
             return "";
         }
         double totalExpenditure = getTotal(searchedTransaction);
         StringBuffer buffer = new StringBuffer("<h3 style:'color:green'>Total expenditure: ");
         buffer.append(totalExpenditure);
 
-        for(Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
+        for (Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
             buffer.append("<br/>");
             buffer.append("<h3>");
             buffer.append(val.getKey());
@@ -215,37 +254,38 @@ public class PdfReaderView {
 
     private double getTotal(Map<String, TransactionReport> searchedTransaction) {
         double total = 0;
-        for(Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()){
-            total+=val.getValue().getTotal();
+        for (Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
+            total += val.getValue().getTotal();
         }
         return total;
     }
 
     private String getProcessedResult(TransactionReport searchedTransaction) {
-        if(searchedTransaction == null) {
+        if (searchedTransaction == null) {
             return "";
         }
         double expenditure = Math.floor(ExpenditureCalculator.getCalculator().calculateTotalExpenditure(searchedTransaction));
-        String result ="<h3 style:'color:green'>Total expenditure: ";
+        String result = "<h3 style:'color:green'>Total expenditure: ";
         String data = searchedTransaction.toString().replace("\r\n", " <br/>").replace("\n", "<br/> ");
-        result+=expenditure+"</h3>\n"+"\n"+data;
+        result += expenditure + "</h3>\n" + "\n" + data;
         return result;
     }
 
     private String modifySearch(String searchText) {
-        searchText = searchText.replace(" ",",");
+        searchText = searchText.replace(" ", ",");
         return searchText;
     }
 
     private TransactionReport getReport(Pdf pdfData) {
-        if(parser == null) {
+        if (parser == null) {
             Identifier identifier = BillIdentifier.getIdentifier();
             ParserFactory factory = ParserFactory.getFactory();
             parser = factory.getParser(identifier.identify(pdfData));
         }
-        if(report == null) {
-            report = parser.parse(pdfData,true);
+        if (report == null) {
+            report = parser.parse(pdfData, canUseCache);
         }
+
         return report;
     }
 

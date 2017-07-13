@@ -157,6 +157,7 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         Assert.assertTrue(result.getProtectionKey().equals("Pradeep@123"));
     }
 
+
     @Test
     public void test_report_reading_unprotected_file() {
         List<String> contents = new ArrayList<>();
@@ -176,5 +177,12 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
 
         TransactionReportCache result = (TransactionReportCache) cacheManager.read("folder1/folder2/folder3/password_file1.pdf");
         Assert.assertNull(result.getProtectionKey());
+    }
+
+    @Test
+    public void deleteFullCache() throws Exception {
+        CacheManager cacheManager = ReportsCacheManager.getManager();
+        boolean status = cacheManager.clear();
+        Assert.assertEquals(true,status);
     }
 }

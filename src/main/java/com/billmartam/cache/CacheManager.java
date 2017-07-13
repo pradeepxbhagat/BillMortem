@@ -45,4 +45,18 @@ public abstract class CacheManager {
         }
     }
 
+    public abstract boolean clear();
+
+    protected boolean delete(String filePath){
+        File dir = new File(filePath);
+        if(dir.exists()){
+            File[] files = dir.listFiles();
+            for (File file : files){
+                file.delete();
+            }
+            return dir.delete();
+        }
+
+        return false;
+    }
 }

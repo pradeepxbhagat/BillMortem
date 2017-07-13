@@ -18,14 +18,13 @@ public class PdfFileOpener {
     private boolean cache;
     private PdfPasswordGraber dialog;
 
-    private PdfFileOpener(JFrame frame, PdfFileOpenerListener listener) {
+    private PdfFileOpener(JFrame frame) {
         this.frame = frame;
-        this.listener = listener;
     }
 
-    public static final  PdfFileOpener getOpener(JFrame frame,PdfFileOpenerListener listener){
+    public static final  PdfFileOpener getOpener(JFrame frame){
         if(opener == null){
-            opener = new PdfFileOpener(frame,listener);
+            opener = new PdfFileOpener(frame);
         }
 
         return opener;
@@ -63,7 +62,7 @@ public class PdfFileOpener {
         if(cache){
             persistFilePath(filepath);
         }
-
+        pdfData.setFilePath(filepath);
         listener.onSuccess(pdfData);
     }
 

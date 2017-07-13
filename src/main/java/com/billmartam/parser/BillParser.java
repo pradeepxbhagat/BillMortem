@@ -16,25 +16,27 @@ import java.util.List;
 abstract class BillParser implements Parser {
 
     @Override
-    public TransactionReport parse(Pdf pdf,boolean canUseParserCache) {
+    public TransactionReport parse(Pdf pdf, boolean canUseParserCache) {
         TransactionReport report;
-        if(canUseParserCache){
+        if (canUseParserCache) {
             TransactionReportCache cache = getCachedTransactionReport(pdf);
-            if(cache == null){
+            if (cache == null) {
                 report = getTransactionReport(pdf);
-                saveToCache(report,pdf);
-            }else{
+                saveToCache(report, pdf);
+            } else {
                 report = cache.getReport();
                 System.out.println("from cache");
             }
             return report;
-        }else {
-              return getTransactionReport(pdf);
+        } else {
+            System.out.println("from file");
+            return getTransactionReport(pdf);
         }
     }
 
     private boolean saveToCache(TransactionReport report, Pdf pdf) {
         TransactionReportCache cache = new TransactionReportCache(report, pdf.getFilePath());
+        cache.setProtectionKey(pdf.getPassword());
         CacheManager manager = ReportsCacheManager.getManager();
         return manager.save(cache);
     }
@@ -63,7 +65,8 @@ abstract class BillParser implements Parser {
 
     private TransactionReportCache getCachedTransactionReport(Pdf pdf) {
         CacheManager cacheManager = ReportsCacheManager.getManager();
-        return (TransactionReportCache) cacheManager.read(pdf.getFilePath());
+        Object report = cacheManager.read(pdf.getFilePath());
+        return report == null ? null : (TransactionReportCache) report;
     }
 
     private boolean startedIndexFound(int transactionStartIndex) {
@@ -80,14 +83,15 @@ abstract class BillParser implements Parser {
     }
 
     private int getTransactionEndIndex(String[] lines, int transactionStartIndex) {
-        while (!lines[transactionStartIndex++].trim().equals(getTransactionEndIdentifier())&& transactionStartIndex < lines.length);
+        while (!lines[transactionStartIndex++].trim().equals(getTransactionEndIdentifier()) && transactionStartIndex < lines.length)
+            ;
         return --transactionStartIndex;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     protected int getTransactionStartingIndex(String[] lines) {
-        int i =0;
-        while(i < lines.length && !lines[i].trim().equals(getTransactionStartIdentifier()) ){
+        int i = 0;
+        while (i < lines.length && !lines[i].trim().equals(getTransactionStartIdentifier())) {
             i++;
         }
 
