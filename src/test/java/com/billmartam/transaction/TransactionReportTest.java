@@ -21,7 +21,7 @@ public class TransactionReportTest {
         contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
-        double result = transactionReport.getTotal();
+        double result = transactionReport.getTotalExpenditure();
         double actual = 1024;
         Assert.assertEquals(actual, result,0.0);
     }
@@ -35,7 +35,7 @@ public class TransactionReportTest {
         contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
-        String result = transactionReport.getFormattedTotal();
+        String result = transactionReport.getFormattedTotalExpenditure();
         String actual = "1,024.55";
         Assert.assertEquals(actual, result);
     }
@@ -65,7 +65,7 @@ public class TransactionReportTest {
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
 
-        double total = transactionReport.getTotal();
+        double total = transactionReport.getTotalExpenditure();
         Assert.assertEquals(1000.50f,total,0);
 
     }

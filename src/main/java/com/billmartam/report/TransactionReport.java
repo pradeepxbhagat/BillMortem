@@ -1,11 +1,9 @@
 package com.billmartam.report;
 
-import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.transaction.Transaction;
 import com.billmartam.util.Util;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,9 +53,15 @@ public class TransactionReport implements Serializable{
         return result.trim();
     }
 
-    public double getTotal(){
-        ExpenditureCalculator calculator = ExpenditureCalculator.getCalculator();
-        return calculator.calculateTotalExpenditure(this);
+    public double getTotalExpenditure(){
+        double total = 0.0;
+        for (Transaction transaction : contents){
+            if(!transaction.isCredit()) {
+                total += transaction.getPrice();
+            }
+        }
+
+        return total;
     }
 
     public Set getKeys() {
@@ -68,7 +72,7 @@ public class TransactionReport implements Serializable{
         return keys;
     }
 
-    public String getFormattedTotal() {
-        return Util.getTwoDecimalFormat(getTotal());
+    public String getFormattedTotalExpenditure() {
+        return Util.getTwoDecimalFormat(getTotalExpenditure());
     }
 }

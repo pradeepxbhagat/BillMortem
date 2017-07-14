@@ -71,13 +71,13 @@
             <constraints/>
             <properties>
               <editable value="false"/>
-              <font name="Arial" size="10" style="1"/>
+              <font name="Arial" size="12" style="1"/>
               <text value=""/>
             </properties>
           </component>
         </children>
       </scrollpane>
-      <scrollpane id="af69e">
+      <scrollpane id="af69e" binding="bodyPane">
         <constraints>
           <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false" defaultalign-vert="false"/>

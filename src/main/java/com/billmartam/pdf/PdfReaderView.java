@@ -6,8 +6,15 @@ import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.parser.*;
 import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
+import com.billmartam.transaction.Transaction;
 import com.billmartam.transaction.TransactionSearch;
 import com.billmartam.util.Util;
+import com.sun.deploy.util.StringUtils;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -16,11 +23,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by pp00344204 on 13/06/17.
  */
 public class PdfReaderView {
+    private static JPanel chartPanel;
     private String htmlPdfData;
     private JButton btnNew;
     protected JPanel panel1;
@@ -31,12 +40,14 @@ public class PdfReaderView {
     private JEditorPane searchBody;
     private JCheckBox useCacheCheckBox;
     private JButton clearCacheButton;
+    private JScrollPane bodyPane;
     private JFrame frame;
     private boolean canUseCache;
     private Pdf pdfData;
     private Parser parser;
     private TransactionReport report;
     private CacheManager cacheManager;
+    private boolean chartVisible;
 
     public PdfReaderView(JFrame frame, Pdf pdf) {
         this(frame, pdf, false);
@@ -58,11 +69,11 @@ public class PdfReaderView {
     }
 
     private void setClearCacheButtonListener() {
-        clearCacheButton.addActionListener(a->{
-            if(cacheManager == null) {
+        clearCacheButton.addActionListener(a -> {
+            if (cacheManager == null) {
                 cacheManager = ReportsCacheManager.getManager();
             }
-            String msg = cacheManager.clear()? "Cache successfully cleared": "Failed !!!";
+            String msg = cacheManager.clear() ? "Cache successfully cleared" : "Failed !!!";
             openPrompt(msg);
         });
     }
@@ -91,6 +102,14 @@ public class PdfReaderView {
         report = getReport(pdf);
 //        htmlPdfData = convertToHtml(com.billmartam.report);
         setPdfBody(report);
+//        groupByDescription(report);
+
+        setChart(report);
+    }
+
+    private void groupByDescription(TransactionReport report) {
+        Set keys = report.getKeys();
+        doSearch(StringUtils.join(keys, ","));
     }
 
     private void setBtnNewListener() {
@@ -110,7 +129,7 @@ public class PdfReaderView {
     }
 
     private void setPdfBody(TransactionReport report) {
-        pdfBody.setText(report == null ? "" : "Total: " + report.getFormattedTotal() + "\n \n" + report.toString());
+        pdfBody.setText(report == null ? "" : "Total expenditure: " + report.getFormattedTotalExpenditure() + "\n \n" + report.toString());
     }
 
     private String convertToHtml(TransactionReport report) {
@@ -142,7 +161,7 @@ public class PdfReaderView {
                 if (pdfBody.getSelectedText() != null) { // See if they selected something
                     doReload();
                     setSearchText(pdfBody.getSelectedText());
-                    doSearch();
+                    doSearch(getSearchText());
                 }
             }
 
@@ -189,7 +208,7 @@ public class PdfReaderView {
             @Override
             public void keyReleased(KeyEvent e) {
                 if (getSearchText().trim().length() > 0) {
-                    doSearch();
+                    doSearch(getSearchText());
                 } else {
                     doReload();
                 }
@@ -206,16 +225,17 @@ public class PdfReaderView {
     private void doReload() {
         txtSearch.setText("");
         searchBody.setText("");
+        chartPanel = null;
     }
 
     private void setSearchButtonListener() {
         searchButton.addActionListener(e -> {
-            doSearch();
+            doSearch(getSearchText());
         });
     }
 
-    private void doSearch() {
-        String searchText = getSearchText();
+    private void doSearch(String searchText) {
+//        String searchText = getSearchText();
         if (searchText.trim().length() > 0) {
             TransactionReport report = getReport(pdfData);
 
@@ -226,7 +246,15 @@ public class PdfReaderView {
             Map<String, TransactionReport> searchedTransaction = search.getIndividualSearchTransaction(searchText);
             String result = getProcessedResult(searchedTransaction);
 
+            hideChart();
             searchBody.setText(result);
+        }
+    }
+
+    private void hideChart() {
+        if (isChartVisible()) {
+            bodyPane.getViewport().add(searchBody);
+            setChartVisible(false);
         }
     }
 
@@ -242,10 +270,9 @@ public class PdfReaderView {
             buffer.append("<br/>");
             buffer.append("<h3>");
             buffer.append(val.getKey());
+            buffer.append(" --Total: ");
+            buffer.append(val.getValue().getFormattedTotalExpenditure());
             buffer.append("</h3>");
-            buffer.append("<h2> Total: ");
-            buffer.append(val.getValue().getFormattedTotal());
-            buffer.append("</h2>");
             buffer.append(val.getValue().toString().replace("\r\n", " <br/><br/>").replace("\n", "<br/> <br/>"));
             buffer.append("<br/>");
         }
@@ -255,7 +282,7 @@ public class PdfReaderView {
     private double getTotal(Map<String, TransactionReport> searchedTransaction) {
         double total = 0;
         for (Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
-            total += val.getValue().getTotal();
+            total += val.getValue().getTotalExpenditure();
         }
         return total;
     }
@@ -288,12 +315,51 @@ public class PdfReaderView {
         return txtSearch.getText();
     }
 
-/*    public static void main(String[] args) {
-        JFrame frame = new JFrame("PdfReaderView");
-        frame.setContentPane(new PdfReaderView(frame, pdfData).panel1);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(500,800);
-        frame.pack();
-        frame.setVisible(true);
-    }*/
+
+    private void setChart(TransactionReport report) {
+        setChartVisible(true);
+        chartPanel = createDemoPanel(report);
+        bodyPane.getViewport().add(chartPanel);
+    }
+
+    public static JPanel createDemoPanel(TransactionReport report) {
+        JFreeChart chart = createChart(createDataset(report));
+        chartPanel = new ChartPanel(chart);
+        return chartPanel;
+    }
+
+    private static PieDataset createDataset(TransactionReport report) {
+        Set keys = report.getKeys();
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        for (Object key : keys) {
+            double total = getGroupTotal((String) key, report);
+            dataset.setValue((String) key, total);
+        }
+        return dataset;
+    }
+
+    private static double getGroupTotal(String key, TransactionReport report) {
+        TransactionSearch search = TransactionSearch.getSearchEngine(report);
+        return search.searchTransaction(key).getTotalExpenditure();
+    }
+
+    private static JFreeChart createChart(PieDataset dataset) {
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Expenditure",   // chart title
+                dataset,          // data
+                true,             // include legend
+                true,
+                false);
+
+        return chart;
+    }
+
+
+    public void setChartVisible(boolean chartVisible) {
+        this.chartVisible = chartVisible;
+    }
+
+    public boolean isChartVisible() {
+        return chartVisible;
+    }
 }
