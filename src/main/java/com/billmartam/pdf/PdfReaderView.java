@@ -6,22 +6,26 @@ import com.billmartam.expenditure.ExpenditureCalculator;
 import com.billmartam.parser.*;
 import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
-import com.billmartam.transaction.Transaction;
 import com.billmartam.transaction.TransactionSearch;
 import com.billmartam.util.Util;
 import com.sun.deploy.util.StringUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,7 +33,10 @@ import java.util.Set;
  * Created by pp00344204 on 13/06/17.
  */
 public class PdfReaderView {
-    private static JPanel chartPanel;
+    public static final String CHART_ICON_PATH = "src/main/res/PieChart.jpeg";
+
+    private static DefaultPieDataset dataset;
+    private static JFreeChart chart;
     private String htmlPdfData;
     private JButton btnNew;
     protected JPanel panel1;
@@ -41,6 +48,7 @@ public class PdfReaderView {
     private JCheckBox useCacheCheckBox;
     private JButton clearCacheButton;
     private JScrollPane bodyPane;
+    private JButton chartButton;
     private JFrame frame;
     private boolean canUseCache;
     private Pdf pdfData;
@@ -66,6 +74,15 @@ public class PdfReaderView {
         setBtnNewListener();
         setCacheCheckBoxListener();
         setClearCacheButtonListener();
+        setChartButtonListener();
+    }
+
+    private void setChartButtonListener() {
+        chartButton.addActionListener(a -> {
+            if(!isChartVisible()) {
+                setChart(report);
+            }
+        });
     }
 
     private void setClearCacheButtonListener() {
@@ -94,6 +111,7 @@ public class PdfReaderView {
     private void initBody(Pdf pdf) {
         this.parser = null;
         this.report = null;
+        this.dataset = null;
 
         this.pdfData = pdf;
         searchBody.setContentType("text/html");
@@ -225,7 +243,8 @@ public class PdfReaderView {
     private void doReload() {
         txtSearch.setText("");
         searchBody.setText("");
-        chartPanel = null;
+        chartButton.setVisible(false);
+        dataset = null;
     }
 
     private void setSearchButtonListener() {
@@ -255,6 +274,32 @@ public class PdfReaderView {
         if (isChartVisible()) {
             bodyPane.getViewport().add(searchBody);
             setChartVisible(false);
+            saveChartIcon(chart);
+            updateChartButtonIcon();
+        }
+    }
+
+    private void updateChartButtonIcon() {
+        try {
+            chartButton.setVisible(true);
+            String file = new File(CHART_ICON_PATH).getCanonicalPath();
+            Image img = ImageIO.read(new File(file));
+            img = img.getScaledInstance(75,50,2);
+            chartButton.setIcon(new ImageIcon(img));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void saveChartIcon(JFreeChart chart) {
+        int width = 640;   /* Width of the image */
+        int height = 480;  /* Height of the image */
+        File pieChart = null;
+        try {
+            pieChart = new File( new File(CHART_ICON_PATH ).getCanonicalPath());
+            ChartUtilities.saveChartAsJPEG( pieChart , chart , width , height );
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -317,23 +362,27 @@ public class PdfReaderView {
 
 
     private void setChart(TransactionReport report) {
+        txtSearch.setText("");
+        chartButton.setVisible(false);
         setChartVisible(true);
-        chartPanel = createDemoPanel(report);
+        JPanel chartPanel = createChartPanel(report);
         bodyPane.getViewport().add(chartPanel);
     }
 
-    public static JPanel createDemoPanel(TransactionReport report) {
+    public static JPanel createChartPanel(TransactionReport report) {
         JFreeChart chart = createChart(createDataset(report));
-        chartPanel = new ChartPanel(chart);
+        ChartPanel chartPanel = new ChartPanel(chart);
         return chartPanel;
     }
 
     private static PieDataset createDataset(TransactionReport report) {
-        Set keys = report.getKeys();
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        for (Object key : keys) {
-            double total = getGroupTotal((String) key, report);
-            dataset.setValue((String) key, total);
+        if (dataset == null) {
+            dataset = new DefaultPieDataset();
+            Set keys = report.getKeys();
+            for (Object key : keys) {
+                double total = getGroupTotal((String) key, report);
+                dataset.setValue((String) key, total);
+            }
         }
         return dataset;
     }
@@ -344,7 +393,7 @@ public class PdfReaderView {
     }
 
     private static JFreeChart createChart(PieDataset dataset) {
-        JFreeChart chart = ChartFactory.createPieChart(
+        chart = ChartFactory.createPieChart(
                 "Expenditure",   // chart title
                 dataset,          // data
                 true,             // include legend

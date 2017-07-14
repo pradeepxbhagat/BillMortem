@@ -103,14 +103,14 @@ public class MainView {
     private void openPdfReader(Pdf pdf) {
         close();
 //        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        JFrame frame = new JFrame("PdfReaderView");
+        JFrame frame = new JFrame("PDF Reader");
 //        frame.setLocation(dim.width/2-frame.getSize().width/2 - 200, dim.height/2-frame.getSize().height/2  -200);
 
         frame.setContentPane(new PdfReaderView(frame, pdf, canUseCache).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
+//        frame.setUndecorated(true);
         frame.pack();
         frame.setVisible(true);
     }
