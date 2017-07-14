@@ -396,7 +396,7 @@ public class PdfReaderView {
         chart = ChartFactory.createPieChart(
                 "Expenditure",   // chart title
                 dataset,          // data
-                true,             // include legend
+                false,             // include legend
                 true,
                 false);
 
