@@ -2,6 +2,7 @@ package com.billmartam.cache;
 
 import com.billmartam.TImeComplexityTestCase;
 import com.billmartam.report.TransactionReport;
+import com.billmartam.transaction.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,11 +18,11 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         TransactionReportCache reportCache = new TransactionReportCache();
         reportCache.setFileName("temp1");
 
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         reportCache.setReport(transactionReport);
@@ -35,11 +36,11 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         TransactionReportCache reportCache = new TransactionReportCache();
         reportCache.setFileName("temp1");
 
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         reportCache.setReport(transactionReport);
@@ -56,18 +57,20 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         TransactionReportCache reportCache = new TransactionReportCache();
         reportCache.setFileName("temp1");
 
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+
+
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         reportCache.setReport(transactionReport);
@@ -84,18 +87,19 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         TransactionReportCache reportCache = new TransactionReportCache();
         reportCache.setFileName("folder1/folder2/folder3/file.pdf");
 
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         reportCache.setReport(transactionReport);
@@ -112,17 +116,18 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
         TransactionReportCache reportCache = new TransactionReportCache();
         reportCache.setFileName("folder1/folder2/folder3/file1.pdf");
 
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         reportCache.setReport(transactionReport);
@@ -137,11 +142,11 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
     // test for saving password protected file
     @Test
     public void test_report_reading_password_file1() {
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
 
@@ -160,11 +165,11 @@ public class ReportsCacheManagerTest extends TImeComplexityTestCase{
 
     @Test
     public void test_report_reading_unprotected_file() {
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
 

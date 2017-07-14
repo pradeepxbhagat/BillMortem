@@ -2,6 +2,7 @@ package com.billmartam.report;
 
 import com.billmartam.parser.HdfcBillParserTest;
 import com.billmartam.pdf.Pdf;
+import com.billmartam.transaction.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,11 +37,11 @@ public class ReportGeneratorTest {
     @Test
     public void calculate_total(){
         ReportGenerator genrator = ReportGenerator.getGenerator();
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
 

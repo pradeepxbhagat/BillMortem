@@ -7,6 +7,7 @@ import com.billmartam.parser.*;
 import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
 import com.billmartam.transaction.TransactionSearch;
+import com.billmartam.util.Util;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -109,7 +110,7 @@ public class PdfReaderView {
     }
 
     private void setPdfBody(TransactionReport report) {
-        pdfBody.setText(report == null ? "" : "Total: " + report.getTotal() + "\n \n" + report.toString());
+        pdfBody.setText(report == null ? "" : "Total: " + report.getFormattedTotal() + "\n \n" + report.toString());
     }
 
     private String convertToHtml(TransactionReport report) {
@@ -139,6 +140,7 @@ public class PdfReaderView {
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (pdfBody.getSelectedText() != null) { // See if they selected something
+                    doReload();
                     setSearchText(pdfBody.getSelectedText());
                     doSearch();
                 }
@@ -217,8 +219,6 @@ public class PdfReaderView {
         if (searchText.trim().length() > 0) {
             TransactionReport report = getReport(pdfData);
 
-            searchText = modifySearch(searchText);
-
             TransactionSearch search = TransactionSearch.getSearchEngine(report);
 //            TransactionReport searchedTransaction = search.searchTransaction(searchText);
 //            String result = getProcessedResult(searchedTransaction);
@@ -236,7 +236,7 @@ public class PdfReaderView {
         }
         double totalExpenditure = getTotal(searchedTransaction);
         StringBuffer buffer = new StringBuffer("<h3 style:'color:green'>Total expenditure: ");
-        buffer.append(totalExpenditure);
+        buffer.append(Util.getTwoDecimalFormat(totalExpenditure));
 
         for (Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
             buffer.append("<br/>");
@@ -244,9 +244,9 @@ public class PdfReaderView {
             buffer.append(val.getKey());
             buffer.append("</h3>");
             buffer.append("<h2> Total: ");
-            buffer.append(val.getValue().getTotal());
+            buffer.append(val.getValue().getFormattedTotal());
             buffer.append("</h2>");
-            buffer.append(val.getValue().toString().replace("\r\n", " <br/>").replace("\n", "<br/> "));
+            buffer.append(val.getValue().toString().replace("\r\n", " <br/><br/>").replace("\n", "<br/> <br/>"));
             buffer.append("<br/>");
         }
         return buffer.toString();
@@ -269,11 +269,6 @@ public class PdfReaderView {
         String data = searchedTransaction.toString().replace("\r\n", " <br/>").replace("\n", "<br/> ");
         result += expenditure + "</h3>\n" + "\n" + data;
         return result;
-    }
-
-    private String modifySearch(String searchText) {
-        searchText = searchText.replace(" ", ",");
-        return searchText;
     }
 
     private TransactionReport getReport(Pdf pdfData) {

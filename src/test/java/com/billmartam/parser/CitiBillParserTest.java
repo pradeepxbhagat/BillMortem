@@ -34,7 +34,9 @@ public class CitiBillParserTest {
         Pdf pdf = new Pdf();
         pdf.setData(raw);
         TransactionReport parse = parser.parse(pdf,false);
-        Assert.assertTrue(parse.getContents().get(0).equals("22/04 74332747113 PLATINUM SUPER STORE     PUNE 405.00") && parse.getContents().get(parse.getContents().size() - 1).equals("15/05 74766517135 SHELL INDIA MARKETS PV   PUNE 311.50"));
+        System.out.println(parse.getContents().get(0).toString());
+        System.out.println(parse.getContents().get(3).toString());
+        Assert.assertTrue(parse.getContents().get(0).toString().equals("22/04 74332747113 PLATINUM SUPER STORE     PUNE 405.0") && parse.getContents().get(parse.getContents().size() - 1).toString().equals("15/05 74766517135 SHELL INDIA MARKETS PV   PUNE 311.5"));
     }
 
     public static String raw = "CITIBANK REWARDS PLATINUM CARD \n" +

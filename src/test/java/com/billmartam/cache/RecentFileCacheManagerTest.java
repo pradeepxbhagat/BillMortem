@@ -44,9 +44,10 @@ public class RecentFileCacheManagerTest {
 
     @Test
     public void test_paths_reading_path(){
+        test_paths_storing();
         CacheManager storage = RecentFileCacheManager.getManager();
         Set<Object> result = (Set<Object>) storage.read(RecentFileCacheManager.RECENT_FILE_STORAGE_FILE);
-        FileSpecification actual = new FileSpecification("/pradeep/pankaj/this_is_a_path",System.currentTimeMillis());
+        FileSpecification actual = new FileSpecification("/./././././main/res/sample.pdf",System.currentTimeMillis());
         Assert.assertEquals(true,result.contains(actual));
     }
 

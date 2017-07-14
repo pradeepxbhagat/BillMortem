@@ -10,13 +10,13 @@
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:91px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:149px:noGrow"/>
+    <colspec value="fill:167px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:378px:grow"/>
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:max(d;4px):noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="825" height="400"/>
+      <xy x="20" y="20" width="843" height="400"/>
     </constraints>
     <properties/>
     <border type="line"/>
@@ -71,6 +71,8 @@
             <constraints/>
             <properties>
               <editable value="false"/>
+              <font name="Arial" size="10" style="1"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
@@ -85,7 +87,10 @@
         <children>
           <component id="a0f17" class="javax.swing.JEditorPane" binding="searchBody">
             <constraints/>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+              <font name="Arial" size="10" style="3"/>
+            </properties>
           </component>
         </children>
       </scrollpane>

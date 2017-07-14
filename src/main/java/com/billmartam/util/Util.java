@@ -1,5 +1,6 @@
 package com.billmartam.util;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -53,5 +54,11 @@ public class Util {
             return false;
         }
         return true;
+    }
+
+    public static String getTwoDecimalFormat(double val) {
+        DecimalFormat decimalFormat = new DecimalFormat();
+        decimalFormat.setMaximumFractionDigits(2);
+        return decimalFormat.format(val);
     }
 }

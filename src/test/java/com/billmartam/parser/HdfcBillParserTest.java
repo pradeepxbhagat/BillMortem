@@ -12,76 +12,91 @@ import java.util.List;
 /**
  * Created by pp00344204 on 27/06/17.
  */
-public class HdfcBillParserTest extends TImeComplexityTestCase{
+public class HdfcBillParserTest extends TImeComplexityTestCase {
     @Test
-    public void convertToLines(){
+    public void convertToLines() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData(raw);
-        TransactionReport transactionReport = parser.parse(pdf,false);
+        TransactionReport transactionReport = parser.parse(pdf, false);
         Assert.assertTrue(transactionReport.getContents().size() > 0);
     }
 
     @Test
-    public void convert_to_lines_empty_data(){
+    public void convert_to_lines_empty_data() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData("");
-        TransactionReport transactionReport = parser.parse(pdf,false);
+        TransactionReport transactionReport = parser.parse(pdf, false);
         Assert.assertNull(transactionReport);
     }
 
     @Test
-    public void test_other_prdf_data(){
+    public void test_other_prdf_data() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData("this is other com.billmartam.pdf data");
-        TransactionReport transactionReport = parser.parse(pdf,false);
+        TransactionReport transactionReport = parser.parse(pdf, false);
         Assert.assertNull(transactionReport);
     }
 
     @Test
-    public void test_cached_pdf1_null_test(){
+    public void test_cached_pdf1_null_test() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData(raw);
         pdf.setFilePath("root/folder1/folder2/file.pdf");
-        TransactionReport transactionReport = parser.parse(pdf,true);
-        Assert.assertNotNull("NULL test passed",transactionReport);
+        TransactionReport transactionReport = parser.parse(pdf, true);
+        Assert.assertNotNull("NULL test passed", transactionReport);
     }
 
     @Test
-    public void test_cached_pdf_not_cached(){
+    public void test_cached_pdf_not_cached() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData(raw);
         pdf.setFilePath("root/folder1/folder2/file.pdf");
-        TransactionReport transactionReport = parser.parse(pdf,true);
+        TransactionReport transactionReport = parser.parse(pdf, true);
         Assert.assertNotNull(transactionReport);
     }
 
     @Test
-    public void test_cached_pdf_cached(){
+    public void test_cached_pdf_cached() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData(raw);
         pdf.setFilePath("root/folder1/folder2/file.pdf");
-        TransactionReport transactionReport = parser.parse(pdf,true);
+        TransactionReport transactionReport = parser.parse(pdf, true);
         Assert.assertNotNull(transactionReport);
     }
 
     @Test
-    public void test_transaction_model(){
+    public void test_transaction_model() {
         Parser parser = new HdfcBillParser();
         Pdf pdf = new Pdf();
         pdf.setData(raw);
 
-        TransactionReport transactionReport = parser.parse(pdf,false);
-//        List<Transaction> transaction = transactionReport.getContents();
-        String result = "05/05/2017"+"www.vodafone.in        MUMBAI"+"356.50";
-//        String actual = transaction.getDate()+transaction.getDiscription()+transaction.getPrice();
+        TransactionReport transactionReport = parser.parse(pdf, false);
+        Transaction transaction = transactionReport.getContents().get(0);
+        String result = "05/05/2017" + " www.vodafone.in        MUMBAI " + "356.5";
+        String actual = transaction.toString().trim();
+        System.out.println(result);
 
-//        Assert.assertEquals(result,actual);
+        Assert.assertEquals(result.toUpperCase(), actual);
+    }
+
+    @Test
+    public void test_transaction_model1() {
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(raw);
+
+        TransactionReport transactionReport = parser.parse(pdf, false);
+        Transaction transaction = transactionReport.getContents().get(transactionReport.getContents().size() - 1);
+        String result = "02/06/2017 PETRO SURCHARGE WAIVER 10.01 Cr";
+        String actual = transaction.toString().trim();
+
+        Assert.assertTrue(result.toUpperCase().equals(actual));
     }
 
     public final static String raw = "In case any of your personal details have changed, you can\n" +
@@ -204,7 +219,7 @@ public class HdfcBillParserTest extends TImeComplexityTestCase{
             "02/06/2017 PAYTM APP              NOIDA 15.00  \n" +
             "02/06/2017 SHELL INDIA MARKETS PV PUNE 1,011.50  \n" +
             "02/06/2017 PAYTM MOBILE SOLUT INR www.paytm.in 50.00  \n" +
-            "   02/06/2017 PETRO SURCHARGE WAIVER 10.01 Cr\n" +
+            "02/06/2017 PETRO SURCHARGE WAIVER 10.01 Cr\n" +
             "Reward Points Summary\n" +
             "Titanium Times Card Credit Card Statement\n" +
             " Page 2 of 4";

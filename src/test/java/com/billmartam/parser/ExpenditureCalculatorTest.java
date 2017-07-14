@@ -76,14 +76,11 @@ public class ExpenditureCalculatorTest {
     @SuppressWarnings("unchecked")
     @Test
     public void find_prices_with_string_having_int() {
-        String raw = "05/05/2017 www.vodafone.in        MUMBAI  43\n" +
-                "05/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 33.00  ";
+        String raw = "05/05/2017 www.vodafone.in        MUMBAI  43\n";
         ExpenditureCalculator finder = ExpenditureCalculator.getCalculator();
         List<Transaction> prices = finder.findExpenditures(raw);
-
-        List<Transaction> actual = new ArrayList();
-        actual.add(new Transaction(33.00f));
-        Assert.assertEquals(actual, prices);
+        float actual = 0;
+        Assert.assertEquals(actual, prices.size(),0.0);
     }
 
     @Test

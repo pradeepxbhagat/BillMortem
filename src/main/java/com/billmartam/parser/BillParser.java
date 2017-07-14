@@ -5,6 +5,7 @@ import com.billmartam.cache.ReportsCacheManager;
 import com.billmartam.cache.TransactionReportCache;
 import com.billmartam.pdf.Pdf;
 import com.billmartam.report.TransactionReport;
+import com.billmartam.transaction.Transaction;
 import com.billmartam.util.Util;
 
 import java.util.ArrayList;
@@ -49,11 +50,14 @@ abstract class BillParser implements Parser {
             if (startedIndexFound(transactionStartIndex)) {
                 int transactionEndIndex = getTransactionEndIndex(lines, transactionStartIndex);
 
-                List<String> transactions = new ArrayList<>();
+                List<Transaction> transactions = new ArrayList<>();
                 for (int i = transactionStartIndex; i < transactionEndIndex; i++) {
-                    String transaction = isTransaction(lines[i].trim().toUpperCase());
-                    if (transaction != null) {
-                        transactions.add(transaction);
+                    String transactionStr = isTransaction(lines[i].trim().toUpperCase());
+                    if (transactionStr != null) {
+                        Transaction transaction = getTransactionModel(transactionStr);
+                        if(transaction.getPrice() != -1) {
+                            transactions.add(transaction);
+                        }
                     }
                 }
                 transactionReport.setContents(transactions);
@@ -61,6 +65,50 @@ abstract class BillParser implements Parser {
             }
         }
         return null;
+    }
+
+    protected Transaction getTransactionModel(String transactionStr) {
+
+        Transaction transaction = new Transaction();
+        String[] words = transactionStr.split(" ");
+        transaction.setDate(words[0]);
+        transaction.setCredit(getCredit(words));
+        transaction.setPrice(getPrice(words));
+        transaction.setDescription(getDescription(words));
+        return transaction;
+    }
+
+    protected String getDescription(String[] words) {
+        int len = words.length - 2;
+        if (getCredit(words)) {
+            len--;
+        }
+        return getDescriptionString(words, len);
+    }
+
+    protected String getDescriptionString(String[] words, int len) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 1; i <= len; i++) {
+//            String word = words[i].equals("")?" ":words[i];
+            stringBuffer.append(words[i]);
+            stringBuffer.append(" ");
+        }
+        return stringBuffer.toString().trim();
+    }
+
+    protected boolean getCredit(String[] words) {
+        return words[words.length - 1].equals("CR");
+    }
+
+    protected float getPrice(String[] words) {
+        float price = -1;
+        String lastWord = words[words.length - 1].replace(",","");
+        if(getCredit(words)){
+            price = Float.parseFloat(words[words.length - 2].replace(",",""));
+        }else if(Util.isFloatingNumber(lastWord)){
+            price = Float.parseFloat(lastWord);
+        }
+        return price;
     }
 
     private TransactionReportCache getCachedTransactionReport(Pdf pdf) {

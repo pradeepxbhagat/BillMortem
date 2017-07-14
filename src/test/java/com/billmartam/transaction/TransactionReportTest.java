@@ -14,11 +14,11 @@ public class TransactionReportTest {
 
     @Test
     public void testtotalOfTransactionReport(){
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
         double result = transactionReport.getTotal();
@@ -27,17 +27,46 @@ public class TransactionReportTest {
     }
 
     @Test
+    public void testformattedtotalOfTransactionReport(){
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.55f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+        String result = transactionReport.getFormattedTotal();
+        String actual = "1,024.55";
+        Assert.assertEquals(actual, result);
+    }
+
+    @Test
     public void individualKeysTest() throws Exception {
-        List<String> contents = new ArrayList<>();
-        contents.add("15/05/2017 PAYTM APP              NOIDA 100.00");
-        contents.add("16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  ");
-        contents.add("17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00");
-        contents.add("18/05/2017 PATANJALI              PUNE 760.00 ");
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 64.00f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
         TransactionReport transactionReport = new TransactionReport();
         transactionReport.setContents(contents);
 
         int size = transactionReport.getKeys().size();
         Assert.assertEquals(3,size);
+
+    }
+
+    @Test
+    public void totaltest() throws Exception {
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 40.50f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+
+        double total = transactionReport.getTotal();
+        Assert.assertEquals(1000.50f,total,0);
 
     }
 }

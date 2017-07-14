@@ -1,8 +1,11 @@
 package com.billmartam.report;
 
 import com.billmartam.expenditure.ExpenditureCalculator;
+import com.billmartam.transaction.Transaction;
+import com.billmartam.util.Util;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,20 +14,20 @@ import java.util.Set;
  * Created by pp00344204 on 06/06/17.
  */
 public class TransactionReport implements Serializable{
-    private List<String> contents;
+    private List<Transaction> contents;
 
     public TransactionReport() {
     }
 
-    public TransactionReport(List<String> contents) {
+    public TransactionReport(List<Transaction> contents) {
         this.contents = contents;
     }
 
-    public List<String> getContents() {
+    public List<Transaction> getContents() {
         return contents;
     }
 
-    public void setContents(List<String> contents) {
+    public void setContents(List<Transaction> contents) {
         this.contents = contents;
     }
 
@@ -46,22 +49,26 @@ public class TransactionReport implements Serializable{
     @Override
     public String toString() {
         String result = "";
-        for(String content : contents){
-            result+=content+"\n";
+        for(Transaction content : contents){
+            result+=content.getDate()+" "+content.getDescription()+" "+content.getPrice()+"\n";
         }
         return result.trim();
     }
 
     public double getTotal(){
         ExpenditureCalculator calculator = ExpenditureCalculator.getCalculator();
-        return Math.floor(calculator.calculateTotalExpenditure(this));
+        return calculator.calculateTotalExpenditure(this);
     }
 
     public Set getKeys() {
         Set keys = new HashSet();
-        for(String key : contents){
-            keys.add(key);
+        for(Transaction key : contents){
+            keys.add(key.getDescription());
         }
         return keys;
+    }
+
+    public String getFormattedTotal() {
+        return Util.getTwoDecimalFormat(getTotal());
     }
 }

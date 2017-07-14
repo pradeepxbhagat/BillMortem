@@ -26,10 +26,10 @@ public class TransactionSearch {
     }
 
     private Map<String, TransactionReport> processSearchTerms(String[] terms) {
-        List<String> contents = transactionReport.getContents();
+        List<Transaction> contents = transactionReport.getContents();
         Map<String, TransactionReport> reports = initReportSearchMap(terms);
-        for(String content : contents){
-            String term = findTermInContent(content, terms);
+        for(Transaction content : contents){
+            String term = findTermInContent(content.toString(), terms);
             if (contentHasSearchTerm(term)){
                 reports.get(term).getContents().add(content);
             }
@@ -53,14 +53,14 @@ public class TransactionSearch {
         if(transactionReport == null) {
             return null;
         }
-        List<String> contents = transactionReport.getContents();
+        List<Transaction> contents = transactionReport.getContents();
         if(contents.size() <= 0){
             return null;
         }
         String[] terms = getSearchTerms(searchTerm);
-        List<String> searchResults = new ArrayList<>();
-        for(String transaction : contents){
-            if(contentHasSearchTerm(findTermInContent(transaction, terms))){
+        List<Transaction> searchResults = new ArrayList<>();
+        for(Transaction transaction : contents){
+            if(contentHasSearchTerm(findTermInContent(transaction.toString(), terms))){
                 searchResults.add(transaction);
             }
         }
@@ -71,7 +71,7 @@ public class TransactionSearch {
 
     private String[] getSearchTerms(String searchTerm) {
         searchTerm = searchTerm.toUpperCase();
-        searchTerm = Util.replaceSpaceInStringWithComma(searchTerm);
+//        searchTerm = Util.replaceSpaceInStringWithComma(searchTerm);
         return Util.getCommaSplittedString(searchTerm, ",");
     }
 

@@ -1,5 +1,6 @@
 package com.billmartam.parser;
 
+import com.billmartam.util.TextSearch;
 import com.billmartam.util.Util;
 
 /**
@@ -21,5 +22,23 @@ public class CitiBillParser extends BillParser {
     protected String isTransaction(String raw) {
         String[] words = raw.split(" ");
         return Util.isCitiDateFormat(words[0]) ? raw : null;
+    }
+
+    @Override
+    protected boolean getCredit(String[] words) {
+        String word = words[words.length -1];
+        return TextSearch.search("CR",word);
+    }
+
+    @Override
+    protected float getPrice(String[] words) {
+        return getCredit(words)? Float.parseFloat(words[words.length -1].replace("CR","")) : Float.parseFloat(words[words.length -1]);
+    }
+
+    @Override
+    protected String getDescription(String[] words) {
+        int len = words.length -2;
+
+        return getDescriptionString(words,len);
     }
 }

@@ -15,7 +15,6 @@ public class ExpenditureCalculator {
     }
 
     public float findExpenditure(String raw) {
-        //String raw = "PAYTM MOBILE SOLUT INR www.paytm.in 33.00";
         String[] words = getWords(raw);
         String lastWord = getLastWord(words);
         return Util.isFloatingNumber(lastWord) ? Float.parseFloat(lastWord) : -1;
@@ -70,10 +69,10 @@ public class ExpenditureCalculator {
     }
 
     public double calculateTotalExpenditure(TransactionReport searchedTransactions) {
-        List<String> contents = searchedTransactions.getContents();
+        List<Transaction> contents = searchedTransactions.getContents();
         double total = 0;
-        for(String content :contents){
-            float price = findExpenditure(content);
+        for(Transaction content :contents){
+            float price = content.getPrice();
             if(price != -1){
                 total+=price;
             }
