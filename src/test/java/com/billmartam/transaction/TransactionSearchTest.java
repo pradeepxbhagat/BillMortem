@@ -42,7 +42,7 @@ public class TransactionSearchTest {
 
 
         TransactionSearch search = TransactionSearch.getSearchEngine(transactionReport);
-        TransactionReport searchReport = search.searchTransaction("PAYTM PATANJALI");
+        TransactionReport searchReport = search.searchTransaction("PAYTM,PATANJALI");
 
         Assert.assertTrue(searchReport.getContents().size() > 0);
     }
@@ -59,7 +59,7 @@ public class TransactionSearchTest {
 
 
         TransactionSearch search = TransactionSearch.getSearchEngine(transactionReport);
-        Map<String,TransactionReport> searchReport = search.getIndividualSearchTransaction("PAYTM PATANJALI");
+        Map<String,TransactionReport> searchReport = search.getIndividualSearchTransaction("PAYTM,PATANJALI");
 
         Assert.assertTrue(searchReport.get("PAYTM").getContents().size() ==3 &&searchReport.get("PATANJALI").getContents().size() ==1 );
     }

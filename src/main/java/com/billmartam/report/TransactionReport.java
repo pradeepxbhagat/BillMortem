@@ -1,5 +1,6 @@
 package com.billmartam.report;
 
+import com.billmartam.pdf.Pdf;
 import com.billmartam.transaction.Transaction;
 import com.billmartam.util.Util;
 
@@ -13,6 +14,7 @@ import java.util.Set;
  */
 public class TransactionReport implements Serializable{
     private List<Transaction> contents;
+    private Pdf pdf;
 
     public TransactionReport() {
     }
@@ -74,5 +76,13 @@ public class TransactionReport implements Serializable{
 
     public String getFormattedTotalExpenditure() {
         return Util.getTwoDecimalFormat(getTotalExpenditure());
+    }
+
+    public void setOrigin(Pdf pdf) {
+        this.pdf = pdf;
+    }
+
+    public Pdf getOrigin() {
+        return pdf;
     }
 }

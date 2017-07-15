@@ -61,6 +61,7 @@ abstract class BillParser implements Parser {
                     }
                 }
                 transactionReport.setContents(transactions);
+                transactionReport.setOrigin(pdf);
                 return transactionReport;
             }
         }

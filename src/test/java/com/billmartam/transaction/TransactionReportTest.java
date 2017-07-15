@@ -1,5 +1,8 @@
 package com.billmartam.transaction;
 
+import com.billmartam.parser.HdfcBillParser;
+import com.billmartam.parser.HdfcBillParserTest;
+import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
 import com.billmartam.report.TransactionReport;
@@ -67,6 +70,32 @@ public class TransactionReportTest {
 
         double total = transactionReport.getTotalExpenditure();
         Assert.assertEquals(1000.50f,total,0);
+
+    }
+
+    @Test
+    public void origintest() throws Exception {
+        Pdf pdf = new Pdf();
+        pdf.setFilePath("some file path");
+        pdf.setData("Date  Transaction Description Amount (in Rs.)\n" +
+                "15/05/2017 PAYTM APP              NOIDA 100.00  \n" +
+                "16/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  \n" +
+                "17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 64.00  \n" +
+                "17/05/2017 PAYTM MOBILE SOLUT INR www.paytm.in 100.00  \n" +
+                "18/05/2017 PATANJALI              PUNE 760.00  \n" +
+                "Reward Points Summary\n");
+
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 40.50f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+        transactionReport.setOrigin(pdf);
+
+        Assert.assertNotNull(transactionReport.getOrigin());
 
     }
 }

@@ -49,6 +49,7 @@ public class PdfReaderView {
     private JButton clearCacheButton;
     private JScrollPane bodyPane;
     private JButton chartButton;
+    private JButton showOriginButton;
     private JFrame frame;
     private boolean canUseCache;
     private Pdf pdfData;
@@ -75,6 +76,15 @@ public class PdfReaderView {
         setCacheCheckBoxListener();
         setClearCacheButtonListener();
         setChartButtonListener();
+        setOriginButtonListener();
+    }
+
+    private void setOriginButtonListener() {
+        showOriginButton.addActionListener(a->{
+            doReload();
+            hideChart();
+           setSearchBody(convertToHtml(report.getOrigin().getData()));
+        });
     }
 
     private void setChartButtonListener() {
@@ -242,7 +252,7 @@ public class PdfReaderView {
 
     private void doReload() {
         txtSearch.setText("");
-        searchBody.setText("");
+        setSearchBody("");
         chartButton.setVisible(false);
         dataset = null;
     }
@@ -266,8 +276,12 @@ public class PdfReaderView {
             String result = getProcessedResult(searchedTransaction);
 
             hideChart();
-            searchBody.setText(result);
+            setSearchBody(result);
         }
+    }
+
+    private void setSearchBody(String result) {
+        searchBody.setText(result);
     }
 
     private void hideChart() {
@@ -275,8 +289,8 @@ public class PdfReaderView {
             bodyPane.getViewport().add(searchBody);
             setChartVisible(false);
             saveChartIcon(chart);
-            updateChartButtonIcon();
         }
+        updateChartButtonIcon();
     }
 
     private void updateChartButtonIcon() {

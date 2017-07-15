@@ -13,6 +13,8 @@ Features:
     Search by amount
 
     Search term selection by mouse
+    
+    Full pdf viewer
 
 ![](https://github.com/pradeepxpankaj/BillMortem/blob/master/src/main/res/1.png)
 
