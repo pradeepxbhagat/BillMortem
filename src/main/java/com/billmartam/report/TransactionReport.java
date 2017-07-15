@@ -2,12 +2,11 @@ package com.billmartam.report;
 
 import com.billmartam.pdf.Pdf;
 import com.billmartam.transaction.Transaction;
+import com.billmartam.transaction.TransactionSearch;
 import com.billmartam.util.Util;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by pp00344204 on 06/06/17.
@@ -84,5 +83,30 @@ public class TransactionReport implements Serializable{
 
     public Pdf getOrigin() {
         return pdf;
+    }
+
+    public Map<String, List<Transaction>> getDistinctReport() {
+        Set keys = getKeys();
+        TransactionSearch search = TransactionSearch.getSearchEngine(this);
+        Map<String, TransactionReport> transactions = search.getIndividualSearchTransaction(Util.join(keys));
+
+        Map<String, List<Transaction>> distinctReport = new HashMap<>();
+        for(String key : transactions.keySet()){
+            distinctReport.put(key, transactions.get(key).getContents());
+        }
+        return distinctReport;
+    }
+
+
+    public Map<String, Double> getDistinctKeyTotalReport() {
+        Set keys = getKeys();
+        TransactionSearch search = TransactionSearch.getSearchEngine(this);
+        Map<String, TransactionReport> transactions = search.getIndividualSearchTransaction(Util.join(keys));
+
+        Map<String, Double> distinctReport = new HashMap<>();
+        for(String key : transactions.keySet()){
+            distinctReport.put(key, transactions.get(key).getTotalExpenditure());
+        }
+        return distinctReport;
     }
 }

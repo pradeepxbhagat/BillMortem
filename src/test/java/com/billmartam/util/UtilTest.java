@@ -3,6 +3,9 @@ package com.billmartam.util;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by pp00344204 on 06/06/17.
  */
@@ -60,6 +63,18 @@ public class UtilTest {
     public void test_getCommaSplittedString() {
         String[] result = Util.getCommaSplittedString("pradeep,pankaj",",");
         Assert.assertArrayEquals(new String[]{"pradeep","pankaj"},result);
+    }
+
+    @Test
+    public void collection_join() throws Exception {
+        Set<String> keys = new HashSet<>();
+        keys.add("pradeep");
+        keys.add("pankaj");
+        keys.add("neha");
+
+        String actual = "pradeep,neha,pankaj";
+
+        Assert.assertEquals(actual, Util.join(keys));
     }
 
     @Test

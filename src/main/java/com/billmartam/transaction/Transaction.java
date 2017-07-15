@@ -21,7 +21,7 @@ public class Transaction implements Serializable{
 
     public Transaction(String date, String description, float price) {
         this.date = date;
-        this.description = description;
+        setDescription(description);
         this.price = price;
     }
 
@@ -30,7 +30,7 @@ public class Transaction implements Serializable{
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description.replace(",","");
     }
 
     public String getDate() {

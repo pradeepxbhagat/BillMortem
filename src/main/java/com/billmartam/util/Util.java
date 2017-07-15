@@ -3,6 +3,7 @@ package com.billmartam.util;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Set;
 
 /**
  * Created by pp00344204 on 06/06/17.
@@ -60,5 +61,9 @@ public class Util {
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMaximumFractionDigits(2);
         return decimalFormat.format(val);
+    }
+
+    public static String join(Set keys) {
+        return keys.toString().replace("[", "").replace("]", "").replace(", ", ",");
     }
 }

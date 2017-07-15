@@ -80,16 +80,16 @@ public class PdfReaderView {
     }
 
     private void setOriginButtonListener() {
-        showOriginButton.addActionListener(a->{
+        showOriginButton.addActionListener(a -> {
             doReload();
             hideChart();
-           setSearchBody(convertToHtml(report.getOrigin().getData()));
+            setSearchBody(convertToHtml(report.getOrigin().getData()));
         });
     }
 
     private void setChartButtonListener() {
         chartButton.addActionListener(a -> {
-            if(!isChartVisible()) {
+            if (!isChartVisible()) {
                 setChart(report);
             }
         });
@@ -298,7 +298,7 @@ public class PdfReaderView {
             chartButton.setVisible(true);
             String file = new File(CHART_ICON_PATH).getCanonicalPath();
             Image img = ImageIO.read(new File(file));
-            img = img.getScaledInstance(75,50,2);
+            img = img.getScaledInstance(75, 50, 2);
             chartButton.setIcon(new ImageIcon(img));
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -310,8 +310,8 @@ public class PdfReaderView {
         int height = 480;  /* Height of the image */
         File pieChart = null;
         try {
-            pieChart = new File( new File(CHART_ICON_PATH ).getCanonicalPath());
-            ChartUtilities.saveChartAsJPEG( pieChart , chart , width , height );
+            pieChart = new File(new File(CHART_ICON_PATH).getCanonicalPath());
+            ChartUtilities.saveChartAsJPEG(pieChart, chart, width, height);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -392,10 +392,10 @@ public class PdfReaderView {
     private static PieDataset createDataset(TransactionReport report) {
         if (dataset == null) {
             dataset = new DefaultPieDataset();
-            Set keys = report.getKeys();
+            Map<String, Double> distinctKeyTotalReport = report.getDistinctKeyTotalReport();
+            Set keys = distinctKeyTotalReport.keySet();
             for (Object key : keys) {
-                double total = getGroupTotal((String) key, report);
-                dataset.setValue((String) key, total);
+                dataset.setValue((String) key, distinctKeyTotalReport.get(key));
             }
         }
         return dataset;
