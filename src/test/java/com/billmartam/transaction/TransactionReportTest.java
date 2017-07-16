@@ -129,4 +129,18 @@ public class TransactionReportTest {
         String key = "PAYTM MOBILE SOLUT INR www.paytm.in";
         Assert.assertEquals(140.50,values.get(key.toUpperCase()),0);
     }
+
+    @Test
+    public void getArtificialDistinctKeyandtotalTest() throws Exception {
+        List<Transaction> contents = new ArrayList<>();
+        contents.add(new Transaction("15/05/2017", "PAYTM APP              NOIDA", 100.00f));
+        contents.add(new Transaction("16/05/2017", "PAYTM MOBILE SOLUT, INR www.paytm.in", 100.00f));
+        contents.add(new Transaction("17/05/2017", "PAYTM MOBILE SOLUT INR www.paytm.in", 40.50f));
+        contents.add(new Transaction("18/05/2017", "PATANJALI              PUNE ", 760.00f));
+        TransactionReport transactionReport = new TransactionReport();
+        transactionReport.setContents(contents);
+
+        Map<String, Double> values = transactionReport.getArtificialDistinctKeyTotalReport();
+        Assert.assertEquals(240.5, values.get("PAYTM").doubleValue(),0);
+    }
 }

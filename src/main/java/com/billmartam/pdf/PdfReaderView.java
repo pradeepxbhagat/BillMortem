@@ -8,11 +8,8 @@ import com.billmartam.pdf.util.PdfFileOpener;
 import com.billmartam.report.TransactionReport;
 import com.billmartam.transaction.TransactionSearch;
 import com.billmartam.util.Util;
-import com.sun.deploy.util.StringUtils;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
+import org.jfree.chart.*;
+import org.jfree.data.general.Dataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
@@ -33,12 +30,13 @@ import java.util.Set;
  * Created by pp00344204 on 13/06/17.
  */
 public class PdfReaderView {
-    public static final String CHART_ICON_PATH = "src/main/res/PieChart.jpeg";
+    public static final String RESOURCE_DIR = "src/main/res";
+    public static final String CHART_ICON_PATH = RESOURCE_DIR + "/PieChart.jpeg";
 
-    private static DefaultPieDataset dataset;
+    private static DefaultPieDataset allDataset;
     private static JFreeChart chart;
     private String htmlPdfData;
-    private JButton btnNew;
+    private JButton newPdfButton;
     protected JPanel panel1;
     private JTextField txtSearch;
     private JButton searchButton;
@@ -48,8 +46,9 @@ public class PdfReaderView {
     private JCheckBox useCacheCheckBox;
     private JButton clearCacheButton;
     private JScrollPane bodyPane;
-    private JButton chartButton;
+    private JButton allChartButton;
     private JButton showOriginButton;
+    private JButton aiChartButton;
     private JFrame frame;
     private boolean canUseCache;
     private Pdf pdfData;
@@ -57,6 +56,7 @@ public class PdfReaderView {
     private TransactionReport report;
     private CacheManager cacheManager;
     private boolean chartVisible;
+    private PieDataset aiChartDataSet;
 
     public PdfReaderView(JFrame frame, Pdf pdf) {
         this(frame, pdf, false);
@@ -77,6 +77,46 @@ public class PdfReaderView {
         setClearCacheButtonListener();
         setChartButtonListener();
         setOriginButtonListener();
+        setAIChartButtonListener();
+
+        setActionButtonIcons();
+
+    }
+
+    private void setActionButtonIcons() {
+        try {
+            newPdfButton.setIcon(new ImageIcon(getImage("img_open_file.png")));
+            aiChartButton.setIcon(new ImageIcon(getImage("img_analytics.png")));
+            reloadButton.setIcon(new ImageIcon(getImage("img_refresh.png")));
+            searchButton.setIcon(new ImageIcon(getImage("img_search.png")));
+            allChartButton.setIcon(new ImageIcon(getImage("img_chart.png")));
+            showOriginButton.setIcon(new ImageIcon(getImage("img_pdf.png")));
+            clearCacheButton.setIcon(new ImageIcon(getImage("img_clear_cache.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Image getImage(String filename) throws IOException {
+        String file = new File(RESOURCE_DIR + "/"+filename).getCanonicalPath();
+        Image img = ImageIO.read(new File(file));
+        img = img.getScaledInstance(51, 51, 2);
+        return img;
+    }
+
+    private void setAIChartButtonListener() {
+        aiChartButton.addActionListener(a -> {
+            setAiChart();
+        });
+    }
+
+    private void setAiChart() {
+        txtSearch.setText("");
+        if(aiChartDataSet == null){
+            aiChartDataSet = createTransactionDataset(report.getArtificialDistinctKeyTotalReport());
+        }
+        JPanel chartPanel = createChartPanel(aiChartDataSet);
+        bodyPane.getViewport().add(chartPanel);
     }
 
     private void setOriginButtonListener() {
@@ -88,9 +128,9 @@ public class PdfReaderView {
     }
 
     private void setChartButtonListener() {
-        chartButton.addActionListener(a -> {
+        allChartButton.addActionListener(a -> {
             if (!isChartVisible()) {
-                setChart(report);
+                setAllChart(report);
             }
         });
     }
@@ -121,27 +161,18 @@ public class PdfReaderView {
     private void initBody(Pdf pdf) {
         this.parser = null;
         this.report = null;
-        this.dataset = null;
+        this.allDataset = null;
 
         this.pdfData = pdf;
         searchBody.setContentType("text/html");
-//        pdfBody.setContentType("text/html");
-
         report = getReport(pdf);
-//        htmlPdfData = convertToHtml(com.billmartam.report);
         setPdfBody(report);
-//        groupByDescription(report);
 
-        setChart(report);
-    }
-
-    private void groupByDescription(TransactionReport report) {
-        Set keys = report.getKeys();
-        doSearch(StringUtils.join(keys, ","));
+        setAllChart(report);
     }
 
     private void setBtnNewListener() {
-        btnNew.addActionListener(a -> {
+        newPdfButton.addActionListener(a -> {
             selectNewPdf(frame);
         });
     }
@@ -253,8 +284,7 @@ public class PdfReaderView {
     private void doReload() {
         txtSearch.setText("");
         setSearchBody("");
-        chartButton.setVisible(false);
-        dataset = null;
+        allDataset = null;
     }
 
     private void setSearchButtonListener() {
@@ -264,14 +294,10 @@ public class PdfReaderView {
     }
 
     private void doSearch(String searchText) {
-//        String searchText = getSearchText();
         if (searchText.trim().length() > 0) {
             TransactionReport report = getReport(pdfData);
 
             TransactionSearch search = TransactionSearch.getSearchEngine(report);
-//            TransactionReport searchedTransaction = search.searchTransaction(searchText);
-//            String result = getProcessedResult(searchedTransaction);
-
             Map<String, TransactionReport> searchedTransaction = search.getIndividualSearchTransaction(searchText);
             String result = getProcessedResult(searchedTransaction);
 
@@ -285,21 +311,17 @@ public class PdfReaderView {
     }
 
     private void hideChart() {
-        if (isChartVisible()) {
-            bodyPane.getViewport().add(searchBody);
-            setChartVisible(false);
-            saveChartIcon(chart);
-        }
-        updateChartButtonIcon();
+        bodyPane.getViewport().add(searchBody);
+        saveChartIcon(chart);
+        //updateChartButtonIcon();
     }
 
     private void updateChartButtonIcon() {
         try {
-            chartButton.setVisible(true);
             String file = new File(CHART_ICON_PATH).getCanonicalPath();
             Image img = ImageIO.read(new File(file));
-            img = img.getScaledInstance(75, 50, 2);
-            chartButton.setIcon(new ImageIcon(img));
+            img = img.getScaledInstance(51, 51, 2);
+            allChartButton.setIcon(new ImageIcon(img));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -375,30 +397,46 @@ public class PdfReaderView {
     }
 
 
-    private void setChart(TransactionReport report) {
+    private void setAllChart(TransactionReport report) {
         txtSearch.setText("");
-        chartButton.setVisible(false);
-        setChartVisible(true);
-        JPanel chartPanel = createChartPanel(report);
+        if (allDataset == null) {
+            allDataset = (DefaultPieDataset) createTransactionDataset(report.getDistinctKeyTotalReport());
+        }
+        JPanel chartPanel = createChartPanel(allDataset);
         bodyPane.getViewport().add(chartPanel);
+        //updateChartButtonIcon();
     }
 
-    public static JPanel createChartPanel(TransactionReport report) {
-        JFreeChart chart = createChart(createDataset(report));
+    private JPanel createChartPanel(Dataset dataset) {
+        JFreeChart chart = createPieChart((PieDataset) dataset);
         ChartPanel chartPanel = new ChartPanel(chart);
+        setCharMouseListener(chartPanel);
         return chartPanel;
     }
 
-    private static PieDataset createDataset(TransactionReport report) {
-        if (dataset == null) {
-            dataset = new DefaultPieDataset();
-            Map<String, Double> distinctKeyTotalReport = report.getDistinctKeyTotalReport();
-            Set keys = distinctKeyTotalReport.keySet();
-            for (Object key : keys) {
-                dataset.setValue((String) key, distinctKeyTotalReport.get(key));
+    private void setCharMouseListener(ChartPanel chartPanel) {
+        chartPanel.addChartMouseListener(new ChartMouseListener() {
+
+            public void chartMouseClicked(ChartMouseEvent e) {
+                String search = e.getEntity().getToolTipText().split("=")[0];
+                setSearchText(search);
+                doSearch(search);
             }
+
+            public void chartMouseMoved(ChartMouseEvent e) {
+            }
+
+        });
+    }
+
+    private static PieDataset createTransactionDataset(Map<String, Double> report) {
+        DefaultPieDataset allDataset = new DefaultPieDataset();
+        Set keys = report.keySet();
+        for (Object key : keys) {
+            allDataset.setValue((String) key, report.get(key));
         }
-        return dataset;
+
+        return allDataset;
     }
 
     private static double getGroupTotal(String key, TransactionReport report) {
@@ -406,7 +444,7 @@ public class PdfReaderView {
         return search.searchTransaction(key).getTotalExpenditure();
     }
 
-    private static JFreeChart createChart(PieDataset dataset) {
+    private static JFreeChart createPieChart(PieDataset dataset) {
         chart = ChartFactory.createPieChart(
                 "Expenditure",   // chart title
                 dataset,          // data
@@ -418,7 +456,7 @@ public class PdfReaderView {
     }
 
 
-    public void setChartVisible(boolean chartVisible) {
+    public void isAllChartVisible(boolean chartVisible) {
         this.chartVisible = chartVisible;
     }
 

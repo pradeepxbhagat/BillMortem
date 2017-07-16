@@ -20,4 +20,10 @@ public class TextSearchTest extends TImeComplexityTestCase {
         boolean isPresent = TextSearch.search("paytm","www.paytm.in");
         Assert.assertTrue(isPresent);
     }
+
+    @Test
+    public void testSearch2(){
+        boolean isPresent = TextSearch.search("paytm","www.paytm.in");
+        Assert.assertTrue(isPresent);
+    }
 }

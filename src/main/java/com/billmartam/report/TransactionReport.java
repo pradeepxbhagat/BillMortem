@@ -3,6 +3,7 @@ package com.billmartam.report;
 import com.billmartam.pdf.Pdf;
 import com.billmartam.transaction.Transaction;
 import com.billmartam.transaction.TransactionSearch;
+import com.billmartam.util.TextSearch;
 import com.billmartam.util.Util;
 
 import java.io.Serializable;
@@ -68,7 +69,7 @@ public class TransactionReport implements Serializable{
     public Set getKeys() {
         Set keys = new HashSet();
         for(Transaction key : contents){
-            keys.add(key.getDescription());
+            keys.add(key.getDescription().toUpperCase());
         }
         return keys;
     }
@@ -109,4 +110,62 @@ public class TransactionReport implements Serializable{
         }
         return distinctReport;
     }
+
+    public Map<String, Double> getArtificialDistinctKeyTotalReport() {
+        Set keys = getKeys();
+        TransactionSearch search = TransactionSearch.getSearchEngine(this);
+        Map<String, TransactionReport> transactions = search.getIndividualSearchTransaction(Util.join(keys));
+
+        List<String> keyList = getKeySetAsList(keys);
+        Map<String, Double> result = new HashMap<>();
+        for(int i=0; i<keyList.size(); i++){
+            List<String> words = getKeyWords(keyList.get(i));
+            for(int j=0; j<words.size();j++){
+                for (int k=i+1; k<keyList.size();k++){
+                    if(TextSearch.match(words.get(j),keyList.get(k))){
+                        double total;
+                        if(result.containsKey(words.get(j))){
+                               total = result.get(words.get(j));
+                        }else{
+                            total = transactions.get(keyList.get(i)).getTotalExpenditure();
+                        }
+
+                        total+=transactions.get(keyList.get(k)).getTotalExpenditure();
+
+                        result.put(words.get(j),total);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    private List<String> getKeyWords(String key) {
+        List<String> words = new ArrayList<>();
+        String result = "";
+        for(int i=0; i <key.length(); i++){
+            if(key.charAt(i) == ' ' && result.trim().length() > 0){
+                if(isValidKey(result)) {
+                    words.add(result);
+                }
+                result="";
+            }else if(key.charAt(i) != 32){
+                result+=key.charAt(i);
+            }
+        }
+        if(words.size() == 0 && isValidKey(result)){
+            words.add(result);
+        }
+        return words;
+    }
+
+    private boolean isValidKey(String result) {
+        return result.length() > 1 && !Util.inIgnoreKeyList(result);
+    }
+
+    private List<String> getKeySetAsList(Set keys) {
+        return new ArrayList<>(keys);
+    }
+
 }
