@@ -162,6 +162,7 @@ public class PdfReaderView {
         this.parser = null;
         this.report = null;
         this.allDataset = null;
+        this.aiChartDataSet = null;
 
         this.pdfData = pdf;
         searchBody.setContentType("text/html");
@@ -285,6 +286,7 @@ public class PdfReaderView {
         txtSearch.setText("");
         setSearchBody("");
         allDataset = null;
+        aiChartDataSet = null;
     }
 
     private void setSearchButtonListener() {
