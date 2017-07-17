@@ -42,24 +42,13 @@ abstract class BillParser implements Parser {
         return manager.save(cache);
     }
 
-    private TransactionReport getTransactionReport(Pdf pdf) {
+    protected TransactionReport getTransactionReport(Pdf pdf) {
         if (isStringEmpty(pdf.getData())) {
             TransactionReport transactionReport = new TransactionReport();
             String[] lines = getLines(pdf.getData());
             int transactionStartIndex = getTransactionStartingIndex(lines);
             if (startedIndexFound(transactionStartIndex)) {
-                int transactionEndIndex = getTransactionEndIndex(lines, transactionStartIndex);
-
-                List<Transaction> transactions = new ArrayList<>();
-                for (int i = transactionStartIndex; i < transactionEndIndex; i++) {
-                    String transactionStr = isTransaction(lines[i].trim().toUpperCase());
-                    if (transactionStr != null) {
-                        Transaction transaction = getTransactionModel(transactionStr);
-                        if(transaction.getPrice() != -1) {
-                            transactions.add(transaction);
-                        }
-                    }
-                }
+                List<Transaction> transactions = getTransactions(lines, transactionStartIndex, getTransactionEndIndex(lines, transactionStartIndex));
                 transactionReport.setContents(transactions);
                 transactionReport.setOrigin(pdf);
                 return transactionReport;
@@ -68,27 +57,45 @@ abstract class BillParser implements Parser {
         return null;
     }
 
+    protected List<Transaction> getTransactions(String[] lines, int transactionStartIndex, int transactionEndIndex) {
+        List<Transaction> transactions = new ArrayList<>();
+        for (int i = transactionStartIndex; i < transactionEndIndex; i++) {
+            String transactionStr = isTransaction(lines[i].trim().toUpperCase());
+            if (transactionStr != null) {
+                Transaction transaction = getTransactionModel(transactionStr);
+                if(transaction.getPrice() != -1) {
+                    transactions.add(transaction);
+                }
+            }
+        }
+        return transactions;
+    }
+
     protected Transaction getTransactionModel(String transactionStr) {
 
         Transaction transaction = new Transaction();
         String[] words = transactionStr.split(" ");
-        transaction.setDate(words[0]);
-        transaction.setCredit(getCredit(words));
+        transaction.setDate(getDate(words));
+        transaction.setCredit(isCredit(words));
         transaction.setPrice(getPrice(words));
         transaction.setDescription(getDescription(words));
         return transaction;
     }
 
+    protected String getDate(String[] words) {
+        return words[0];
+    }
+
     protected String getDescription(String[] words) {
         int len = words.length - 2;
-        if (getCredit(words)) {
+        if (isCredit(words)) {
             len--;
         }
         return getDescriptionString(words, len);
     }
 
     protected String getDescriptionString(String[] words, int len) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         for (int i = 1; i <= len; i++) {
 //            String word = words[i].equals("")?" ":words[i];
             stringBuffer.append(words[i]);
@@ -97,14 +104,14 @@ abstract class BillParser implements Parser {
         return stringBuffer.toString().trim();
     }
 
-    protected boolean getCredit(String[] words) {
+    protected boolean isCredit(String[] words) {
         return words[words.length - 1].equals("CR");
     }
 
     protected float getPrice(String[] words) {
         float price = -1;
         String lastWord = words[words.length - 1].replace(",","");
-        if(getCredit(words)){
+        if(isCredit(words)){
             price = Float.parseFloat(words[words.length - 2].replace(",",""));
         }else if(Util.isFloatingNumber(lastWord)){
             price = Float.parseFloat(lastWord);

@@ -31,4 +31,14 @@ public class BillIdentifierTest extends TImeComplexityTestCase{
 
         Assert.assertTrue(type == BillVendor.CITI);
     }
+
+    @Test
+    public void identifyIciciBillType(){
+        Identifier identifier = BillIdentifier.getIdentifier();
+        Pdf pdf = new Pdf();
+        pdf.setData(IciciBillParserTest.raw);
+        BillVendor type = identifier.identify(pdf);
+
+        Assert.assertTrue(type == BillVendor.ICICI);
+    }
 }

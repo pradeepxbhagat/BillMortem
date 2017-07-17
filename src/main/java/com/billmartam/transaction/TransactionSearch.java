@@ -29,10 +29,10 @@ public class TransactionSearch {
         List<Transaction> contents = transactionReport.getContents();
         Map<String, TransactionReport> reports = initReportSearchMap(terms);
         for(Transaction content : contents){
-            String term = findTermInContent(content.toString(), terms);
-            if (contentHasSearchTerm(term)){
-                reports.get(term).getContents().add(content);
-            }
+                String term = findTermInContent(content.toString(), terms);
+                if (contentHasSearchTerm(term)) {
+                    reports.get(term).getContents().add(content);
+                }
         }
         return reports;
     }

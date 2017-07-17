@@ -46,4 +46,14 @@ public class ParserFactoryTest extends TImeComplexityTestCase{
         Parser parser = factory.getParser(identifier.identify(pdf));
         Assert.assertTrue(parser instanceof CitiBillParser);
     }
+
+    @Test
+    public void fetchIciciBillParserFromRawtext(){
+        Identifier identifier = BillIdentifier.getIdentifier();
+        ParserFactory factory = ParserFactory.getFactory();
+        Pdf pdf = new Pdf();
+        pdf.setData(IciciBillParserTest.raw);
+        Parser parser = factory.getParser(identifier.identify(pdf));
+        Assert.assertTrue(parser instanceof IciciBillParser);
+    }
 }

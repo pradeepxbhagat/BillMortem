@@ -80,4 +80,8 @@ public class Util {
         keys.add("INDIA");
         return keys.contains(result.toUpperCase());
     }
+
+    public static boolean isIciciDateFormat(String date) {
+        return Util.isHdfcDateFormat(date);
+    }
 }

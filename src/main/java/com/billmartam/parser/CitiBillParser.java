@@ -25,14 +25,14 @@ public class CitiBillParser extends BillParser {
     }
 
     @Override
-    protected boolean getCredit(String[] words) {
+    protected boolean isCredit(String[] words) {
         String word = words[words.length -1];
         return TextSearch.search("CR",word);
     }
 
     @Override
     protected float getPrice(String[] words) {
-        return getCredit(words)? Float.parseFloat(words[words.length -1].replace("CR","")) : Float.parseFloat(words[words.length -1]);
+        return isCredit(words)? Float.parseFloat(words[words.length -1].replace("CR","")) : Float.parseFloat(words[words.length -1]);
     }
 
     @Override

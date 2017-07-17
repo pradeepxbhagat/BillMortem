@@ -78,6 +78,25 @@ public class PdfBoxReaderTest {
     }
 
     @Test
+    public void test_icici_pdf_file() throws IOException {
+        PdfReader pdfReader = PdfBoxReader.getReader();
+        String path = new File("src/main/res/icici_sample_pwd_protected.pdf").getCanonicalPath();
+        Pdf output = null;
+        try {
+            output = pdfReader.read(path);
+        } catch (PdfReaderException e) {
+            try {
+                output = pdfReader.read(path, "abhi1202");
+            } catch (PdfReaderException e1) {
+                e1.printStackTrace();
+            }
+        }
+
+        System.out.print(output.getData());
+        Assert.assertNotNull(output);
+    }
+
+    @Test
     public void test_for_password_protected_wrong_password() throws IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
         String path = new File("src/main/res/citi_bank_cc_sample.pdf").getCanonicalPath();

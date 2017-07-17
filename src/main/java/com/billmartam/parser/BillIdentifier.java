@@ -8,6 +8,7 @@ import com.billmartam.util.TextSearch;
  */
 public class BillIdentifier implements Identifier{
     private static final String CITI_CC_IDENTIFIER = "CITIBANK";
+    private static final String ICICI_CC_IDENTIFIER = "ICICI";
     private static BillIdentifier identifier;
 
     public static Identifier getIdentifier() {
@@ -25,8 +26,14 @@ public class BillIdentifier implements Identifier{
     private BillVendor parseForIdentifier(Pdf data) {
         if(isCtitBill(data)){
             return BillVendor.CITI;
+        }else if(isIciciBill(data)){
+            return BillVendor.ICICI;
         }
         return BillVendor.HDFC;
+    }
+
+    private boolean isIciciBill(Pdf data) {
+        return TextSearch.match(ICICI_CC_IDENTIFIER,data.getData());
     }
 
     private boolean isCtitBill(Pdf data) {
@@ -36,14 +43,4 @@ public class BillIdentifier implements Identifier{
         return TextSearch.search(CITI_CC_IDENTIFIER,data.getData());
     }
 
-    private String isFirstWord(String data) {
-        int i =0;
-        String result = "";
-        char c = data.charAt(i);
-        while(c != ' '){
-            result +=c;
-            c = data.charAt(++i);
-        }
-        return result;
-    }
 }

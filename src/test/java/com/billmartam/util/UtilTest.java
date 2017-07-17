@@ -89,4 +89,16 @@ public class UtilTest {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void test_icici_transaction() {
+        boolean result = Util.isIciciDateFormat("14/07/2017");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void test_icici_transaction1() {
+        boolean result = Util.isIciciDateFormat("214/07/2017");
+        Assert.assertTrue(result);
+    }
+
 }

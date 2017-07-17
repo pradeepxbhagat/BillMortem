@@ -37,18 +37,13 @@ public class MainView {
     }
 
     private void setCacheCheckBoxListener() {
-        useCacheCheckBox.addItemListener(e -> {
-            canUseCache = false;
-            if (e.getStateChange() == ItemEvent.SELECTED) {
-                canUseCache = true;
-            }
-        });
+        useCacheCheckBox.addItemListener(e -> canUseCache = e.getStateChange() == ItemEvent.SELECTED);
     }
 
     private DefaultListModel<FileSpecification> getPathListModel(Set<FileSpecification> recentFilePath) {
         DefaultListModel<FileSpecification> model = new DefaultListModel<>();
         if (recentFilePath != null) {
-            recentFilePath.forEach(fileSpecification -> model.addElement(fileSpecification));
+            recentFilePath.forEach(model::addElement);
         }
         return model;
     }
@@ -76,7 +71,7 @@ public class MainView {
         JFrame frame = new JFrame("MainView");
         frame.setLocation(dim.width / 2 - frame.getSize().width / 2 - 200, dim.height / 2 - frame.getSize().height / 2 - 200);
         frame.setContentPane(new MainView(frame).panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
         frame.pack();
         frame.setVisible(true);
@@ -107,7 +102,7 @@ public class MainView {
 //        frame.setLocation(dim.width/2-frame.getSize().width/2 - 200, dim.height/2-frame.getSize().height/2  -200);
 
         frame.setContentPane(new PdfReaderView(frame, pdf, canUseCache).panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(500, 800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        frame.setUndecorated(true);
@@ -127,8 +122,7 @@ public class MainView {
     private Pdf readDocument(final String filepath) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            Pdf data = reader.read(filepath);
-            return data;
+            return reader.read(filepath);
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
                 case PdfReaderException.ExceptionType.INVALID_PDF_FILE:
@@ -147,8 +141,7 @@ public class MainView {
     private Pdf readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            Pdf data = reader.read(filepath, password);
-            return data;
+            return reader.read(filepath, password);
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
                 case PdfReaderException.ExceptionType.INVALID_PASSWORD:

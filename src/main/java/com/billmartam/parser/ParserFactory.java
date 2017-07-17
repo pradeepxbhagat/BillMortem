@@ -17,6 +17,7 @@ public class ParserFactory {
         switch (vendor){
             case HDFC: return new HdfcBillParser();
             case CITI: return new CitiBillParser();
+            case ICICI: return new IciciBillParser();
         }
         return null;
     }

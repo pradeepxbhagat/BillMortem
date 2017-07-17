@@ -48,11 +48,11 @@ public class TransactionReport implements Serializable{
 
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for(Transaction content : contents){
-            result+=content.getDate()+" "+content.getDescription()+" "+content.getPrice()+"\n";
+            result.append(content.toString()).append("\n");
         }
-        return result.trim();
+        return result.toString().trim();
     }
 
     public double getTotalExpenditure(){
@@ -106,7 +106,9 @@ public class TransactionReport implements Serializable{
 
         Map<String, Double> distinctReport = new HashMap<>();
         for(String key : transactions.keySet()){
-            distinctReport.put(key, transactions.get(key).getTotalExpenditure());
+            if(transactions.get(key).getTotalExpenditure() > 0) {
+                distinctReport.put(key, transactions.get(key).getTotalExpenditure());
+            }
         }
         return distinctReport;
     }
@@ -120,19 +122,21 @@ public class TransactionReport implements Serializable{
         Map<String, Double> result = new HashMap<>();
         for(int i=0; i<keyList.size(); i++){
             List<String> words = getKeyWords(keyList.get(i));
-            for(int j=0; j<words.size();j++){
-                for (int k=i+1; k<keyList.size();k++){
-                    if(TextSearch.match(words.get(j),keyList.get(k))){
-                        double total;
-                        if(result.containsKey(words.get(j))){
-                               total = result.get(words.get(j));
-                        }else{
+            for (String word : words) {
+                for (int k = i + 1; k < keyList.size(); k++) {
+                    if (TextSearch.match(word, keyList.get(k))) {
+                        double total = 0;
+                        if (result.containsKey(word)) {
+                            total = result.get(word);
+                        } else {
                             total = transactions.get(keyList.get(i)).getTotalExpenditure();
                         }
 
-                        total+=transactions.get(keyList.get(k)).getTotalExpenditure();
+                        total += transactions.get(keyList.get(k)).getTotalExpenditure();
 
-                        result.put(words.get(j),total);
+                        if(total > 0) {
+                            result.put(word, total);
+                        }
                     }
                 }
             }
@@ -143,19 +147,19 @@ public class TransactionReport implements Serializable{
 
     private List<String> getKeyWords(String key) {
         List<String> words = new ArrayList<>();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for(int i=0; i <key.length(); i++){
-            if(key.charAt(i) == ' ' && result.trim().length() > 0){
-                if(isValidKey(result)) {
-                    words.add(result);
+            if(key.charAt(i) == ' ' && result.toString().trim().length() > 0){
+                if(isValidKey(result.toString())) {
+                    words.add(result.toString());
                 }
-                result="";
+                result = new StringBuilder();
             }else if(key.charAt(i) != 32){
-                result+=key.charAt(i);
+                result.append(key.charAt(i));
             }
         }
-        if(words.size() == 0 && isValidKey(result)){
-            words.add(result);
+        if(words.size() == 0 && isValidKey(result.toString())){
+            words.add(result.toString());
         }
         return words;
     }

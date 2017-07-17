@@ -59,7 +59,7 @@ public class GridBagLayoutDemo extends JFrame {
         setSize(300, 300);
         setPreferredSize(getSize());
         setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
 

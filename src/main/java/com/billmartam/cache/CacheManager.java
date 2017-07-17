@@ -1,7 +1,6 @@
 package com.billmartam.cache;
 
 import java.io.*;
-import java.util.Set;
 
 /**
  * Created by pp00344204 on 20/06/17.
@@ -17,8 +16,6 @@ public abstract class CacheManager {
             outputStream = new ObjectOutputStream(fileOutputStream);
             outputStream.writeObject(files);
             return true;
-        } catch (FileNotFoundException e) {
-            return false;
         } catch (IOException e) {
             return false;
         } finally {
@@ -37,7 +34,7 @@ public abstract class CacheManager {
     protected Object readCache(String path){
         try {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(path));
-            return (Object) inputStream.readObject();
+            return inputStream.readObject();
         } catch (IOException e) {
             return null;
         } catch (ClassNotFoundException e) {

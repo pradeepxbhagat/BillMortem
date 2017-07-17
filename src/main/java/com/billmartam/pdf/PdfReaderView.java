@@ -98,25 +98,27 @@ public class PdfReaderView {
     }
 
     private Image getImage(String filename) throws IOException {
-        String file = new File(RESOURCE_DIR + "/"+filename).getCanonicalPath();
+        String file = new File(RESOURCE_DIR + "/" + filename).getCanonicalPath();
         Image img = ImageIO.read(new File(file));
         img = img.getScaledInstance(51, 51, 2);
         return img;
     }
 
     private void setAIChartButtonListener() {
-        aiChartButton.addActionListener(a -> {
-            setAiChart();
-        });
+        aiChartButton.addActionListener(a -> setAiChart());
     }
 
     private void setAiChart() {
         txtSearch.setText("");
-        if(aiChartDataSet == null){
+        if (aiChartDataSet == null) {
             aiChartDataSet = createTransactionDataset(report.getArtificialDistinctKeyTotalReport());
         }
-        JPanel chartPanel = createChartPanel(aiChartDataSet);
-        bodyPane.getViewport().add(chartPanel);
+        if(aiChartDataSet.getKeys().size() == 0){
+            openPrompt("No intelligence found!!!");
+        }else {
+            JPanel chartPanel = createChartPanel(aiChartDataSet, "Intelligence Report");
+            bodyPane.getViewport().add(chartPanel);
+        }
     }
 
     private void setOriginButtonListener() {
@@ -150,18 +152,13 @@ public class PdfReaderView {
     }
 
     private void setCacheCheckBoxListener() {
-        useCacheCheckBox.addItemListener(e -> {
-            canUseCache = false;
-            if (e.getStateChange() == ItemEvent.SELECTED) {
-                canUseCache = true;
-            }
-        });
+        useCacheCheckBox.addItemListener(e -> canUseCache = e.getStateChange() == ItemEvent.SELECTED);
     }
 
     private void initBody(Pdf pdf) {
         this.parser = null;
         this.report = null;
-        this.allDataset = null;
+        allDataset = null;
         this.aiChartDataSet = null;
 
         this.pdfData = pdf;
@@ -173,9 +170,7 @@ public class PdfReaderView {
     }
 
     private void setBtnNewListener() {
-        newPdfButton.addActionListener(a -> {
-            selectNewPdf(frame);
-        });
+        newPdfButton.addActionListener(a -> selectNewPdf(frame));
     }
 
     private void selectNewPdf(JFrame frame) {
@@ -183,6 +178,7 @@ public class PdfReaderView {
         opener.setListener((data) -> {
             initBody(data);
             doReload();
+            resetDataSet();
         });
         opener.shouldCache(true);
         opener.open();
@@ -271,6 +267,7 @@ public class PdfReaderView {
                     doSearch(getSearchText());
                 } else {
                     doReload();
+                    setAllChart(report);
                 }
             }
         });
@@ -279,20 +276,23 @@ public class PdfReaderView {
     private void setReloadButtonListener() {
         reloadButton.addActionListener(e -> {
             doReload();
+            setAllChart(report);
         });
     }
 
     private void doReload() {
         txtSearch.setText("");
         setSearchBody("");
+        //resetDataSet();
+    }
+
+    private void resetDataSet() {
         allDataset = null;
         aiChartDataSet = null;
     }
 
     private void setSearchButtonListener() {
-        searchButton.addActionListener(e -> {
-            doSearch(getSearchText());
-        });
+        searchButton.addActionListener(e -> doSearch(getSearchText()));
     }
 
     private void doSearch(String searchText) {
@@ -346,7 +346,7 @@ public class PdfReaderView {
             return "";
         }
         double totalExpenditure = getTotal(searchedTransaction);
-        StringBuffer buffer = new StringBuffer("<h3 style:'color:green'>Total expenditure: ");
+        StringBuilder buffer = new StringBuilder("<h3 style:'color:green'>Total expenditure: ");
         buffer.append(Util.getTwoDecimalFormat(totalExpenditure));
 
         for (Map.Entry<String, TransactionReport> val : searchedTransaction.entrySet()) {
@@ -404,13 +404,13 @@ public class PdfReaderView {
         if (allDataset == null) {
             allDataset = (DefaultPieDataset) createTransactionDataset(report.getDistinctKeyTotalReport());
         }
-        JPanel chartPanel = createChartPanel(allDataset);
+        JPanel chartPanel = createChartPanel(allDataset, "Distinct Vendors Report");
         bodyPane.getViewport().add(chartPanel);
         //updateChartButtonIcon();
     }
 
-    private JPanel createChartPanel(Dataset dataset) {
-        JFreeChart chart = createPieChart((PieDataset) dataset);
+    private JPanel createChartPanel(Dataset dataset, String title) {
+        JFreeChart chart = createPieChart((PieDataset) dataset, title);
         ChartPanel chartPanel = new ChartPanel(chart);
         setCharMouseListener(chartPanel);
         return chartPanel;
@@ -446,9 +446,9 @@ public class PdfReaderView {
         return search.searchTransaction(key).getTotalExpenditure();
     }
 
-    private static JFreeChart createPieChart(PieDataset dataset) {
+    private static JFreeChart createPieChart(PieDataset dataset, String title) {
         chart = ChartFactory.createPieChart(
-                "Expenditure",   // chart title
+                title,   // chart title
                 dataset,          // data
                 false,             // include legend
                 true,

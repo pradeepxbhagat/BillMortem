@@ -22,7 +22,7 @@ public class PdfFileOpener {
         this.frame = frame;
     }
 
-    public static final  PdfFileOpener getOpener(JFrame frame){
+    public static PdfFileOpener getOpener(JFrame frame){
         if(opener == null){
             opener = new PdfFileOpener(frame);
         }
@@ -75,9 +75,8 @@ public class PdfFileOpener {
     private Pdf readDocument(final String filepath) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            Pdf data =  reader.read(filepath);
-//            persistFilePath(filepath);
-            return data;
+            //            persistFilePath(filepath);
+            return reader.read(filepath);
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
                 case PdfReaderException.ExceptionType.INVALID_PDF_FILE:
@@ -129,9 +128,8 @@ public class PdfFileOpener {
     private Pdf readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
-            Pdf data =  reader.read(filepath,password);
-//            persistFilePath(filepath);
-            return data;
+            //            persistFilePath(filepath);
+            return reader.read(filepath,password);
         } catch (PdfReaderException e1) {
             switch (e1.getExceptionType()) {
                 case PdfReaderException.ExceptionType.INVALID_PASSWORD:
