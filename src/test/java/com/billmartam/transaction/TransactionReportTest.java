@@ -1,7 +1,9 @@
 package com.billmartam.transaction;
 
+import com.billmartam.TImeComplexityTestCase;
 import com.billmartam.parser.HdfcBillParser;
 import com.billmartam.parser.HdfcBillParserTest;
+import com.billmartam.parser.Parser;
 import com.billmartam.pdf.Pdf;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +16,7 @@ import java.util.Map;
 /**
  * Created by pp00344204 on 19/06/17.
  */
-public class TransactionReportTest {
+public class TransactionReportTest extends TImeComplexityTestCase{
 
     @Test
     public void testtotalOfTransactionReport() {
@@ -142,5 +144,16 @@ public class TransactionReportTest {
 
         Map<String, Double> values = transactionReport.getArtificialDistinctKeyTotalReport();
         Assert.assertEquals(240.5, values.get("PAYTM").doubleValue(),0);
+    }
+
+    @Test
+    public void getArtificialDistinctKeyandtotatForHdfc() throws Exception {
+        Parser parser = new HdfcBillParser();
+        Pdf pdf = new Pdf();
+        pdf.setData(HdfcBillParserTest.raw);
+        TransactionReport report = parser.parse(pdf, false);
+
+        Map<String, Double> values = report.getArtificialDistinctKeyTotalReport();
+        Assert.assertTrue(values.size() == 5);
     }
 }

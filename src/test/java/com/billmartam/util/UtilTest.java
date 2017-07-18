@@ -85,7 +85,7 @@ public class UtilTest {
 
     @Test
     public void ignore_key_test() {
-        boolean result = Util.inIgnoreKeyList("PUNE");
+        boolean result = Util.inIgnoreKeyList("IN");
         Assert.assertTrue(result);
     }
 

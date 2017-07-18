@@ -114,6 +114,15 @@ public class TransactionReport implements Serializable{
     }
 
     public Map<String, Double> getArtificialDistinctKeyTotalReport() {
+//        return getArtificialDistinctKeyTotalReportFromKmpAlgo();
+        return getArtificialDistinctKeyTotalReportFromTrieDataStructure();
+    }
+
+    private Map<String, Double> getArtificialDistinctKeyTotalReportFromTrieDataStructure() {
+        return new IntelligentReport().getReport(this);
+    }
+
+    private Map<String, Double> getArtificialDistinctKeyTotalReportFromKmpAlgo() {
         Set keys = getKeys();
         TransactionSearch search = TransactionSearch.getSearchEngine(this);
         Map<String, TransactionReport> transactions = search.getIndividualSearchTransaction(Util.join(keys));
@@ -141,7 +150,6 @@ public class TransactionReport implements Serializable{
                 }
             }
         }
-
         return result;
     }
 

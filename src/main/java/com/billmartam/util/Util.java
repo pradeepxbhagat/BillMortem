@@ -70,12 +70,9 @@ public class Util {
 
     public static boolean inIgnoreKeyList(String result) {
         Set<String> keys = new HashSet<>();
-        keys.add("PUNE");
-        keys.add("MUMBAI");
         keys.add("INR");
         keys.add("PVT");
         keys.add("PV");
-        keys.add("NOIDA");
         keys.add("IN");
         keys.add("INDIA");
         return keys.contains(result.toUpperCase());
