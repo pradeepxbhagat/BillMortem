@@ -51,7 +51,7 @@ public class MainView {
     private Image getImage(String filename) throws IOException {
         String file = new File(PdfReaderView.RESOURCE_DIR + "/" + filename).getCanonicalPath();
         Image img = ImageIO.read(new File(file));
-        img = img.getScaledInstance(284, 2051, 2);
+        img = img.getScaledInstance(284, 205, 2);
         return img;
     }
 

@@ -61,10 +61,6 @@ public class IciciBillParserTest {
             "REWARDS\n" +
             "             354             354\n" +
             "Points Transferred to PAYBACK (Acc:9401158534211208)\n" +
-            "TECH MAHINDRA\n" +
-            "HINJEWADI PHASE 3\n" +
-            "INFRONT OF TCS\n" +
-            "MAH, PUNE - 411057\n" +
             "TRANSACTION DETAILSI  I 1574140700171924INVOICE_NO :\n" +
             "Card Number : 0000 XXXX XXXX 4814  -\n" +
             "Reward\n" +

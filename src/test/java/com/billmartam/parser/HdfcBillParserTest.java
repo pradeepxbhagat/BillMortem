@@ -104,12 +104,7 @@ public class HdfcBillParserTest extends TImeComplexityTestCase {
             " \n" +
             "Name : PRADEEP PANKAJ                          \n" +
             " \n" +
-            "Email : PRADEEP.SYMBIOSIS@GMAIL.COM\n" +
             " \n" +
-            "Address : INFOSTRECH SOLUTIONS PVT LTD\n" +
-            "PRABHAVI TECH PARK 3RD FLOOR\n" +
-            "BANER ROAD OPP IMC BLDG\n" +
-            "PUNE-411045 MHS\n" +
             "Statement for Titanium Times Card Credit Card\n" +
             "Statement Date:05/06/2017     Card No: 5241 81XX XXXX 0280\n" +
             "Payment Due Date Total Dues Minimum Amount Due\n" +

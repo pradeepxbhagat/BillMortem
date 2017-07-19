@@ -15,7 +15,7 @@ public class PdfBoxReaderTest {
     public void test_pdf_file() throws PdfReaderException, IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
         Pdf output = pdfReader.read(new File("src/main/res/sample.pdf").getCanonicalPath());
-        System.out.println(output.getData());
+//        System.out.println(output.getData());
         Assert.assertNotNull(output);
 
     }
@@ -48,13 +48,13 @@ public class PdfBoxReaderTest {
             output = pdfReader.read(new File(path).getCanonicalPath());
         } catch (PdfReaderException e) {
             try {
-                output = pdfReader.read(path, "PRAD0280");
+                output = pdfReader.read(path, "1234");
             } catch (PdfReaderException e1) {
                 e1.printStackTrace();
             }
         }
 
-        System.out.print(output.getData());
+//        System.out.print(output.getData());
         Assert.assertNotNull(output);
     }
 
@@ -67,13 +67,13 @@ public class PdfBoxReaderTest {
             output = pdfReader.read(path);
         } catch (PdfReaderException e) {
             try {
-                output = pdfReader.read(path, "RAVI15JAN");
+                output = pdfReader.read(path, "1234");
             } catch (PdfReaderException e1) {
                 e1.printStackTrace();
             }
         }
 
-//        System.out.print(output);
+//        System.out.print(output.getData());
         Assert.assertNotNull(output);
     }
 
@@ -86,13 +86,13 @@ public class PdfBoxReaderTest {
             output = pdfReader.read(path);
         } catch (PdfReaderException e) {
             try {
-                output = pdfReader.read(path, "abhi1202");
+                output = pdfReader.read(path, "1234");
             } catch (PdfReaderException e1) {
                 e1.printStackTrace();
             }
         }
 
-        System.out.print(output.getData());
+//        System.out.print(output.getData());
         Assert.assertNotNull(output);
     }
 

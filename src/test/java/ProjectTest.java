@@ -21,7 +21,7 @@ public class ProjectTest {
         PdfReader pdfReader = PdfBoxReader.getReader();
         Pdf inPut = null;
         try {
-            inPut = pdfReader.read(fileUrl,"PRAD0280");
+            inPut = pdfReader.read(fileUrl,"1234");
         } catch (PdfReaderException e) {
             e.printStackTrace();
         }

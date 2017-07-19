@@ -154,6 +154,6 @@ public class TransactionReportTest extends TImeComplexityTestCase{
         TransactionReport report = parser.parse(pdf, false);
 
         Map<String, Double> values = report.getArtificialDistinctKeyTotalReport();
-        Assert.assertTrue(values.size() == 5);
+        Assert.assertTrue(values.size() == 6);
     }
 }

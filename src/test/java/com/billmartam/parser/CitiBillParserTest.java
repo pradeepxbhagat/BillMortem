@@ -81,7 +81,6 @@ public class CitiBillParserTest {
             "  ___________________________________________________  \n" +
             " \n" +
             "Email id: \n" +
-            "RAVIXKUMAR90@GMAIL.COM \n" +
             " \n" +
             "To update your contact details, login to\n" +
             "www.citibank.com/india with your Internet\n" +
