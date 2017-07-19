@@ -12,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
@@ -38,6 +39,7 @@ public class MainView {
         setRecentFileMouseClickListener();
         setCacheCheckBoxListener();
         setLogo();
+
     }
 
     private void setLogo() {
@@ -50,7 +52,8 @@ public class MainView {
 
     private Image getImage(String filename) throws IOException {
         String file = new File(PdfReaderView.RESOURCE_DIR + "/" + filename).getCanonicalPath();
-        Image img = ImageIO.read(new File(file));
+//        Image img = ImageIO.read(new File(file));
+        Image img = ImageIO.read(getClass().getResource("/img_logo.png") );
         img = img.getScaledInstance(284, 205, 2);
         return img;
     }
@@ -94,7 +97,7 @@ public class MainView {
         frame.setSize(600, 600);
         frame.pack();
         frame.setVisible(true);
-        new MainView(frame);
+//        new MainView(frame);
     }
 
     private void setFileChooserClickLister(JButton btnFileChooser) {

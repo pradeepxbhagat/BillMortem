@@ -31,7 +31,7 @@ import java.util.Set;
  * Created by pp00344204 on 13/06/17.
  */
 public class PdfReaderView {
-    public static final String RESOURCE_DIR = "src/main/res";
+    public static final String RESOURCE_DIR = "src/main/java/res";
     public static final String CHART_ICON_PATH = RESOURCE_DIR + "/PieChart.jpeg";
 
     private static DefaultPieDataset allDataset;
@@ -99,8 +99,8 @@ public class PdfReaderView {
     }
 
     private Image getImage(String filename) throws IOException {
-        String file = new File(RESOURCE_DIR + "/" + filename).getCanonicalPath();
-        Image img = ImageIO.read(new File(file));
+//        String file = new File(RESOURCE_DIR + "/" + filename).getCanonicalPath();
+        Image img = ImageIO.read(getClass().getResource("/"+filename) );
         img = img.getScaledInstance(51, 51, 2);
         return img;
     }
@@ -315,8 +315,8 @@ public class PdfReaderView {
 
     private void hideChart() {
         bodyPane.getViewport().add(searchBody);
-        saveChartIcon(chart);
-        //updateChartButtonIcon();
+//        saveChartIcon(chart);
+//        updateChartButtonIcon();
     }
 
     private void updateChartButtonIcon() {
