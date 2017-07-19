@@ -5,6 +5,7 @@ import com.billmartam.cache.FileSpecification;
 import com.billmartam.cache.RecentFileCacheManager;
 import com.billmartam.pdf.util.PdfFileOpener;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
@@ -12,6 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -22,6 +24,7 @@ public class MainView {
     private JButton button1;
     private JList lstRecentFilePaths;
     private JCheckBox useCacheCheckBox;
+    private JLabel lblLogo;
     private final JFrame frame;
     private PdfFileOpener opener;
     private boolean canUseCache = true;
@@ -34,6 +37,22 @@ public class MainView {
         setFileChooserClickLister(button1);
         setRecentFileMouseClickListener();
         setCacheCheckBoxListener();
+        setLogo();
+    }
+
+    private void setLogo() {
+        try {
+            lblLogo.setIcon(new ImageIcon(getImage("img_logo.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Image getImage(String filename) throws IOException {
+        String file = new File(PdfReaderView.RESOURCE_DIR + "/" + filename).getCanonicalPath();
+        Image img = ImageIO.read(new File(file));
+        img = img.getScaledInstance(284, 2051, 2);
+        return img;
     }
 
     private void setCacheCheckBoxListener() {

@@ -23,7 +23,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="43671" class="javax.swing.JLabel">
+      <component id="43671" class="javax.swing.JLabel" binding="lblLogo">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false"/>
@@ -31,7 +31,7 @@
         <properties>
           <font name="Bradley Hand" size="72" style="1"/>
           <foreground color="-14576293"/>
-          <text value="BillMortem"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="85879" class="javax.swing.JLabel">
