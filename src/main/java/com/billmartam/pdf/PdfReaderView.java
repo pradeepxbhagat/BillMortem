@@ -420,7 +420,7 @@ public class PdfReaderView {
         chartPanel.addChartMouseListener(new ChartMouseListener() {
 
             public void chartMouseClicked(ChartMouseEvent e) {
-                String search = e.getEntity().getToolTipText().split("=")[0];
+                String search = e.getEntity().getToolTipText() != null ? e.getEntity().getToolTipText().split("=")[0] : "";
                 setSearchText(search);
                 doSearch(search);
             }
