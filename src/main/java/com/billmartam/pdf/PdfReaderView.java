@@ -9,6 +9,7 @@ import com.billmartam.report.TransactionReport;
 import com.billmartam.transaction.TransactionSearch;
 import com.billmartam.util.Util;
 import org.jfree.chart.*;
+import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
@@ -447,13 +448,17 @@ public class PdfReaderView {
     }
 
     private static JFreeChart createPieChart(PieDataset dataset, String title) {
-        chart = ChartFactory.createPieChart(
+        chart = ChartFactory.createPieChart3D(
                 title,   // chart title
                 dataset,          // data
                 false,             // include legend
                 true,
                 false);
 
+        final PiePlot3D plot = ( PiePlot3D ) chart.getPlot( );
+        plot.setStartAngle( 90 );
+        plot.setForegroundAlpha( 0.70f );
+        plot.setInteriorGap( 0.3 );
         return chart;
     }
 
