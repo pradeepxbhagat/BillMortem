@@ -14,7 +14,7 @@ public class PdfBoxReaderTest {
     @Test
     public void test_pdf_file() throws PdfReaderException, IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
-        Pdf output = pdfReader.read(new File("src/main/resources/res/sample_pdfs/sample.pdf").getCanonicalPath());
+        Pdf output = pdfReader.read(new File("src/main/resources/sample_pdfs/sample.pdf").getCanonicalPath());
 //        System.out.println(output.getData());
         Assert.assertNotNull(output);
 
@@ -42,7 +42,7 @@ public class PdfBoxReaderTest {
     @Test
     public void test_for_password_protected_file() throws IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
-        String path = new File("src/main/resources/res/sample_pdfs/sample_password_protected_bill.pdf").getCanonicalPath();
+        String path = new File("src/main/resources/sample_pdfs/sample_password_protected_bill.pdf").getCanonicalPath();
         Pdf output = null;
         try {
             output = pdfReader.read(new File(path).getCanonicalPath());
@@ -61,7 +61,7 @@ public class PdfBoxReaderTest {
     @Test
     public void test_citi_pdf_file() throws IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
-        String path = new File("src/main/resources/res/sample_pdfs/citi_bank_cc_sample.pdf").getCanonicalPath();
+        String path = new File("src/main/resources/sample_pdfs/citi_bank_cc_sample.pdf").getCanonicalPath();
         Pdf output = null;
         try {
             output = pdfReader.read(path);
@@ -80,7 +80,7 @@ public class PdfBoxReaderTest {
     @Test
     public void test_icici_pdf_file() throws IOException {
         PdfReader pdfReader = PdfBoxReader.getReader();
-        String path = new File("src/main/resources/res/sample_pdfs/icici_sample_pwd_protected.pdf").getCanonicalPath();
+        String path = new File("src/main/resources/sample_pdfs/icici_sample_pwd_protected.pdf").getCanonicalPath();
         Pdf output = null;
         try {
             output = pdfReader.read(path);

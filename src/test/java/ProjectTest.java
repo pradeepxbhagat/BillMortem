@@ -17,7 +17,7 @@ public class ProjectTest {
 
     @Test
     public void testProject(){
-        String fileUrl = "/Users/pp00344204/Documents/misc/padhai/projects/bill_reader/src/main/resources/res/sample_pdfs/sample_password_protected_bill.pdf";
+        String fileUrl = "src/main/resources/sample_pdfs/sample_password_protected_bill.pdf";
         PdfReader pdfReader = PdfBoxReader.getReader();
         Pdf inPut = null;
         try {
