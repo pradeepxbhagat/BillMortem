@@ -10,7 +10,8 @@ Caching of parsed transaction is supported for fast retrieval of the transaction
 <b>Download :<a href="https://github.com/pradeepxpankaj/BillMortem/blob/master/executables/BillMortem_jar.zip"><img src="https://github.com/pradeepxpankaj/BillMortem/blob/master/src/main/resources/res/img_download.png" alt="pdf chooser" width="32px" height="32px"></a> </b>
 
 Sample pdf files: https://github.com/pradeepxpankaj/BillMortem/tree/master/src/main/resources/res
-Password: 1234
+
+<b>Password: 1234</b>
 
 <h2></h2>
 For more visit : https://github.com/pradeepxpankaj/BillMortem/wiki
