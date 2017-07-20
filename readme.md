@@ -6,6 +6,7 @@ Caching of parsed transaction is supported for fast retrieval of the transaction
 
 <h2></h2>
 <b>Direct Download :<a href="https://www.dropbox.com/s/mz7r6f20esepfr7/BillMortem_jar.zip?dl=0"><img src="https://github.com/pradeepxpankaj/BillMortem/blob/master/src/main/resources/res/img_download.png" alt="pdf chooser" width="32px" height="32px"></a> </b>
+
 <b>Download :<a href="https://github.com/pradeepxpankaj/BillMortem/blob/master/executables/BillMortem_jar.zip"><img src="https://github.com/pradeepxpankaj/BillMortem/blob/master/src/main/resources/res/img_download.png" alt="pdf chooser" width="32px" height="32px"></a> </b>
 
 Sample pdf files: https://github.com/pradeepxpankaj/BillMortem/tree/master/src/main/resources/res
