@@ -19,7 +19,7 @@ dependencies {
 jar {
     manifest {
         attributes("Manifest-Version": "1.0",
-                "Main-Class": "com.billmartam.pdf.MainView");
+                "Main-Class": "com.billmortam.pdf.MainView");
     }
 }…
 

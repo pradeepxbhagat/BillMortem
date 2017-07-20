@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.billmortam.pdf.PdfReaderView">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FormLayout">
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <colspec value="fill:97px:noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:91px:noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:167px:noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:818px:grow"/>
+    <colspec value="fill:73px:noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <constraints>
+      <xy x="20" y="20" width="1296" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="line"/>
+    <children>
+      <scrollpane id="d634c">
+        <constraints>
+          <grid row="2" column="0" row-span="57" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="15554" class="javax.swing.JEditorPane" binding="pdfBody">
+            <constraints/>
+            <properties>
+              <editable value="false"/>
+              <font name="Arial" size="12" style="1"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <scrollpane id="af69e" binding="bodyPane">
+        <constraints>
+          <grid row="2" column="6" row-span="57" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a0f17" class="javax.swing.JEditorPane" binding="searchBody">
+            <constraints/>
+            <properties>
+              <editable value="false"/>
+              <font name="Arial" size="10" style="3"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="75441" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Search (term or term1,term2):"/>
+        </properties>
+      </component>
+      <component id="c4cf9" class="javax.swing.JTextField" binding="txtSearch" default-binding="true">
+        <constraints>
+          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <columns value="20"/>
+        </properties>
+      </component>
+      <component id="a7e39" class="javax.swing.JButton" binding="clearCacheButton" default-binding="true">
+        <constraints>
+          <grid row="22" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <label value=""/>
+          <text value=""/>
+          <toolTipText value="Clear cache"/>
+        </properties>
+      </component>
+      <component id="b2ee3" class="javax.swing.JCheckBox" binding="useCacheCheckBox" default-binding="true">
+        <constraints>
+          <grid row="56" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <text value="Cache"/>
+        </properties>
+      </component>
+      <component id="4f013" class="javax.swing.JButton" binding="searchButton" default-binding="true">
+        <constraints>
+          <grid row="54" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <iconTextGap value="0"/>
+          <label value=""/>
+          <text value=""/>
+          <toolTipText value="Search"/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="3f279" class="javax.swing.JButton" binding="reloadButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <text value=""/>
+          <toolTipText value="Reset"/>
+        </properties>
+      </component>
+      <component id="53b4e" class="javax.swing.JButton" binding="newPdfButton">
+        <constraints>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <text value=""/>
+          <toolTipText value="Open new pdf"/>
+        </properties>
+      </component>
+      <component id="a0955" class="javax.swing.JButton" binding="allChartButton">
+        <constraints>
+          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+          <forms top="2" left="2" bottom="2" right="2" defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <background color="-14576293"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <foreground color="-14576293"/>
+          <text value=""/>
+          <toolTipText value="Chart"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="49d3d" class="javax.swing.JButton" binding="aiChartButton">
+        <constraints>
+          <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <background color="-15368005"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <foreground color="-14576293"/>
+          <text value=""/>
+          <toolTipText value="Intelligence"/>
+        </properties>
+      </component>
+      <component id="2b900" class="javax.swing.JButton" binding="showOriginButton" default-binding="true">
+        <constraints>
+          <grid row="16" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <text value=""/>
+          <toolTipText value="Show whole pdf"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

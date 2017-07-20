@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import com.billmartam.util.Calculator;
+import com.billmortam.util.Calculator;
 
 /**
  * Created by pp00344204 on 06/06/17.

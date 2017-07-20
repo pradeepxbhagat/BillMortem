@@ -1,5 +1,5 @@
-import com.billmartam.pdf.Pdf;
-import com.billmartam.pdf.PdfReaderView;
+import com.billmortam.pdf.Pdf;
+import com.billmortam.pdf.PdfReaderView;
 
 import javax.swing.*;
 
