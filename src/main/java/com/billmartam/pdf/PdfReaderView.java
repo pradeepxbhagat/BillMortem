@@ -448,17 +448,17 @@ public class PdfReaderView {
     }
 
     private static JFreeChart createPieChart(PieDataset dataset, String title) {
-        chart = ChartFactory.createPieChart3D(
+        chart = ChartFactory.createPieChart(
                 title,   // chart title
                 dataset,          // data
                 false,             // include legend
                 true,
                 false);
 
-        final PiePlot3D plot = ( PiePlot3D ) chart.getPlot( );
+        /*final PiePlot3D plot = ( PiePlot3D ) chart.getPlot( );
         plot.setStartAngle( 90 );
-        plot.setForegroundAlpha( 0.90f );
-        plot.setInteriorGap( 0.3 );
+        plot.setForegroundAlpha( 0.99f );
+        plot.setInteriorGap( 0.3 );*/
         return chart;
     }
 
