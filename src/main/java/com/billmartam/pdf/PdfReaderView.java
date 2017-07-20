@@ -457,7 +457,7 @@ public class PdfReaderView {
 
         final PiePlot3D plot = ( PiePlot3D ) chart.getPlot( );
         plot.setStartAngle( 90 );
-        plot.setForegroundAlpha( 0.70f );
+        plot.setForegroundAlpha( 0.90f );
         plot.setInteriorGap( 0.3 );
         return chart;
     }
