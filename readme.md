@@ -5,7 +5,7 @@ Intelligent report uses artificial intelligence to provide a chart which display
 Caching of parsed transaction is supported for fast retrieval of the transaction. The searching algorithm has been updated to KMP Algorithm.
 
 <h2></h2>
-<b>Download <a href="https://github.com/pradeepxpankaj/BillMortem/blob/master/executables/BillMortem_jar.zip">link</a> </b>
+<b>Download :<a href="https://github.com/pradeepxpankaj/BillMortem/blob/master/executables/BillMortem_jar.zip"><img src="https://github.com/pradeepxpankaj/BillMortem/blob/master/src/main/resources/res/img_download.png" alt="pdf chooser" width="32px" height="32px"></a> </b>
 
 Sample pdf files: https://github.com/pradeepxpankaj/BillMortem/tree/master/src/main/resources/res
 
