@@ -1,9 +1,14 @@
 package com.billmortam.pdf.util;
 
-import com.billmortam.pdf.*;
-import com.billmortam.cache.FileSpecification;
-import com.billmortam.cache.RecentFileCacheManager;
-import com.billmortam.cache.CacheManager;
+
+import billmortam.cache.CacheManager;
+import billmortam.cache.FileSpecification;
+import billmortam.cache.RecentFileCacheManager;
+import billmortam.pdf.Pdf;
+import billmortam.pdf.PdfBoxReader;
+import billmortam.pdf.PdfReader;
+import billmortam.pdf.PdfReaderException;
+import com.billmortam.pdf.PdfPasswordGraber;
 
 import javax.swing.*;
 import java.io.File;
@@ -48,7 +53,7 @@ public class PdfFileOpener {
     }
 
     public void readFile(String filepath) {
-        Pdf pdfData = readDocument(filepath);
+        billmortam.pdf.Pdf pdfData = readDocument(filepath);
 
         if (pdfData != null) {
 //                    System.out.print(pdfData);
@@ -125,7 +130,7 @@ public class PdfFileOpener {
     }
 
 
-    private Pdf readProtectedDocument(String filepath, String password) {
+    private billmortam.pdf.Pdf readProtectedDocument(String filepath, String password) {
         PdfReader reader = PdfBoxReader.getReader();
         try {
             //            persistFilePath(filepath);

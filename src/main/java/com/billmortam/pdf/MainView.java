@@ -1,8 +1,13 @@
 package com.billmortam.pdf;
 
-import com.billmortam.cache.CacheManager;
-import com.billmortam.cache.FileSpecification;
-import com.billmortam.cache.RecentFileCacheManager;
+
+import billmortam.cache.CacheManager;
+import billmortam.cache.FileSpecification;
+import billmortam.cache.RecentFileCacheManager;
+import billmortam.pdf.Pdf;
+import billmortam.pdf.PdfBoxReader;
+import billmortam.pdf.PdfReader;
+import billmortam.pdf.PdfReaderException;
 import com.billmortam.pdf.util.PdfFileOpener;
 
 import javax.imageio.ImageIO;
